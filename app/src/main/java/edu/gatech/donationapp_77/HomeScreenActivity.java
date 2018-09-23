@@ -21,7 +21,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Back to splash screen
+                // Back to Login Screen
                 finish();
             }
         });

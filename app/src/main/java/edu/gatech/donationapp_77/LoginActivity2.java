@@ -4,10 +4,12 @@ package edu.gatech.donationapp_77;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +21,7 @@ import java.util.List;
 public class LoginActivity2 extends AppCompatActivity {
 
     private Button signInButton;
+    private Button cancelButton;
     private EditText emailText;
     private EditText passwordText;
 
@@ -36,6 +39,7 @@ public class LoginActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         signInButton = (Button) findViewById(R.id.email_sign_in_button);
+        cancelButton = (Button) findViewById(R.id.cancel_button);
         emailText = (EditText) findViewById(R.id.email);
         passwordText = (EditText) findViewById(R.id.password);
 
@@ -45,24 +49,23 @@ public class LoginActivity2 extends AppCompatActivity {
                 login();
             }
         });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void login() {
-        // Store values at the time of the login attempt.
+//      Store values at the time of the login attempt.
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
 
-        boolean cancel = false;
-
-//         Check that email and password match.
+//      Check that email and password match.
         if (!isValidLoginCombo(email, password)) {
-            cancel = true;
-        }
-
-        if (cancel) {
-            // There was an error; don't attempt login
             passwordText.setError("Email/password combo does not match.");
-//            finish();
         } else {
             // Perform the user login attempt.
             startActivity(new Intent(LoginActivity2.this, HomeScreenActivity.class));
@@ -83,8 +86,8 @@ public class LoginActivity2 extends AppCompatActivity {
 
         int validationIndex = emailList.indexOf(email);
 
-        System.out.println(emailList);
-        System.out.println(passwordList);
+//        System.out.println(emailList);
+//        System.out.println(passwordList);
 
         return (validationIndex == passwordList.indexOf(password)) && (validationIndex != -1);
     }
