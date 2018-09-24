@@ -63,18 +63,16 @@ public class LoginActivity2 extends AppCompatActivity {
         String password = passwordText.getText().toString();
 
         User givenUser = new User(email, password);
+        List<User> loginList = Arrays.asList(DUMMY_CREDENTIALS);
 
 //      Check that email and password match.
-        if (!isValidLoginCombo(givenUser)) {
+        if (!loginList.contains(givenUser)) {
             passwordText.setError("Email/password combo does not match.");
         } else {
             // Perform the user login attempt.
             startActivity(new Intent(LoginActivity2.this, HomeScreenActivity.class));
+            emailText.getText().clear();
+            passwordText.getText().clear();
         }
-    }
-
-    private boolean isValidLoginCombo(User givenUser) {
-        List<User> loginList = Arrays.asList(DUMMY_CREDENTIALS);
-        return loginList.contains(givenUser);
     }
 }
