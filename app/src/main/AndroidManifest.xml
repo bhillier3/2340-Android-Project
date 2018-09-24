@@ -14,16 +14,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".SplashActivity" android:label="Donation Tracker App">
+        <activity
+            android:name=".SplashActivity"
+            android:label="Donation Tracker App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <!--<activity-->
+            <!--android:name=".LoginActivity"-->
+            <!--android:label="Login"></activity>-->
         <activity
-            android:name=".LoginActivity"
+            android:name=".HomeScreenActivity"
+            android:label="HomeScreen">
+        </activity>
+        <activity
+            android:name=".LoginActivity2"
             android:label="Login">
         </activity>
     </application>
