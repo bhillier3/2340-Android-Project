@@ -4,12 +4,10 @@ package edu.gatech.donationapp_77;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,8 +27,9 @@ public class LoginActivity2 extends AppCompatActivity {
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+    private static final User[] DUMMY_CREDENTIALS = new User[]{
+            new User("foo@example.com", "hello"),
+            new User("bar@example.com", "world")
     };
 
     @Override
@@ -63,8 +62,10 @@ public class LoginActivity2 extends AppCompatActivity {
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
 
+        User givenUser = new User(email, password);
+
 //      Check that email and password match.
-        if (!isValidLoginCombo(email, password)) {
+        if (!isValidLoginCombo(givenUser)) {
             passwordText.setError("Email/password combo does not match.");
         } else {
             // Perform the user login attempt.
@@ -72,23 +73,8 @@ public class LoginActivity2 extends AppCompatActivity {
         }
     }
 
-    private boolean isValidLoginCombo(String email, String password) {
-        List<String> loginList = Arrays.asList(DUMMY_CREDENTIALS);
-        ArrayList<String> emailList = new ArrayList<>();
-        ArrayList<String> passwordList = new ArrayList<>();
-
-        for (String login : loginList) {
-            String subEmail = login.substring(0,login.indexOf(":"));
-            String subPass = login.substring(login.indexOf(":") + 1);
-            emailList.add(subEmail);
-            passwordList.add(subPass);
-        }
-
-        int validationIndex = emailList.indexOf(email);
-
-//        System.out.println(emailList);
-//        System.out.println(passwordList);
-
-        return (validationIndex == passwordList.indexOf(password)) && (validationIndex != -1);
+    private boolean isValidLoginCombo(User givenUser) {
+        List<User> loginList = Arrays.asList(DUMMY_CREDENTIALS);
+        return loginList.contains(givenUser);
     }
 }
