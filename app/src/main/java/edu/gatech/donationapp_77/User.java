@@ -3,10 +3,12 @@ package edu.gatech.donationapp_77;
 public class User {
     private String email;
     private String password;
+    private UserType type;
 
-    public User(String email, String password) {
+    public User(String email, String password, UserType type) {
         this.email = email;
         this.password = password;
+        this.type = type;
     }
 
     public String getEmail() {
@@ -17,12 +19,20 @@ public class User {
         return password;
     }
 
+    public UserType getType() {
+        return type;
+    }
+
     public void setEmail(String newPassword) {
         password = newPassword;
     }
 
     public void setPassword(String newEmail) {
         email = newEmail;
+    }
+
+    public void setType(UserType newType) {
+        this.type = newType;
     }
 
     @Override
@@ -34,6 +44,7 @@ public class User {
             return false;
         }
         User that = (User) other;
+
         return (this.email.equals(that.email) && this.password.equals(that.password));
     }
 }
