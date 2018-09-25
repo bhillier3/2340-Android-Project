@@ -23,17 +23,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity-->
-            <!--android:name=".LoginActivity"-->
-            <!--android:label="Login"></activity>-->
+        <!-- <activity -->
+        <!-- android:name=".LoginActivity" -->
+        <!-- android:label="Login"></activity> -->
         <activity
             android:name=".HomeScreenActivity"
-            android:label="HomeScreen">
-        </activity>
+            android:label="HomeScreen"></activity>
         <activity
             android:name=".LoginActivity2"
-            android:label="Login">
-        </activity>
+            android:label="Login"></activity>
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>
