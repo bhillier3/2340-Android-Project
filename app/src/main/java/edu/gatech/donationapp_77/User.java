@@ -1,6 +1,11 @@
 package edu.gatech.donationapp_77;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
+
+    private static ArrayList<User> userList = new ArrayList<User>();
     private String email;
     private String password;
     private UserType type;
@@ -33,6 +38,19 @@ public class User {
 
     public void setType(UserType newType) {
         this.type = newType;
+    }
+
+    public static void addUser(User newUser) {
+        userList.add(newUser);
+    }
+
+    public static List<User> getUserList() {
+        return userList;
+    }
+
+    @Override
+    public String toString() {
+        return this.getEmail();
     }
 
     @Override

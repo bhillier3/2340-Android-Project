@@ -55,6 +55,11 @@ public class LoginActivity2 extends AppCompatActivity {
                 finish();
             }
         });
+        for (int i = 0; i < DUMMY_CREDENTIALS.length; i++) {
+            User.addUser(DUMMY_CREDENTIALS[i]);
+        }
+
+        System.out.println(User.getUserList());
     }
 
     private void login() {
@@ -66,7 +71,7 @@ public class LoginActivity2 extends AppCompatActivity {
         List<User> loginList = Arrays.asList(DUMMY_CREDENTIALS);
 
 //      Check that email and password match.
-        if (!loginList.contains(givenUser)) {
+        if (!User.getUserList().contains(givenUser)) {
             passwordText.setError("Email/password combo does not match.");
         } else {
             // Perform the user login attempt.

@@ -22,7 +22,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Back to Login Screen
-                finish();
+                startActivity(new Intent(HomeScreenActivity.this, SplashActivity.class));
             }
         });
     }
