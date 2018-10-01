@@ -12,7 +12,7 @@
 
     <Button
         android:id="@+id/cancel_button"
-        android:layout_width="352dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:text="Go Back"
         android:textStyle="bold"
@@ -70,7 +70,7 @@
 
     <Button
         android:id="@+id/email_sign_in_button"
-        android:layout_width="352dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Sign In"

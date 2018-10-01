@@ -28,8 +28,8 @@ public class LoginActivity2 extends AppCompatActivity {
      * TODO: remove after connecting to a real authentication system.
      */
     private static final User[] DUMMY_CREDENTIALS = new User[]{
-            new User("foo@example.com", "hello"),
-            new User("bar@example.com", "world")
+            new User("foo@example.com", "hello", UserType.EMPLOYEE),
+            new User("bar@example.com", "world", UserType.EMPLOYEE)
     };
 
     @Override
@@ -55,6 +55,11 @@ public class LoginActivity2 extends AppCompatActivity {
                 finish();
             }
         });
+        for (int i = 0; i < DUMMY_CREDENTIALS.length; i++) {
+            User.addUser(DUMMY_CREDENTIALS[i]);
+        }
+
+        System.out.println(User.getUserList());
     }
 
     private void login() {
@@ -62,11 +67,11 @@ public class LoginActivity2 extends AppCompatActivity {
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
 
-        User givenUser = new User(email, password);
+        User givenUser = new User(email, password, UserType.EMPLOYEE);
         List<User> loginList = Arrays.asList(DUMMY_CREDENTIALS);
 
 //      Check that email and password match.
-        if (!loginList.contains(givenUser)) {
+        if (!User.getUserList().contains(givenUser)) {
             passwordText.setError("Email/password combo does not match.");
         } else {
             // Perform the user login attempt.
