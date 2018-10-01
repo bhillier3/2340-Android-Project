@@ -60,12 +60,17 @@ public class RegisterActivity extends AppCompatActivity {
 
         User newUser = new User(email, password, type);
 
-        User.addUser(newUser);
-        System.out.println(User.getUserList());
+        if (User.getUserList().contains(newUser)) {
+            passwordText.setError("This user already exists. Did you mean to login?");
+        } else {
+            User.addUser(newUser);
+            System.out.println(User.getUserList());
 
-        startActivity(new Intent(RegisterActivity.this, LoginActivity2.class));
-        emailText.getText().clear();
-        passwordText.getText().clear();
+            startActivity(new Intent(RegisterActivity.this, LoginActivity2.class));
+            emailText.getText().clear();
+            passwordText.getText().clear();
+        }
+
 
     }
 }
