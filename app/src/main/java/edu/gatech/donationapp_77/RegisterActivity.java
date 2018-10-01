@@ -61,12 +61,12 @@ public class RegisterActivity extends AppCompatActivity {
         User newUser = new User(email, password, type);
 
         if (User.getUserList().contains(newUser)) {
-            passwordText.setError("This user already exists. Did you mean to login?");
+            emailText.setError("This user already exists. Did you mean to login?");
         } else {
             User.addUser(newUser);
             System.out.println(User.getUserList());
 
-            startActivity(new Intent(RegisterActivity.this, LoginActivity2.class));
+            startActivity(new Intent(RegisterActivity.this, HomeScreenActivity.class));
             emailText.getText().clear();
             passwordText.getText().clear();
         }
