@@ -63,6 +63,6 @@ public class User {
         }
         User that = (User) other;
 
-        return (this.email.equals(that.email));
+        return (this.email.equals(that.email) && this.password.equals(that.password));
     }
 }
