@@ -1,6 +1,7 @@
 package edu.gatech.donationapp_77;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Location {
 
@@ -11,7 +12,7 @@ public class Location {
     private String address;
     private String phoneNumber;
 
-    private static ArrayList<Location> locationList = new ArrayList<>();
+    private static ArrayList<Location> locationSet = new ArrayList<>();
 
     public Location(LocationType type, String name, String latitude, String longitude,
                     String address, String phoneNumber) {
@@ -25,11 +26,15 @@ public class Location {
     }
 
     public static void addToLocationList(Location l) {
-        locationList.add(l);
+
+        if (!locationSet.contains(l)) {
+            locationSet.add(l);
+        }
+
     }
 
     public static ArrayList<Location> getLocationList() {
-        return locationList;
+        return locationSet;
     }
 
     public LocationType getType() {

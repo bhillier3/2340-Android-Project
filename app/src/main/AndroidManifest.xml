@@ -28,11 +28,14 @@
         <!-- android:label="Login"></activity> -->
         <activity
             android:name=".HomeScreenActivity"
-            android:label="HomeScreen"></activity>
+            android:label="HomeScreen" />
         <activity
             android:name=".LoginActivity2"
-            android:label="Login"></activity>
-        <activity android:name=".RegisterActivity"></activity>
+            android:label="Login" />
+        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".LocationListActivity"
+            android:label="@string/title_activity_location_list"></activity>
     </application>
 
 </manifest>

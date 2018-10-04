@@ -14,6 +14,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
 
         logout();
+        seeLocations();
     }
 
     private void logout() {
@@ -23,6 +24,17 @@ public class HomeScreenActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Back to Login Screen
                 startActivity(new Intent(HomeScreenActivity.this, SplashActivity.class));
+            }
+        });
+    }
+
+    private void seeLocations() {
+        Button locationButton = (Button) findViewById(R.id.locButton);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // go to LocationListActivity
+                startActivity(new Intent(HomeScreenActivity.this, LocationListActivity.class));
             }
         });
     }
