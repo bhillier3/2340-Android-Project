@@ -6,14 +6,14 @@ public class Location {
 
     private LocationType type;
     private String name;
-    private double latitude;
-    private double longitude;
+    private String latitude;
+    private String longitude;
     private String address;
     private String phoneNumber;
 
     private static ArrayList<Location> locationList = new ArrayList<>();
 
-    public Location(LocationType type, String name, double latitude, double longitude,
+    public Location(LocationType type, String name, String latitude, String longitude,
                     String address, String phoneNumber) {
         this.type = type;
         this.name = name;
@@ -22,8 +22,14 @@ public class Location {
         this.address = address;
         this.phoneNumber = phoneNumber;
 
-        locationList.add(this);
+    }
 
+    public static void addToLocationList(Location l) {
+        locationList.add(l);
+    }
+
+    public static ArrayList<Location> getLocationList() {
+        return locationList;
     }
 
     public LocationType getType() {
@@ -42,19 +48,19 @@ public class Location {
         this.name = name;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
@@ -73,4 +79,10 @@ public class Location {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Location: " + this.getName();
+    }
+
 }
