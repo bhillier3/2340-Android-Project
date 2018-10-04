@@ -2,6 +2,7 @@ package edu.gatech.donationapp_77;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -10,7 +11,7 @@ public class LocationListActivity extends Activity {
 
     private RecyclerView locRecyclerView;
     private RecyclerView.Adapter locAdapter;
-    private RecyclerView.LayoutManager locLayoutManager;
+    private LinearLayoutManager locLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,11 @@ public class LocationListActivity extends Activity {
         // pass actual data in (list of Locations)
         locAdapter = new LocationAdapter();
         locRecyclerView.setAdapter(locAdapter);
+
+
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(locRecyclerView.getContext(),
+                locLayoutManager.getOrientation());
+        locRecyclerView.addItemDecoration(mDividerItemDecoration);
 
     }
 

@@ -17,9 +17,11 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
     public static class LocViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView locTextView;
+
+
         public LocViewHolder(View v) {
             super(v);
-            locTextView = (TextView) v;
+            locTextView = v.findViewById(R.id.loc_name);
         }
     }
 
@@ -33,7 +35,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
     public LocationAdapter.LocViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.loc_text_view, viewGroup, false);
+                .inflate(R.layout.recycler_loc_view, viewGroup, false);
 
         LocViewHolder vh = new LocViewHolder(v);
         return vh;
