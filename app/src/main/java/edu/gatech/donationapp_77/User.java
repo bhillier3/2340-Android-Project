@@ -50,7 +50,7 @@ public class User {
 
     @Override
     public String toString() {
-        return this.getEmail();
+        return this.getEmail() + ": " + this.getType();
     }
 
     @Override
