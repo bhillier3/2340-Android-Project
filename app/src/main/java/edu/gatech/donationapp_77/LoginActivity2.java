@@ -70,14 +70,20 @@ public class LoginActivity2 extends AppCompatActivity {
         User givenUser = new User(email, password, UserType.EMPLOYEE);
         List<User> loginList = Arrays.asList(DUMMY_CREDENTIALS);
 
+        if (email.length() > 0 && password.length() > 0) {
 //      Check that email and password match.
-        if (!isValidPassword(givenUser, password)) {
-            passwordText.setError("Email/password combo does not match.");
+            if (!isValidPassword(givenUser, password)) {
+                passwordText.setError("Email/password combo does not match.");
+            } else {
+                // Perform the user login attempt.
+                startActivity(new Intent(LoginActivity2.this, HomeScreenActivity.class));
+                emailText.getText().clear();
+                passwordText.getText().clear();
+            }
+        } else if (email.length() < 1) {
+            emailText.setError("Please enter an email");
         } else {
-            // Perform the user login attempt.
-            startActivity(new Intent(LoginActivity2.this, HomeScreenActivity.class));
-            emailText.getText().clear();
-            passwordText.getText().clear();
+            passwordText.setError("Please enter a password");
         }
     }
 
