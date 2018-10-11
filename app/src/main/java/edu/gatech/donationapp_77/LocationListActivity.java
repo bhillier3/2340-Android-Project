@@ -10,7 +10,7 @@ import android.support.v7.widget.RecyclerView;
 public class LocationListActivity extends Activity {
 
     private RecyclerView locRecyclerView;
-    private RecyclerView.Adapter locAdapter;
+    private LocationAdapter adapter;
     private LinearLayoutManager locLayoutManager;
 
     @Override
@@ -18,20 +18,18 @@ public class LocationListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_list);
 
-        locRecyclerView = (RecyclerView) findViewById(R.id.locRecView);
+        initRecyclerView();
+    }
 
+    private void initRecyclerView() {
+        locRecyclerView = findViewById(R.id.locRecView);
+        adapter = new LocationAdapter(this);
+        locRecyclerView.setAdapter(adapter);
         locLayoutManager = new LinearLayoutManager(this);
         locRecyclerView.setLayoutManager(locLayoutManager);
-
-        // pass actual data in (list of Locations)
-        locAdapter = new LocationAdapter();
-        locRecyclerView.setAdapter(locAdapter);
-
-
-        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(locRecyclerView.getContext(),
-                locLayoutManager.getOrientation());
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(
+                locRecyclerView.getContext(), locLayoutManager.getOrientation());
         locRecyclerView.addItemDecoration(mDividerItemDecoration);
-
     }
 
 }
