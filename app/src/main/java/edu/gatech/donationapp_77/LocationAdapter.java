@@ -47,6 +47,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
         // - replace the contents of the view with that element
         holder.locTextView.setText(locationSet.get(position).getName());
 
+
+
     }
 
 

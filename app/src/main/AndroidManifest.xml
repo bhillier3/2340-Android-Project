@@ -35,7 +35,8 @@
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".LocationListActivity"
-            android:label="List of Locations"></activity>
+            android:label="List of Locations">
+        </activity>
     </application>
 
 </manifest>
