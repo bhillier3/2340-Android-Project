@@ -18,9 +18,9 @@ public class CSVParser {
             LocationType tempLocType = LocationType.STORE;
 
 
-            if (elements[8] == "Drop Off") {
+            if (elements[8].equals("Drop Off")) {
                 tempLocType = LocationType.DROP_OFF;
-            } else if (elements[8] == "Warehouse") {
+            } else if (elements[8].equals("Warehouse")) {
                 tempLocType = LocationType.WAREHOUSE;
             }
 
