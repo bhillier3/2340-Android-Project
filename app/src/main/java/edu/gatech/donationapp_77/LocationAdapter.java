@@ -59,8 +59,9 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
                 intent.putExtra("loc_name", locationSet.get(position).getName());
                 intent.putExtra("loc_address", locationSet.get(position).getAddress());
                 intent.putExtra("loc_phone", locationSet.get(position).getPhoneNumber());
+                intent.putExtra("loc_lat", locationSet.get(position).getLatitude());
+                intent.putExtra("loc_long", locationSet.get(position).getLongitude());
                 context.startActivity(intent);
-//                Toast.makeText(context, locationSet.get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
