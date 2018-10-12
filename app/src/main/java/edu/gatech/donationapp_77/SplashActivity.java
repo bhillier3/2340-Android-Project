@@ -1,10 +1,14 @@
 package edu.gatech.donationapp_77;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import java.io.BufferedInputStream;
+import java.io.File;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -28,5 +32,37 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, RegisterActivity.class));
             }
         });
+
+        AssetManager assetManager = getAssets();
+
+        try {
+
+            AssetManager.AssetInputStream stream =  (AssetManager.AssetInputStream) assetManager.open("LocationData.csv");
+            StringBuilder wholeCSV = new StringBuilder();
+
+            // seperating the stream result into int and char
+            // int for checking for -1, char for adding to stringbuilder
+            int streamInt = stream.read();
+            char streamChar = (char) streamInt;
+
+
+            while (streamInt != -1) {
+                String streamString = Character.toString(streamChar);
+                wholeCSV.append(streamString);
+                streamInt = stream.read();
+                streamChar = (char) streamInt;
+            }
+
+            stream.close();
+
+            CSVParser parser = new CSVParser(wholeCSV.toString());
+            parser.createLocations();
+
+        } catch (Exception e) {
+            System.out.println("Error starts here:");
+            e.printStackTrace();
+        }
+
     }
+
 }
