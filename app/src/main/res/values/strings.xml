@@ -16,4 +16,5 @@
     <string name="title_activity_simple_login">SimpleLoginActivity</string>
     <string name="title_activity_login2">Sign in</string>
     <string name="title_activity_location_list">LocationListActivity</string>
+    <string name="home_button">Home</string>
 </resources>
