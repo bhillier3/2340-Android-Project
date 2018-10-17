@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
     <Button
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/home_button"
-        android:textSize="18sp"
-        android:layout_marginLeft="293dp"
-        android:layout_marginStart="293dp"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"/>
 
     <EditText
         android:id="@+id/itemName"
         android:hint="Item name"
-        android:textSize="25sp"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"/>
+        android:singleLine="true"
+        android:inputType="text"/>
 
     <TextView
         android:id="@+id/quantity"
@@ -29,19 +29,85 @@
         android:layout_toRightOf="@+id/itemName"
         android:layout_toEndOf="@+id/itemName"
         android:layout_alignBaseline="@+id/itemName"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:textSize="25sp"
-        android:text="Qty: "/>
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:textSize="18sp"
+        android:text="Qty:"/>
 
     <Spinner
         android:id="@+id/quantitySpinner"
-        android:layout_width="50dp"
+        android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_toRightOf="@+id/quantity"
         android:layout_toEndOf="@+id/quantity"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_alignBaseline="@+id/itemName">
 
     </Spinner>
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/itemName"
+        android:layout_marginTop="20dp"
+        android:text="Value:"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/valueInput"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/value"
+        android:layout_toEndOf="@+id/value"
+        android:layout_alignBaseline="@+id/value"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:inputType="numberDecimal"/>
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/value"
+        android:layout_marginTop="20dp"
+        android:text="Category:"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/category"
+        android:layout_toEndOf="@+id/category"
+        android:layout_alignBaseline="@+id/category"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp">
+
+    </Spinner>
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/category"
+        android:layout_marginTop="20dp"
+        android:hint="Item Description"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description"
+        android:layout_marginTop="100dp"
+        android:hint="Comments (optional)"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Submit Donation" />
 
 </RelativeLayout>
