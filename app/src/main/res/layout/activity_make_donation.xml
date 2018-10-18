@@ -4,22 +4,11 @@
     android:layout_height="match_parent"
     android:padding="10dp">
 
-    <Button
-        android:id="@+id/homeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/home_button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"/>
-
     <EditText
         android:id="@+id/itemName"
         android:hint="Item name"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/homeButton"
-        android:layout_marginTop="10dp"
         android:singleLine="true"
         android:inputType="text"/>
 
@@ -110,7 +99,14 @@
         android:id="@+id/donateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/cancelButton"
         android:text="Submit Donation" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Cancel Donation"/>
 
 </RelativeLayout>

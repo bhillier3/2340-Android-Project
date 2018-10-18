@@ -23,21 +23,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- <activity -->
-        <!-- android:name=".LoginActivity" -->
-        <!-- android:label="Login"></activity> -->
         <activity
             android:name=".HomeScreenActivity"
             android:label="HomeScreen" />
         <activity
             android:name=".LoginActivity2"
             android:label="Login" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".RegisterActivity"
+            android:label="Register" />
         <activity
             android:name=".LocationListActivity"
-            android:label="List of Locations">
-        </activity>
-        <activity android:name=".LocationActivity" />
+            android:label="List of Locations" />
+        <activity
+            android:name=".LocationActivity"
+            android:label="Location" />
+        <activity
+            android:name=".MakeDonationActivity"
+            android:label="Donate" />
     </application>
 
 </manifest>
