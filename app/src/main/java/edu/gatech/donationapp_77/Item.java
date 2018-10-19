@@ -6,6 +6,7 @@ public class Item {
     private int quantity;
     private String description;
     private String comments;
+//    private Category category;
 
     public Item(String name, int value, int quantity, String description, String comments) {
         this.name = name;
