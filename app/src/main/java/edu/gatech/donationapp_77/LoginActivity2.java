@@ -28,8 +28,8 @@ public class LoginActivity2 extends AppCompatActivity {
      * TODO: remove after connecting to a real authentication system.
      */
     private static final User[] DUMMY_CREDENTIALS = new User[]{
-            new User("foo@example.com", "hello", UserType.EMPLOYEE),
-            new User("bar@example.com", "world", UserType.EMPLOYEE)
+            new User("Temp name","foo@example.com", "hello", UserType.EMPLOYEE),
+            new User("Temp name","bar@example.com", "world", UserType.EMPLOYEE)
     };
 
     @Override
@@ -67,7 +67,7 @@ public class LoginActivity2 extends AppCompatActivity {
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
 
-        User givenUser = new User(email, password, UserType.EMPLOYEE);
+        User givenUser = new User("none", email, password, UserType.EMPLOYEE);
         List<User> loginList = Arrays.asList(DUMMY_CREDENTIALS);
 
         if (email.length() > 0 && password.length() > 0) {
