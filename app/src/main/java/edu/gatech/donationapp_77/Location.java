@@ -90,4 +90,21 @@ public class Location {
         return "Location: " + this.getName();
     }
 
+    // Override the equals method to prevent duplicates
+    // Note: we should probably override the hashCode method as well if we plan
+    // on using Location in something like a HashMap/HashSet later down the road
+    @Override
+    public boolean equals(Object other) {
+        // Basic equality checks
+        if (other == null) { return false; }
+        if (this == other) { return true; }
+        if (!(other instanceof Location)) { return false; }
+
+        // Cast other to Location
+        Location that = (Location) other;
+        // Check for equal address, name and phone number
+        return this.address.equals(that.getAddress())
+                && this.name.equals(that.getName())
+                && this.phoneNumber.equals(that.getPhoneNumber());
+    }
 }
