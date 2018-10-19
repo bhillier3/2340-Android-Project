@@ -29,7 +29,8 @@
         <activity
             android:name=".LoginActivity2"
             android:label="Login" />
-        <activity android:name=".RegisterActivity"
+        <activity
+            android:name=".RegisterActivity"
             android:label="Register" />
         <activity
             android:name=".LocationListActivity"
@@ -40,6 +41,9 @@
         <activity
             android:name=".MakeDonationActivity"
             android:label="Donate" />
+        <activity
+            android:name=".NewItemActivity"
+            android:label="@string/title_activity_new_item"></activity>
     </application>
 
 </manifest>
