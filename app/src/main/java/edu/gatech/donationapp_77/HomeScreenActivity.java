@@ -5,13 +5,25 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
+    private TextView welcomeText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+
+
+        welcomeText = findViewById(R.id.welcomeText);
+        User loggedIn = User.getLoggedInUser();
+        String welcomeString = "Welcome " + loggedIn.getEmail() + "!\nUser type: "
+                + loggedIn.getType() + ".";
+        welcomeText.setText(welcomeString);
 
         logout();
         seeLocations();
@@ -22,7 +34,8 @@ public class HomeScreenActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Back to Login Screen
+                // Back to Login Screen, removes loggedInUser
+                User.setLoggedInUser(null);
                 startActivity(new Intent(HomeScreenActivity.this, SplashActivity.class));
             }
         });

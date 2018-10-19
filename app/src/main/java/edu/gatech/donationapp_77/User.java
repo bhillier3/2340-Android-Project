@@ -6,6 +6,7 @@ import java.util.List;
 public class User {
 
     private static ArrayList<User> userList = new ArrayList<User>();
+    private static User loggedInUser;
     private String email;
     private String password;
     private UserType type;
@@ -47,6 +48,15 @@ public class User {
     public static List<User> getUserList() {
         return userList;
     }
+
+    public static User getLoggedInUser() {
+        return User.loggedInUser;
+    }
+
+    public static void setLoggedInUser(User newUser) {
+        User.loggedInUser = newUser;
+    }
+
 
     @Override
     public String toString() {

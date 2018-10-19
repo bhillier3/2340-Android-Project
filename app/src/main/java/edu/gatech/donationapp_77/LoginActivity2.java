@@ -76,6 +76,7 @@ public class LoginActivity2 extends AppCompatActivity {
                 passwordText.setError("Email/password combo does not match.");
             } else {
                 // Perform the user login attempt.
+                User.setLoggedInUser(givenUser);
                 startActivity(new Intent(LoginActivity2.this, HomeScreenActivity.class));
                 emailText.getText().clear();
                 passwordText.getText().clear();

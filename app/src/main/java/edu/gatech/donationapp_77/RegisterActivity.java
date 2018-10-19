@@ -68,6 +68,9 @@ public class RegisterActivity extends AppCompatActivity {
                 User.addUser(newUser);
                 System.out.println(User.getUserList());
 
+                // log in
+                User.setLoggedInUser(newUser);
+
                 startActivity(new Intent(RegisterActivity.this, HomeScreenActivity.class));
                 emailText.getText().clear();
                 passwordText.getText().clear();
