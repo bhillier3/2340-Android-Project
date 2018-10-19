@@ -1,5 +1,6 @@
 package edu.gatech.donationapp_77;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,11 +8,13 @@ public class User {
 
     private static ArrayList<User> userList = new ArrayList<User>();
     private static User loggedInUser;
+    private String name;
     private String email;
     private String password;
     private UserType type;
 
-    public User(String email, String password, UserType type) {
+    public User(String name, String email, String password, UserType type) {
+        this.name = name;
         this.email = email;
         this.password = password;
         this.type = type;
@@ -29,6 +32,8 @@ public class User {
         return type;
     }
 
+    public String getName() { return name; }
+
     public void setEmail(String newPassword) {
         password = newPassword;
     }
@@ -40,6 +45,8 @@ public class User {
     public void setType(UserType newType) {
         this.type = newType;
     }
+
+    public void setName(String name) { this.name = name; }
 
     public static void addUser(User newUser) {
         userList.add(newUser);
