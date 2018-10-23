@@ -72,14 +72,9 @@ public class User {
 
     @Override
     public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-        if (!(other instanceof User)) {
-            return false;
-        }
+        if (this == other) { return true; }
+        if (!(other instanceof User)) { return false; }
         User that = (User) other;
-
         return (this.getEmail().equals(that.getEmail()));
     }
 }

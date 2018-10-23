@@ -8,7 +8,7 @@ import java.util.HashSet;
 
 public class Location implements Parcelable {
 
-    private ArrayList<Item> inventory = new ArrayList<Item>();
+    private ArrayList<Item> inventory;
     private LocationType type;
     private String name;
     private String latitude;
@@ -26,7 +26,7 @@ public class Location implements Parcelable {
         this.longitude = longitude;
         this.address = address;
         this.phoneNumber = phoneNumber;
-
+        this.inventory = new ArrayList<Item>();
     }
 
     // For Parcelable
@@ -37,7 +37,6 @@ public class Location implements Parcelable {
         latitude = in.readString();
         longitude = in.readString();
         type = LocationType.valueOf(in.readString());
-
     }
 
     public static void addToLocationList(Location l) {
@@ -52,14 +51,11 @@ public class Location implements Parcelable {
         return locationSet;
     }
 
-    public ArrayList<Item> getInventory() {
-        return inventory;
-    }
+    public ArrayList<Item> getInventory() { return inventory; }
 
     public LocationType getType() {
         return type;
     }
-
     public void setType(LocationType type) {
         this.type = type;
     }
@@ -67,7 +63,6 @@ public class Location implements Parcelable {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -75,7 +70,6 @@ public class Location implements Parcelable {
     public String getLatitude() {
         return latitude;
     }
-
     public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
@@ -83,7 +77,6 @@ public class Location implements Parcelable {
     public String getLongitude() {
         return longitude;
     }
-
     public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
@@ -91,7 +84,6 @@ public class Location implements Parcelable {
     public String getAddress() {
         return address;
     }
-
     public void setAddress(String address) {
         this.address = address;
     }
@@ -99,7 +91,6 @@ public class Location implements Parcelable {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -115,7 +106,6 @@ public class Location implements Parcelable {
     @Override
     public boolean equals(Object other) {
         // Basic equality checks
-        if (other == null) { return false; }
         if (this == other) { return true; }
         if (!(other instanceof Location)) { return false; }
 
@@ -142,6 +132,7 @@ public class Location implements Parcelable {
         dest.writeString(latitude);
         dest.writeString(longitude);
         dest.writeString(type.toString());
+//        dest.writeParcelableArray((Item[]) inventory.toArray(), 0);
     }
 
     public static final Creator<Location> CREATOR = new Creator<Location>() {

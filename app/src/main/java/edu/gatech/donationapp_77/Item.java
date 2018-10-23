@@ -1,13 +1,15 @@
 package edu.gatech.donationapp_77;
 
-public class Item {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Item implements Parcelable {
     private String name;
     private double value;
     private int quantity;
     private String description;
     private String comments;
     private Category category;
-    private Location location;
 
     public Item(String name, double value, int quantity, String description, String comments, Category category) {
         this.name = name;
@@ -16,6 +18,16 @@ public class Item {
         this.description = description;
         this.comments = comments;
         this.category = category;
+    }
+
+    // For Parcelabale
+    protected Item(Parcel in) {
+        name = in.readString();
+        value = in.readDouble();
+        quantity = in.readInt();
+        description = in.readString();
+        comments = in.readString();
+        category = Category.valueOf(in.readString());
     }
 
     public String getName() {
@@ -57,4 +69,34 @@ public class Item {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
+    ////////////////////
+    // For Parecelable
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeDouble(value);
+        dest.writeInt(quantity);
+        dest.writeString(description);
+        dest.writeString(comments);
+        dest.writeString(category.toString());
+    }
+
+    public static final Creator<Item> CREATOR = new Creator<Item>() {
+        @Override
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
+        }
+
+        @Override
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
+    ////////////////////
 }

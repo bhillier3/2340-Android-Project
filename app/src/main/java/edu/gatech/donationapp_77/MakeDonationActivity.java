@@ -11,8 +11,6 @@ import android.widget.Spinner;
 
 public class MakeDonationActivity extends AppCompatActivity {
 
-    private Button cancel;
-    private Button submit;
     private Spinner quantitySpinner;
     private Spinner categorySpinner;
     private EditText name;
@@ -25,8 +23,9 @@ public class MakeDonationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_donation);
 
-        cancel = (Button) findViewById(R.id.cancelButton);
-        submit = (Button) findViewById(R.id.donateButton);
+        // grab the View's interactables
+        Button cancel = (Button) findViewById(R.id.cancelButton);
+        Button submit = (Button) findViewById(R.id.donateButton);
         quantitySpinner = (Spinner) findViewById(R.id.quantitySpinner);
         categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
         name = (EditText) findViewById(R.id.itemName);
@@ -72,10 +71,12 @@ public class MakeDonationActivity extends AppCompatActivity {
         Item item = new Item(name, value, quantity, desc, comments, category);
 
         // Add item to location's inventory
-        Location location = (Location) getIntent().getParcelableExtra("location");
-        location.getInventory().add(item);
+        if (getIntent().hasExtra("location")) {
+            Location location = (Location) getIntent().getParcelableExtra("location");
+            location.getInventory().add(item);
+        }
 
-        // Go to item's page
-//        startActivity(new Intent(this, ItemActivity.class));
+        // Return to home page
+        finish();
     }
 }
