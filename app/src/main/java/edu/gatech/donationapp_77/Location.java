@@ -8,7 +8,7 @@ import java.util.HashSet;
 
 public class Location implements Parcelable {
 
-    private static ArrayList<Item> inventory = new ArrayList<Item>();
+    private ArrayList<Item> inventory = new ArrayList<Item>();
     private LocationType type;
     private String name;
     private String latitude;
@@ -52,7 +52,7 @@ public class Location implements Parcelable {
         return locationSet;
     }
 
-    public static ArrayList<Item> getInventory() {
+    public ArrayList<Item> getInventory() {
         return inventory;
     }
 

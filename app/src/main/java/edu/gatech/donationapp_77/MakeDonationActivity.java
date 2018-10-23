@@ -73,7 +73,7 @@ public class MakeDonationActivity extends AppCompatActivity {
 
         // Add item to location's inventory
         Location location = (Location) getIntent().getParcelableExtra("location");
-        Location.getInventory().add(item);
+        location.getInventory().add(item);
 
         // Go to item's page
 //        startActivity(new Intent(this, ItemActivity.class));
