@@ -1,10 +1,14 @@
 package edu.gatech.donationapp_77;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Location {
+public class Location implements Parcelable {
 
+    private static ArrayList<Item> inventory = new ArrayList<Item>();
     private LocationType type;
     private String name;
     private String latitude;
@@ -25,6 +29,17 @@ public class Location {
 
     }
 
+    // For Parcelable
+    protected Location(Parcel in) {
+        name = in.readString();
+        address = in.readString();
+        phoneNumber = in.readString();
+        latitude = in.readString();
+        longitude = in.readString();
+        type = LocationType.valueOf(in.readString());
+
+    }
+
     public static void addToLocationList(Location l) {
 
         if (!locationSet.contains(l)) {
@@ -35,6 +50,10 @@ public class Location {
 
     public static ArrayList<Location> getLocationList() {
         return locationSet;
+    }
+
+    public static ArrayList<Item> getInventory() {
+        return inventory;
     }
 
     public LocationType getType() {
@@ -107,4 +126,34 @@ public class Location {
                 && this.name.equals(that.getName())
                 && this.phoneNumber.equals(that.getPhoneNumber());
     }
+
+    ////////////////////
+    // For parcelable
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(address);
+        dest.writeString(phoneNumber);
+        dest.writeString(latitude);
+        dest.writeString(longitude);
+        dest.writeString(type.toString());
+    }
+
+    public static final Creator<Location> CREATOR = new Creator<Location>() {
+        @Override
+        public Location createFromParcel(Parcel in) {
+            return new Location(in);
+        }
+
+        @Override
+        public Location[] newArray(int size) {
+            return new Location[size];
+        }
+    };
+    ////////////////////
 }

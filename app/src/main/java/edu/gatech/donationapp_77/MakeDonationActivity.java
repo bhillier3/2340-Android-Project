@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class MakeDonationActivity extends AppCompatActivity {
@@ -14,6 +15,10 @@ public class MakeDonationActivity extends AppCompatActivity {
     private Button submit;
     private Spinner quantitySpinner;
     private Spinner categorySpinner;
+    private EditText name;
+    private EditText value;
+    private EditText description;
+    private EditText comments;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,18 +29,22 @@ public class MakeDonationActivity extends AppCompatActivity {
         submit = (Button) findViewById(R.id.donateButton);
         quantitySpinner = (Spinner) findViewById(R.id.quantitySpinner);
         categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+        name = (EditText) findViewById(R.id.itemName);
+        value = (EditText) findViewById(R.id.valueInput);
+        description = (EditText) findViewById(R.id.description);
+        comments = (EditText) findViewById(R.id.comments);
 
         // Set quantitySpinner drop down view
         Integer[] nums = new Integer[100];
-        for (int i = 0; i < 100; i++) { nums[i] = i; }
+        for (int i = 1; i < 101; i++) { nums[i] = i; }
         ArrayAdapter<Integer> adapterQty = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, nums);
         adapterQty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         quantitySpinner.setAdapter(adapterQty);
 
         // Set categorySpinner drop down view
-//        ArrayAdapter<CategoryType> adapterCat = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, CategoryType.values());
-//        adapterCat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        categorySpinner.setAdapter(adapterCat);
+        ArrayAdapter<Category> adapterCat = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Category.values());
+        adapterCat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(adapterCat);
 
         // Set Button onClick Listeners
         submit.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +63,18 @@ public class MakeDonationActivity extends AppCompatActivity {
 
     private void makeDonation() {
         // Create new Item object
+        String name = this.name.getText().toString();
+        double value = Double.valueOf(this.value.getText().toString());
+        String desc = description.getText().toString();
+        String comments = this.comments.getText().toString();
+        int quantity = (Integer) quantitySpinner.getSelectedItem();
+        Category category = (Category) categorySpinner.getSelectedItem();
+        Item item = new Item(name, value, quantity, desc, comments, category);
+
+        // Add item to location's inventory
+        Location location = (Location) getIntent().getParcelableExtra("location");
+        Location.getInventory().add(item);
+
         // Go to item's page
 //        startActivity(new Intent(this, ItemActivity.class));
     }

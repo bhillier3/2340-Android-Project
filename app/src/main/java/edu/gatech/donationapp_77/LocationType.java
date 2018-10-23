@@ -5,7 +5,7 @@ public enum LocationType {
 
     private String stringRep;
 
-    private LocationType(String stringRep) {
+    LocationType(String stringRep) {
         this.stringRep = stringRep;
     }
 

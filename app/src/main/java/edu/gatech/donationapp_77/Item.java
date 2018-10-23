@@ -2,18 +2,20 @@ package edu.gatech.donationapp_77;
 
 public class Item {
     private String name;
-    private int value;
+    private double value;
     private int quantity;
     private String description;
     private String comments;
-//    private Category category;
+    private Category category;
+    private Location location;
 
-    public Item(String name, int value, int quantity, String description, String comments) {
+    public Item(String name, double value, int quantity, String description, String comments, Category category) {
         this.name = name;
         this.value = value;
         this.quantity = quantity;
         this.description = description;
         this.comments = comments;
+        this.category = category;
     }
 
     public String getName() {
@@ -24,7 +26,7 @@ public class Item {
         this.name = name;
     }
 
-    public int getValue() {
+    public double getValue() {
         return this.value;
     }
 
