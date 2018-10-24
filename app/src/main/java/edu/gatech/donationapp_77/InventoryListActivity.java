@@ -13,12 +13,12 @@ public class InventoryListActivity extends ListActivity {
         setContentView(R.layout.activity_inventory_list);
 
         Item[] inventory = (Item[]) getIntent().getParcelableArrayListExtra("list").toArray();
-        View v =
+        //View v =
 
         ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(getListView().getContext(),
                 android.R.layout.simple_list_item_1, inventory);
         getListView().setAdapter(adapter);
 
-        onListItemClick(getListView(), this, getSelectedItemPosition(), getSelectedItemId());
+        //onListItemClick(getListView(), this, getSelectedItemPosition(), getSelectedItemId());
     }
 }

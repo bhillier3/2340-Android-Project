@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+
 public class MakeDonationActivity extends AppCompatActivity {
 
     private Spinner quantitySpinner;
@@ -34,8 +36,8 @@ public class MakeDonationActivity extends AppCompatActivity {
         comments = (EditText) findViewById(R.id.comments);
 
         // Set quantitySpinner drop down view
-        Integer[] nums = new Integer[100];
-        for (int i = 1; i < 101; i++) { nums[i] = i; }
+        ArrayList<Integer> nums = new ArrayList<>();
+        for (int i = 1; i < 100; i++) { nums.add(i); }
         ArrayAdapter<Integer> adapterQty = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, nums);
         adapterQty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         quantitySpinner.setAdapter(adapterQty);
@@ -58,6 +60,7 @@ public class MakeDonationActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
     private void makeDonation() {
