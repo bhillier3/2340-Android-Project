@@ -27,6 +27,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         logout();
         seeLocations();
+        newDonation();
     }
 
     private void logout() {
@@ -51,4 +52,16 @@ public class HomeScreenActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void newDonation() {
+        Button newDonationButton = findViewById(R.id.newDonButton);
+        newDonationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeScreenActivity.this, MakeDonationActivity.class));
+            }
+        });
+    }
+
+
 }

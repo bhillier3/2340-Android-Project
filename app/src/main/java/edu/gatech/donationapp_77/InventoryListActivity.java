@@ -20,7 +20,6 @@ public class InventoryListActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory_list);
-
         ArrayList<Item> inventory = getIntent().getParcelableArrayListExtra("list");
         initRecyclerview(inventory);
     }
