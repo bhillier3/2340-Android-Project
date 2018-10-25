@@ -12,11 +12,16 @@ public class User {
     private String email;
     private String password;
     private UserType type;
+    private Location location;
 
-    public User(String name, String email, String password, UserType type) {
-        this.name = name;
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public User(String name, String email, String password, UserType type) {
+        this(email, password);
+        this.name = name;
         this.type = type;
     }
 
@@ -48,6 +53,10 @@ public class User {
 
     public void setName(String name) { this.name = name; }
 
+    public Location getLocation() { return location; }
+
+    public void setLocation(Location location) { this.location = location; }
+
     public static void addUser(User newUser) {
         userList.add(newUser);
     }
@@ -75,6 +84,7 @@ public class User {
         if (this == other) { return true; }
         if (!(other instanceof User)) { return false; }
         User that = (User) other;
-        return (this.getEmail().equals(that.getEmail()));
+        return (this.getEmail().equals(that.getEmail())
+                && this.getPassword().equals(that.password));
     }
 }

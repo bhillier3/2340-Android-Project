@@ -14,7 +14,6 @@ public class InventoryListActivity extends Activity {
 
     private RecyclerView invRecyclerView;
     private InventoryAdapter adapter;
-    private LinearLayoutManager invLayoutManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,5 +26,6 @@ public class InventoryListActivity extends Activity {
     private void initRecyclerview(ArrayList<Item> inventory) {
         invRecyclerView = findViewById(R.id.invRecView);
         adapter = new InventoryAdapter(inventory, this);
+        invRecyclerView.setAdapter(adapter);
     }
 }

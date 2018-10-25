@@ -23,19 +23,14 @@ public class LoginActivity2 extends AppCompatActivity {
     private EditText emailText;
     private EditText passwordText;
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final User[] DUMMY_CREDENTIALS = new User[]{
-            new User("Temp name","foo@example.com", "hello", UserType.EMPLOYEE),
-            new User("Temp name","bar@example.com", "world", UserType.EMPLOYEE)
-    };
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Dummy Users for testing purposes
+        User.addUser(new User("Foo", "foo@example.com", "hello", UserType.EMPLOYEE));
+        User.addUser(new User("Bar", "bar@example.com", "world", UserType.EMPLOYEE));
 
         signInButton = (Button) findViewById(R.id.email_sign_in_button);
         cancelButton = (Button) findViewById(R.id.cancel_button);
@@ -55,9 +50,6 @@ public class LoginActivity2 extends AppCompatActivity {
                 finish();
             }
         });
-        for (int i = 0; i < DUMMY_CREDENTIALS.length; i++) {
-            User.addUser(DUMMY_CREDENTIALS[i]);
-        }
 
         System.out.println(User.getUserList());
     }
@@ -66,16 +58,15 @@ public class LoginActivity2 extends AppCompatActivity {
 //      Store values at the time of the login attempt.
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
-
-        User givenUser = new User("none", email, password, UserType.EMPLOYEE);
-        List<User> loginList = Arrays.asList(DUMMY_CREDENTIALS);
+        User givenUser = new User(email, password);
 
         if (email.length() > 0 && password.length() > 0) {
 //      Check that email and password match.
-            if (!isValidPassword(givenUser, password)) {
+            if (!isValidPassword(givenUser)) {
                 passwordText.setError("Email/password combo does not match.");
             } else {
                 // Perform the user login attempt.
+                givenUser = User.getUserList().get(User.getUserList().indexOf(givenUser));
                 User.setLoggedInUser(givenUser);
                 startActivity(new Intent(LoginActivity2.this, HomeScreenActivity.class));
                 emailText.getText().clear();
@@ -88,11 +79,7 @@ public class LoginActivity2 extends AppCompatActivity {
         }
     }
 
-    private boolean isValidPassword(User user, String password) {
-        if (User.getUserList().contains(user)) {
-            return User.getUserList().get(User.getUserList().indexOf(user)).getPassword().equals(password);
-        } else {
-            return false;
-        }
+    private boolean isValidPassword(User user) {
+        return User.getUserList().contains(user);
     }
 }
