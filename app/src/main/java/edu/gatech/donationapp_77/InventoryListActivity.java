@@ -1,24 +1,32 @@
 package edu.gatech.donationapp_77;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
-public class InventoryListActivity extends ListActivity {
+import java.util.ArrayList;
+
+public class InventoryListActivity extends Activity {
+
+    private RecyclerView invRecyclerView;
+    private InventoryAdapter adapter;
+    private LinearLayoutManager invLayoutManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory_list);
 
-        Item[] inventory = (Item[]) getIntent().getParcelableArrayListExtra("list").toArray();
-        View v =
+        ArrayList<Item> inventory = getIntent().getParcelableArrayListExtra("list");
+        initRecyclerview(inventory);
+    }
 
-        ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(getListView().getContext(),
-                android.R.layout.simple_list_item_1, inventory);
-        getListView().setAdapter(adapter);
-
-        onListItemClick(getListView(), this, getSelectedItemPosition(), getSelectedItemId());
+    private void initRecyclerview(ArrayList<Item> inventory) {
+        invRecyclerView = findViewById(R.id.invRecView);
+        adapter = new InventoryAdapter(inventory, this);
     }
 }
