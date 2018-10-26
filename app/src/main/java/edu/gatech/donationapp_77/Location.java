@@ -164,6 +164,4 @@ public class Location { // implements Parcelable {
     };
     ////////////////////
     */
-
-
 }
