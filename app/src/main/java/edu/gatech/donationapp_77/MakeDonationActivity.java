@@ -19,6 +19,7 @@ public class MakeDonationActivity extends AppCompatActivity {
     private EditText value;
     private EditText description;
     private EditText comments;
+    private Spinner locSpinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class MakeDonationActivity extends AppCompatActivity {
         value = (EditText) findViewById(R.id.valueInput);
         description = (EditText) findViewById(R.id.description);
         comments = (EditText) findViewById(R.id.comments);
+        locSpinner = findViewById(R.id.locSpinner);
 
         // Set quantitySpinner drop down view
         ArrayList<Integer> nums = new ArrayList<>();
@@ -46,6 +48,12 @@ public class MakeDonationActivity extends AppCompatActivity {
         ArrayAdapter<Category> adapterCat = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Category.values());
         adapterCat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(adapterCat);
+
+        // Set locSpinner
+        ArrayAdapter<Location> adapterLoc = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
+                Location.getLocationList());
+        adapterLoc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locSpinner.setAdapter(adapterLoc);
 
         // Set Button onClick Listeners
         submit.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +85,9 @@ public class MakeDonationActivity extends AppCompatActivity {
         if (getIntent().hasExtra("location")) {
             Location location = (Location) getIntent().getParcelableExtra("location");
             location.getInventory().add(item);
+        } else {
+            Location foundLoc = (Location) locSpinner.getSelectedItem();
+            foundLoc.getInventory().add(item);
         }
 
         // Return to home page

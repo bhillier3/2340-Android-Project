@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
                 intent.putExtra("itemValue", inventory.get(position).getValue());
                 intent.putExtra("itemDesc", inventory.get(position).getDescription());
                 intent.putExtra("itemComments", inventory.get(position).getComments());
+                intent.putExtra("itemCategory", inventory.get(position).getCategory().toString());
                 // Start new activity
                 context.startActivity(intent);
             }

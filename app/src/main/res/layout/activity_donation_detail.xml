@@ -69,12 +69,14 @@
         android:id="@+id/donCatText"
         android:layout_width="wrap_content"
         android:layout_height="17dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@+id/donNameText"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/donNameText" />
 
     <TextView
         android:id="@+id/CommentsHeader"

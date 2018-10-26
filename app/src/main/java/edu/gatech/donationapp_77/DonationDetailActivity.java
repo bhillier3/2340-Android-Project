@@ -13,6 +13,7 @@ public class DonationDetailActivity extends AppCompatActivity {
     private int itemQty;
     private String itemDesc;
     private String itemComments;
+    private String itemCat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class DonationDetailActivity extends AppCompatActivity {
         itemQty = getIntent().getIntExtra("itemQty", 0);
         itemDesc = getIntent().getStringExtra("itemDesc");
         itemComments = getIntent().getStringExtra("itemComments");
+        itemCat = getIntent().getStringExtra("itemCategory");
 
         setItemData(itemName, itemValue, itemQty, itemDesc, itemComments);
     }
@@ -38,11 +40,13 @@ public class DonationDetailActivity extends AppCompatActivity {
         TextView donQty = (TextView) findViewById(R.id.donQuantText);
         TextView donDesc = (TextView) findViewById(R.id.donDescText);
         TextView donCom = (TextView) findViewById(R.id.donCommText);
+        TextView donCat = findViewById(R.id.donCatText);
 
         donName.setText(itemName);
-        donVal.setText(String.valueOf(itemValue));
-        donQty.setText(String.valueOf(itemQty));
+        donVal.setText("Value: $" + String.valueOf(itemValue));
+        donQty.setText("Qty: " + String.valueOf(itemQty));
         donDesc.setText(itemDesc);
         donCom.setText(itemComments);
+        donCat.setText(itemCat);
     }
 }

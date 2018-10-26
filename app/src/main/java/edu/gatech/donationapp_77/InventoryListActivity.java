@@ -16,13 +16,15 @@ public class InventoryListActivity extends AppCompatActivity{
 
     private RecyclerView invRecyclerView;
     private InventoryAdapter adapter;
+    private LinearLayoutManager invLayoutManager;
     private ArrayList<Item> inventory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory_list);
-        inventory = getIntent().getParcelableArrayListExtra("inventory");
+        //inventory = getIntent().getParcelableArrayListExtra("inventory");
+        inventory = (ArrayList<Item>) Location.getSelectedLoc().getInventory();
         initRecyclerview();
     }
 
@@ -30,5 +32,7 @@ public class InventoryListActivity extends AppCompatActivity{
         invRecyclerView = findViewById(R.id.invRecView);
         adapter = new InventoryAdapter(inventory, this);
         invRecyclerView.setAdapter(adapter);
+        invLayoutManager = new LinearLayoutManager(this);
+        invRecyclerView.setLayoutManager(invLayoutManager);
     }
 }

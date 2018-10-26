@@ -63,7 +63,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeScreenActivity.this, MakeDonationActivity.class);
-                intent.putExtra("location", loggedIn.getLocation());
+                //intent.putExtra("location", loggedIn.getLocation());
                 startActivity(intent);
             }
         });

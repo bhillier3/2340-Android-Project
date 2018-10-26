@@ -46,7 +46,8 @@ public class LocationActivity extends AppCompatActivity {
             locLat = getIntent().getStringExtra("loc_lat");
             locLong = getIntent().getStringExtra("loc_long");
             locType = getIntent().getStringExtra("loc_type");
-            inventory = getIntent().getParcelableArrayListExtra("inventory");
+            inventory = (ArrayList) Location.getSelectedLoc().getInventory();
+            //inventory = getIntent().getParcelableArrayListExtra("inventory");
 
             setLocData(locName, locAddress, locPhone, locLat, locLong, locType);
         }
@@ -70,7 +71,7 @@ public class LocationActivity extends AppCompatActivity {
 
     private void viewInventory() {
         Intent intent = new Intent(LocationActivity.this, InventoryListActivity.class);
-        intent.putParcelableArrayListExtra("inventory", inventory);
+        //intent.putParcelableArrayListExtra("inventory", inventory);
         startActivity(intent);
     }
 

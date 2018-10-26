@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class Location implements Parcelable {
+public class Location { // implements Parcelable {
 
     private List<Item> inventory;
     private LocationType type;
@@ -18,6 +18,7 @@ public class Location implements Parcelable {
     private String phoneNumber;
 
     private static ArrayList<Location> locationSet = new ArrayList<>();
+    private static Location selectedLoc;
 
     public Location(LocationType type, String name, String latitude, String longitude,
                     String address, String phoneNumber) {
@@ -30,6 +31,9 @@ public class Location implements Parcelable {
         this.inventory = new ArrayList<Item>();
     }
 
+
+
+    /*
     // For Parcelable
     protected Location(Parcel in) {
         name = in.readString();
@@ -40,6 +44,7 @@ public class Location implements Parcelable {
         type = LocationType.valueOf(in.readString());
         inventory = in.createTypedArrayList(Item.CREATOR);
     }
+    */
 
     public static void addToLocationList(Location l) {
 
@@ -51,6 +56,14 @@ public class Location implements Parcelable {
 
     public static ArrayList<Location> getLocationList() {
         return locationSet;
+    }
+
+    public static void setSelectedLoc(Location newLoc) {
+        selectedLoc = newLoc;
+    }
+
+    public static Location getSelectedLoc() {
+        return selectedLoc;
     }
 
     public List<Item> getInventory() { return inventory; }
@@ -99,7 +112,7 @@ public class Location implements Parcelable {
 
     @Override
     public String toString() {
-        return "Location: " + this.getName();
+        return this.getName();
     }
 
     // Override the equals method to prevent duplicates
@@ -119,6 +132,7 @@ public class Location implements Parcelable {
                 && this.phoneNumber.equals(that.getPhoneNumber());
     }
 
+    /*
     ////////////////////
     // For parcelable
     @Override
@@ -149,4 +163,7 @@ public class Location implements Parcelable {
         }
     };
     ////////////////////
+    */
+
+
 }

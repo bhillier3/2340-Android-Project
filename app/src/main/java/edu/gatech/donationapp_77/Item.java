@@ -3,7 +3,7 @@ package edu.gatech.donationapp_77;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Item implements Parcelable {
+public class Item { //implements Parcelable {
     private String name;
     private double value;
     private int quantity;
@@ -20,6 +20,7 @@ public class Item implements Parcelable {
         this.category = category;
     }
 
+    /*
     // For Parcelabale
     protected Item(Parcel in) {
         name = in.readString();
@@ -29,6 +30,7 @@ public class Item implements Parcelable {
         comments = in.readString();
         category = Category.valueOf(in.readString());
     }
+    */
 
     public String getName() {
         return this.name;
@@ -70,6 +72,11 @@ public class Item implements Parcelable {
         this.comments = comments;
     }
 
+    public Category getCategory() {
+        return this.category;
+    }
+
+    /*
     ////////////////////
     // For Parecelable
     @Override
@@ -99,4 +106,7 @@ public class Item implements Parcelable {
         }
     };
     ////////////////////
+
+    */
+
 }

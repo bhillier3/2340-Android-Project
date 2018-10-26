@@ -55,6 +55,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
             @Override
             public void onClick(View view) {
                 // Switch to Location's view
+                Location.setSelectedLoc(locationSet.get(position));
                 Intent intent = new Intent(context, LocationActivity.class);
                 intent.putExtra("loc_name", locationSet.get(position).getName());
                 intent.putExtra("loc_address", locationSet.get(position).getAddress());
@@ -62,7 +63,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
                 intent.putExtra("loc_lat", locationSet.get(position).getLatitude());
                 intent.putExtra("loc_long", locationSet.get(position).getLongitude());
                 intent.putExtra("loc_type", locationSet.get(position).getType().getStringRep());
-                intent.putParcelableArrayListExtra("inventory", (ArrayList<Item>) locationSet.get(position).getInventory());
+                //intent.putParcelableArrayListExtra("inventory", (ArrayList<Item>) locationSet.get(position).getInventory());
                 context.startActivity(intent);
             }
         });
