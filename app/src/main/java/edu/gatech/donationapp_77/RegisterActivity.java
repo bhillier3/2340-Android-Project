@@ -3,6 +3,7 @@ package edu.gatech.donationapp_77;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -53,12 +54,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void register() {
-//        String name = usernameText.getText().toString();
+        String name = usernameText.getText().toString();
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
         UserType type = (UserType) typeSpinner.getSelectedItem();
 
-        User newUser = new User(email, password, type);
+        User newUser = new User(name, email, password, type, null);
 
         if (email.length() > 0 && password.length() > 0) {
 
@@ -67,6 +68,10 @@ public class RegisterActivity extends AppCompatActivity {
             } else {
                 User.addUser(newUser);
                 System.out.println(User.getUserList());
+
+                // log in
+                User.setLoggedInUser(newUser);
+                Log.d("DEBUG", "Logging in user " + newUser);
 
                 startActivity(new Intent(RegisterActivity.this, HomeScreenActivity.class));
                 emailText.getText().clear();

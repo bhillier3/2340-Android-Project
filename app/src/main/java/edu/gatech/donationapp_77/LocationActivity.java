@@ -1,8 +1,13 @@
 package edu.gatech.donationapp_77;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class LocationActivity extends AppCompatActivity {
 
@@ -12,6 +17,7 @@ public class LocationActivity extends AppCompatActivity {
     private String locLat;
     private String locLong;
     private String locType;
+    private ArrayList<Item> inventory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,6 +25,14 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_location);
 
         getIncomingIntent();
+
+        Button inventoryButton = (Button) findViewById(R.id.inventoryButton);
+        inventoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewInventory();
+            }
+        });
     }
 
     private void getIncomingIntent() {
@@ -32,6 +46,8 @@ public class LocationActivity extends AppCompatActivity {
             locLat = getIntent().getStringExtra("loc_lat");
             locLong = getIntent().getStringExtra("loc_long");
             locType = getIntent().getStringExtra("loc_type");
+            inventory = (ArrayList) Location.getSelectedLoc().getInventory();
+            //inventory = getIntent().getParcelableArrayListExtra("inventory");
 
             setLocData(locName, locAddress, locPhone, locLat, locLong, locType);
         }
@@ -51,6 +67,12 @@ public class LocationActivity extends AppCompatActivity {
         latitude.setText("Latitude: " + locLat);
         longitude.setText("Longitude: " + locLong);
         locationType.setText("Location Type: " + locType);
+    }
+
+    private void viewInventory() {
+        Intent intent = new Intent(LocationActivity.this, InventoryListActivity.class);
+        //intent.putParcelableArrayListExtra("inventory", inventory);
+        startActivity(intent);
     }
 
 }

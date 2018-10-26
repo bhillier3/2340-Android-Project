@@ -28,10 +28,7 @@ public class CSVParser {
                                                 elements[4], elements[9]);
 
             Location.addToLocationList(tempLoc);
-            System.out.println(Location.getLocationList());
         }
     }
-
-
 
 }
