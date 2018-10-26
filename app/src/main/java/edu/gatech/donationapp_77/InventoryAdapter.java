@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.InventoryViewHolder> {
     private ArrayList<Item> inventory;
@@ -33,9 +34,13 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, InventoryListActivity.class);
+                Intent intent = new Intent(context, DonationDetailActivity.class);
                 // Put extras for item view here
-
+                intent.putExtra("itemName", inventory.get(position).getName());
+                intent.putExtra("itemQty", inventory.get(position).getQuantity());
+                intent.putExtra("itemValue", inventory.get(position).getValue());
+                intent.putExtra("itemDesc", inventory.get(position).getDescription());
+                intent.putExtra("itemComments", inventory.get(position).getComments());
                 // Start new activity
                 context.startActivity(intent);
             }

@@ -42,6 +42,7 @@
             android:name=".MakeDonationActivity"
             android:label="Donate" />
         <activity android:name=".DonationDetailActivity"></activity>
+        <activity android:name=".InventoryListActivity" />
     </application>
 
 </manifest>

@@ -54,12 +54,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void register() {
-//        String name = usernameText.getText().toString();
+        String name = usernameText.getText().toString();
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
         UserType type = (UserType) typeSpinner.getSelectedItem();
 
-        User newUser = new User("Temp name", email, password, type);
+        User newUser = new User(name, email, password, type, null);
 
         if (email.length() > 0 && password.length() > 0) {
 

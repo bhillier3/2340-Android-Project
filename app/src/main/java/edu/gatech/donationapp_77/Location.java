@@ -5,10 +5,11 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 public class Location implements Parcelable {
 
-    private ArrayList<Item> inventory;
+    private List<Item> inventory;
     private LocationType type;
     private String name;
     private String latitude;
@@ -37,6 +38,7 @@ public class Location implements Parcelable {
         latitude = in.readString();
         longitude = in.readString();
         type = LocationType.valueOf(in.readString());
+        inventory = in.createTypedArrayList(Item.CREATOR);
     }
 
     public static void addToLocationList(Location l) {
@@ -51,7 +53,7 @@ public class Location implements Parcelable {
         return locationSet;
     }
 
-    public ArrayList<Item> getInventory() { return inventory; }
+    public List<Item> getInventory() { return inventory; }
 
     public LocationType getType() {
         return type;
@@ -132,7 +134,7 @@ public class Location implements Parcelable {
         dest.writeString(latitude);
         dest.writeString(longitude);
         dest.writeString(type.toString());
-//        dest.writeParcelableArray((Item[]) inventory.toArray(), 0);
+        dest.writeTypedList(inventory);
     }
 
     public static final Creator<Location> CREATOR = new Creator<Location>() {

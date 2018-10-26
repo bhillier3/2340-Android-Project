@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class HomeScreenActivity extends AppCompatActivity {
 
     private TextView welcomeText;
+    private User loggedIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +21,12 @@ public class HomeScreenActivity extends AppCompatActivity {
 
 
         welcomeText = findViewById(R.id.welcomeText);
-        User loggedIn = User.getLoggedInUser();
+        loggedIn = User.getLoggedInUser();
         String welcomeString = "Welcome " + loggedIn.getName() + "!\nUser type: "
                 + loggedIn.getType() + ".";
+        if (loggedIn.getLocation() != null) {
+            welcomeString += "\nLocation: " + loggedIn.getLocation().toString();
+        }
         welcomeText.setText(welcomeString);
 
         logout();
@@ -58,7 +62,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         newDonationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeScreenActivity.this, MakeDonationActivity.class));
+                Intent intent = new Intent(HomeScreenActivity.this, MakeDonationActivity.class);
+                intent.putExtra("location", loggedIn.getLocation());
+                startActivity(intent);
             }
         });
     }

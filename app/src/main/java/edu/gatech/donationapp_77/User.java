@@ -19,10 +19,11 @@ public class User {
         this.password = password;
     }
 
-    public User(String name, String email, String password, UserType type) {
+    public User(String name, String email, String password, UserType type, Location location) {
         this(email, password);
         this.name = name;
         this.type = type;
+        this.location = location;
     }
 
     public String getEmail() {
