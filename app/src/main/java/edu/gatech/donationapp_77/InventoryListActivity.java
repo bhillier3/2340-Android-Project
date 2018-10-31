@@ -21,6 +21,7 @@ public class InventoryListActivity extends AppCompatActivity{
     private LinearLayoutManager invLayoutManager;
     private ArrayList<Item> inventory;
     private Location currentLocation;
+    private Category currentCategory;
     private Spinner locationSpinner;
     private Spinner categorySpinner;
     private Button updateButton;
@@ -57,7 +58,16 @@ public class InventoryListActivity extends AppCompatActivity{
 
     private void updateResults() {
         currentLocation = (Location) locationSpinner.getSelectedItem();
-        inventory = (ArrayList<Item>) currentLocation.getInventory();
+        currentCategory = (Category) categorySpinner.getSelectedItem();
+        ArrayList<Item> tempInventory = (ArrayList<Item>) currentLocation.getInventory();
+        inventory = new ArrayList<Item>();
+
+        for (Item item : tempInventory) {
+            if (item.getCategory().equals(currentCategory)) {
+                inventory.add(item);
+            }
+        }
+
         initRecyclerview();
     }
 
