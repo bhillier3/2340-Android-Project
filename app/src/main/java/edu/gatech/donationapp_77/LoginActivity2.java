@@ -4,6 +4,7 @@ package edu.gatech.donationapp_77;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +30,7 @@ public class LoginActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Dummy Users for testing purposes
+        Log.d("JIM", Location.getLocationList().toString());
         User.addUser(new User("Foo", "foo@example.com", "hello", UserType.EMPLOYEE, Location.getLocationList().get(0)));
         User.addUser(new User("Bar", "bar@example.com", "world", UserType.EMPLOYEE, Location.getLocationList().get(1)));
 

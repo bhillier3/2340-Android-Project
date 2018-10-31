@@ -32,6 +32,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         logout();
         seeLocations();
         newDonation();
+        searchItems();
     }
 
     private void logout() {
@@ -64,6 +65,17 @@ public class HomeScreenActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HomeScreenActivity.this, MakeDonationActivity.class);
                 //intent.putExtra("location", loggedIn.getLocation());
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void searchItems() {
+        Button searchButton = findViewById(R.id.searchItemButton);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreenActivity.this, InventoryListActivity.class);
                 startActivity(intent);
             }
         });

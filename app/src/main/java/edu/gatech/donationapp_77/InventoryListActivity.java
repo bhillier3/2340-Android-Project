@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -19,14 +20,29 @@ public class InventoryListActivity extends AppCompatActivity{
     private InventoryAdapter adapter;
     private LinearLayoutManager invLayoutManager;
     private ArrayList<Item> inventory;
+    private Location currentLocation;
+    private Spinner locationSpinner;
+    private Spinner categorySpinner;
+    private Button updateButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory_list);
         //inventory = getIntent().getParcelableArrayListExtra("inventory");
-        Spinner locationSpinner = (Spinner) findViewById(R.id.locationSpinner);
-        Spinner categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+
+
+
+        locationSpinner = (Spinner) findViewById(R.id.locationSpinner);
+        categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+        updateButton = findViewById(R.id.updateResultsButton);
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateResults();
+            }
+        });
 
         ArrayAdapter<Location> locAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Location.getLocationList());
         locAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -36,7 +52,12 @@ public class InventoryListActivity extends AppCompatActivity{
         catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(catAdapter);
 
-        inventory = (ArrayList<Item>) Location.getSelectedLoc().getInventory();
+        updateResults();
+    }
+
+    private void updateResults() {
+        currentLocation = (Location) locationSpinner.getSelectedItem();
+        inventory = (ArrayList<Item>) currentLocation.getInventory();
         initRecyclerview();
     }
 
