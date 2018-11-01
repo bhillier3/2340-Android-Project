@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -25,6 +27,9 @@ public class InventoryListActivity extends AppCompatActivity{
     private Spinner locationSpinner;
     private Spinner categorySpinner;
     private Button updateButton;
+    private CheckBox categoryCheck;
+    private CheckBox allLocations;
+    private EditText nameSearch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,12 +41,29 @@ public class InventoryListActivity extends AppCompatActivity{
 
         locationSpinner = (Spinner) findViewById(R.id.locationSpinner);
         categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+        nameSearch = findViewById(R.id.itemSearch);
+
         updateButton = findViewById(R.id.updateResultsButton);
 
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updateResults();
+            }
+        });
+
+        allLocations = findViewById(R.id.allLocCheckBox);
+        allLocations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                locCheckBoxChecked();
+            }
+        });
+        categoryCheck = findViewById(R.id.catCheckBox);
+        categoryCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                catCheckBoxChecked();
             }
         });
 
@@ -63,7 +85,9 @@ public class InventoryListActivity extends AppCompatActivity{
         inventory = new ArrayList<Item>();
 
         for (Item item : tempInventory) {
-            if (item.getCategory().equals(currentCategory)) {
+            if (categoryCheck.isChecked() == true && item.getCategory().equals(currentCategory)) {
+                inventory.add(item);
+            } else if (item.getName().contains(nameSearch.getText().toString())) {
                 inventory.add(item);
             }
         }
@@ -77,5 +101,24 @@ public class InventoryListActivity extends AppCompatActivity{
         invRecyclerView.setAdapter(adapter);
         invLayoutManager = new LinearLayoutManager(this);
         invRecyclerView.setLayoutManager(invLayoutManager);
+    }
+
+    private void locCheckBoxChecked() {
+        if (allLocations.isChecked()) {
+            locationSpinner.setEnabled(true);
+            nameSearch.setEnabled(false);
+
+        } else {
+            locationSpinner.setEnabled(false);
+            nameSearch.setEnabled(true);
+        }
+    }
+
+    private void catCheckBoxChecked() {
+        if (categoryCheck.isChecked()) {
+            categorySpinner.setEnabled(false);
+        } else {
+            categorySpinner.setEnabled(true);
+        }
     }
 }
