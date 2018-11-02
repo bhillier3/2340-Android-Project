@@ -17,7 +17,9 @@ import java.io.File;
 public class SplashActivity extends AppCompatActivity {
 
     LocationManagementFacade lmf = LocationManagementFacade.getInstance();
+    UserManagementFacade umf = UserManagementFacade.getInstance();
     File file;
+    File user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,8 @@ public class SplashActivity extends AppCompatActivity {
             public void onClick (View view) {
                 file = new File(getFilesDir(), LocationManagementFacade.DEFAULT_JSON_FILE_NAME);
                 lmf.saveJson(file);
+                user = new File(getFilesDir(), UserManagementFacade.DEFAULT_JSON_FILE_NAME);
+                umf.saveJson(user);
             }
         });
 
@@ -55,6 +59,8 @@ public class SplashActivity extends AppCompatActivity {
             public void onClick (View view) {
                 file = new File(getFilesDir(), LocationManagementFacade.DEFAULT_JSON_FILE_NAME);
                 lmf.loadJson(file);
+                user = new File(getFilesDir(), UserManagementFacade.DEFAULT_JSON_FILE_NAME);
+                umf.loadJson(user);
             }
         });
 

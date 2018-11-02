@@ -15,7 +15,9 @@ public class HomeScreenActivity extends AppCompatActivity {
     private User loggedIn;
 
     LocationManagementFacade lmf = LocationManagementFacade.getInstance();
+    UserManagementFacade umf = UserManagementFacade.getInstance();
     File file;
+    File user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +97,8 @@ public class HomeScreenActivity extends AppCompatActivity {
             public void onClick(View v) {
                 file = new File(getFilesDir(), LocationManagementFacade.DEFAULT_JSON_FILE_NAME);
                 lmf.saveJson(file);
+                user = new File(getFilesDir(), UserManagementFacade.DEFAULT_JSON_FILE_NAME);
+                umf.saveJson(user);
             }
         });
     }
@@ -106,6 +110,8 @@ public class HomeScreenActivity extends AppCompatActivity {
             public void onClick(View v) {
                 file = new File(getFilesDir(), LocationManagementFacade.DEFAULT_JSON_FILE_NAME);
                 lmf.loadJson(file);
+                user = new File(getFilesDir(), UserManagementFacade.DEFAULT_JSON_FILE_NAME);
+                umf.loadJson(user);
             }
         });
     }
