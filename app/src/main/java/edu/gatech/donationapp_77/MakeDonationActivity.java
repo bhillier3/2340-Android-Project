@@ -93,4 +93,5 @@ public class MakeDonationActivity extends AppCompatActivity {
         // Return to home page
         finish();
     }
+
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class User {
 
-    private static ArrayList<User> userList = new ArrayList<User>();
+    private static ArrayList<User> userList = new ArrayList<>();
     private static User loggedInUser;
     private String name;
     private String email;
@@ -24,6 +24,16 @@ public class User {
         this.name = name;
         this.type = type;
         this.location = location;
+    }
+
+    public static ArrayList<User> getInstance() {
+        return userList;
+    }
+
+    public static void updateFromJson(ArrayList lm) {
+        if (lm == null)
+            return;
+        userList = lm;
     }
 
     public String getEmail() {

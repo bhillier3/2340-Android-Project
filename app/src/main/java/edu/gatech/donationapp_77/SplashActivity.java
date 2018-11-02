@@ -1,5 +1,6 @@
 package edu.gatech.donationapp_77;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
@@ -7,10 +8,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import edu.gatech.donationapp_77.LocationManagementFacade;
+import edu.gatech.donationapp_77.Location;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 
 public class SplashActivity extends AppCompatActivity {
+
+    LocationManagementFacade lmf = LocationManagementFacade.getInstance();
+    UserManagementFacade umf = UserManagementFacade.getInstance();
+    File file;
+    File user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +27,8 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         Button loginButton = (Button) findViewById(R.id.loginButton);
         Button registerButton = (Button) findViewById(R.id.registerButton);
+        Button saveJson = (Button) findViewById(R.id.saveJson);
+        Button loadJson = (Button) findViewById(R.id.loadJson);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +41,26 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SplashActivity.this, RegisterActivity.class));
+            }
+        });
+
+        saveJson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                file = new File(getFilesDir(), LocationManagementFacade.DEFAULT_JSON_FILE_NAME);
+                lmf.saveJson(file);
+                user = new File(getFilesDir(), UserManagementFacade.DEFAULT_JSON_FILE_NAME);
+                umf.saveJson(user);
+            }
+        });
+
+        loadJson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                file = new File(getFilesDir(), LocationManagementFacade.DEFAULT_JSON_FILE_NAME);
+                lmf.loadJson(file);
+                user = new File(getFilesDir(), UserManagementFacade.DEFAULT_JSON_FILE_NAME);
+                umf.loadJson(user);
             }
         });
 
