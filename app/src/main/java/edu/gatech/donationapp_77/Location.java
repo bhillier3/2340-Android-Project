@@ -32,15 +32,14 @@ public class Location implements Serializable {
         this.inventory = new ArrayList<Item>();
     }
 
-    public static Location getInstance() {
-        return selectedLoc;
+    public static ArrayList<Location> getInstance() {
+        return locationSet;
     }
 
-    public static void updateFromJson(Location lm) {
+    public static void updateFromJson(ArrayList<Location> lm) {
         if (lm == null)
             return;
-        selectedLoc = lm;
-        locationSet = lm.getLocationSet();
+        locationSet = lm;
     }
 
     public ArrayList<Location> getLocationSet() {
@@ -63,11 +62,9 @@ public class Location implements Serializable {
     */
 
     public static void addToLocationList(Location l) {
-
         if (!locationSet.contains(l)) {
             locationSet.add(l);
         }
-
     }
 
     public static ArrayList<Location> getLocationList() {

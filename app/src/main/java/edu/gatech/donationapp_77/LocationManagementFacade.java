@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,7 +24,7 @@ public class LocationManagementFacade {
     /**
      * the facade maintains references to any required model classes
      */
-    private Location lm;
+    private ArrayList<Location> lm;
 
     /**
      * Singleton pattern
@@ -45,17 +46,17 @@ public class LocationManagementFacade {
      */
     public static LocationManagementFacade getInstance() { return instance; }
 
-    public List<Location> getLocationsAsList() {
-        return lm.getLocationList();
-    }
+//    public List<Location> getLocationsAsList() {
+//        return lm.getLocationList();
+//    }
 
 //    public Location getLocationByName(final String name) {
 //        return lm.getLocationByName(name);
 //    }
 
-    public void addNewLocation(Location location) {
-        lm.addToLocationList(location);
-    }
+//    public void addNewLocation(Location location) {
+//        lm.addToLocationList(location);
+//    }
 
 //    void addLocation(Location location) {
 //        lm.addLocation(location);
@@ -74,7 +75,7 @@ public class LocationManagementFacade {
             //Then we use the Gson library to recreate the object references and links automagically
             Gson gson = new Gson();
 
-            lm = gson.fromJson(inString, Location.class);
+            lm = gson.fromJson(inString, ArrayList.class);
             Location.updateFromJson(lm);
 
             input.close();
@@ -99,7 +100,7 @@ public class LocationManagementFacade {
              */
             Gson gson = new Gson();
             // convert our objects to a string for output
-            String outString = gson.toJson(lm);
+            String outString = gson.toJson(Location.getInstance());
             Log.d("DEBUG", "JSON Saved: " + outString);
             //then just write the string
             writer.println(outString);
