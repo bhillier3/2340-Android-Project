@@ -36,7 +36,7 @@ public class Location implements Serializable {
         return locationSet;
     }
 
-    public static void updateFromJson(ArrayList<Location> lm) {
+    public static void updateFromJson(ArrayList lm) {
         if (lm == null)
             return;
         locationSet = lm;

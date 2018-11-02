@@ -17,6 +17,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
+
 
 public class LocationManagementFacade {
     public final static String DEFAULT_JSON_FILE_NAME = "locations.json";
@@ -24,7 +27,7 @@ public class LocationManagementFacade {
     /**
      * the facade maintains references to any required model classes
      */
-    private ArrayList<Location> lm;
+    private ArrayList lm;
 
     /**
      * Singleton pattern
@@ -73,9 +76,10 @@ public class LocationManagementFacade {
             String inString = input.readLine();
             Log.d("DEBUG", "JSON: " + inString);
             //Then we use the Gson library to recreate the object references and links automagically
+            Type listType = new TypeToken<ArrayList<Location>>(){}.getType();
             Gson gson = new Gson();
 
-            lm = gson.fromJson(inString, ArrayList.class);
+            lm = gson.fromJson(inString, listType);
             Location.updateFromJson(lm);
 
             input.close();
