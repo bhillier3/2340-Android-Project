@@ -31,7 +31,9 @@ public class Location { // implements Parcelable {
         this.inventory = new ArrayList<Item>();
     }
 
-
+    public static Location getInstance() {
+        return selectedLoc;
+    }
 
     /*
     // For Parcelable
