@@ -65,7 +65,7 @@ public class LocationManagementFacade {
 //        lm.removeLocation(location);
 //    }
 
-    public boolean loadJson(File file) {
+    public void loadJson(File file) {
         try {
             BufferedReader input = new BufferedReader(new FileReader(file));
             //Since we saved the json as a string, we just read in the string normally
@@ -75,16 +75,17 @@ public class LocationManagementFacade {
             Gson gson = new Gson();
 
             lm = gson.fromJson(inString, Location.class);
+            Location.updateFromJson(lm);
 
             input.close();
         } catch (IOException e) {
             Log.e("LocationManagementFacad", "Failed to open/read the buffered reader for json");
-            return false;
+//            return false;
         }
-        return true;
+//        return true;
     }
 
-    public boolean saveJson(File file ) {
+    public void saveJson(File file) {
         try {
             PrintWriter writer = new PrintWriter(file);
             /*
@@ -105,8 +106,8 @@ public class LocationManagementFacade {
             writer.close();
         } catch (FileNotFoundException e) {
             Log.e("LocationManagementFacad", "Failed to open json file for output");
-            return false;
+//            return false;
         }
-        return true;
+//        return true;
     }
 }

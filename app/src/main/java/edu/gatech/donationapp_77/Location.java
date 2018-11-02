@@ -3,11 +3,12 @@ package edu.gatech.donationapp_77;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class Location { // implements Parcelable {
+public class Location implements Serializable {
 
     private List<Item> inventory;
     private LocationType type;
@@ -33,6 +34,19 @@ public class Location { // implements Parcelable {
 
     public static Location getInstance() {
         return selectedLoc;
+    }
+
+    public static void updateFromJson(Location lm) {
+        if (lm == null)
+            return;
+        selectedLoc = lm;
+        locationSet = lm.getLocationSet();
+    }
+
+    public ArrayList<Location> getLocationSet() {
+        if (locationSet == null)
+            return null;
+        return locationSet;
     }
 
     /*

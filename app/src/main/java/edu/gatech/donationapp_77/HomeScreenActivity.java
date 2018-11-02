@@ -7,10 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.File;
+
 public class HomeScreenActivity extends AppCompatActivity {
 
     private TextView welcomeText;
     private User loggedIn;
+
+    LocationManagementFacade lmf = LocationManagementFacade.getInstance();
+    File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class HomeScreenActivity extends AppCompatActivity {
         seeLocations();
         newDonation();
         searchItems();
+        saveData();
+        loadData();
     }
 
     private void logout() {
@@ -81,5 +88,25 @@ public class HomeScreenActivity extends AppCompatActivity {
         });
     }
 
+    private void saveData() {
+        Button searchButton = findViewById(R.id.saveData);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                file = new File(getFilesDir(), LocationManagementFacade.DEFAULT_JSON_FILE_NAME);
+                lmf.saveJson(file);
+            }
+        });
+    }
 
+    private void loadData() {
+        Button searchButton = findViewById(R.id.loadData);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                file = new File(getFilesDir(), LocationManagementFacade.DEFAULT_JSON_FILE_NAME);
+                lmf.loadJson(file);
+            }
+        });
+    }
 }
