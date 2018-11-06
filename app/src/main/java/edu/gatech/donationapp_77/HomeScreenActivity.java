@@ -42,6 +42,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         searchItems();
         saveData();
         loadData();
+        viewMap();
     }
 
     private void logout() {
@@ -112,6 +113,17 @@ public class HomeScreenActivity extends AppCompatActivity {
                 lmf.loadJson(file);
                 user = new File(getFilesDir(), UserManagementFacade.DEFAULT_JSON_FILE_NAME);
                 umf.loadJson(user);
+            }
+        });
+    }
+
+    private void viewMap() {
+        Button mapButton = findViewById(R.id.mapButton);
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreenActivity.this, MapsActivity.class);
+                startActivity(intent);
             }
         });
     }
