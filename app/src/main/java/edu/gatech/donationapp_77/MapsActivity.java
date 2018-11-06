@@ -28,25 +28,38 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
+     * This is where we can add markers or lines, add listeners or move the camera.
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        // the map object
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
+        // we use these to set the map to the center (average) of all locations
+        double avgLat = 0;
+        double avgLon = 0;
+
+
+        // iterate through the list of locations and add them to the map as mapMarker objects
+        // also add their lat/lon to the avg to be used for centering the map later
         for (Location loc : Location.getLocationList()) {
             LatLng newLtLng = new LatLng(Double.parseDouble(loc.getLatitude()), Double.parseDouble(loc.getLongitude()));
             mMap.addMarker(new MarkerOptions().position(newLtLng).title(loc.getName()).snippet(loc.getPhoneNumber()));
-            //mMap.moveCamera(CameraUpdateFactory.newLatLng(newLtLng));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newLtLng, 10));
+            avgLat += Double.parseDouble(loc.getLatitude());
+            avgLon += Double.parseDouble(loc.getLongitude());
         }
-        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        // updating the avgLat/Lon by dividing by the number of locations
+        avgLat = avgLat / Location.getLocationList().size();
+        avgLon = avgLon / Location.getLocationList().size();
+
+        // create the object representing the "center" of all locations
+        // and set the camera there
+        LatLng center = new LatLng(avgLat, avgLon);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 10.5f));
+
     }
 }
