@@ -13,7 +13,8 @@
         android:layout_marginRight="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginTop="10dp"
-        android:hint="Search for item here"/>
+        android:hint="Search for item here"
+        android:inputType="textPersonName"/>
 
     <Spinner
         android:id="@+id/locationSpinner"

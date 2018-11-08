@@ -4,7 +4,7 @@ package edu.gatech.donationapp_77;
 
 public class CSVParser {
 
-    String csv;
+    private final String csv;
 
     public CSVParser(String csvRep) {
         this.csv = csvRep;
@@ -14,7 +14,7 @@ public class CSVParser {
         String[] lines = csv.split("\n");
         for (int i = 1; i < lines.length; i++) {
             String[] elements = lines[i].split(",");
-            // default locationtype, to be overwritten later if needed
+            // default location type, to be overwritten later if needed
             LocationType tempLocType = LocationType.STORE;
 
 

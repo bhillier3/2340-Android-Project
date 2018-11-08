@@ -8,16 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LocationActivity extends AppCompatActivity {
-
-    private String locName;
-    private String locAddress;
-    private String locPhone;
-    private String locLat;
-    private String locLong;
-    private String locType;
-    private ArrayList<Item> inventory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,7 +19,7 @@ public class LocationActivity extends AppCompatActivity {
 
         getIncomingIntent();
 
-        Button inventoryButton = (Button) findViewById(R.id.inventoryButton);
+        Button inventoryButton = findViewById(R.id.inventoryButton);
         inventoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,20 +33,20 @@ public class LocationActivity extends AppCompatActivity {
         if (getIntent().hasExtra("loc_name") &&
                 getIntent().hasExtra("loc_address") &&
                 getIntent().hasExtra("loc_phone")) {
-            locName = getIntent().getStringExtra("loc_name");
-            locAddress = getIntent().getStringExtra("loc_address");
-            locPhone = getIntent().getStringExtra("loc_phone");
-            locLat = getIntent().getStringExtra("loc_lat");
-            locLong = getIntent().getStringExtra("loc_long");
-            locType = getIntent().getStringExtra("loc_type");
-            inventory = (ArrayList) Location.getSelectedLoc().getInventory();
+            String locName = getIntent().getStringExtra("loc_name");
+            String locAddress = getIntent().getStringExtra("loc_address");
+            String locPhone = getIntent().getStringExtra("loc_phone");
+            String locLat = getIntent().getStringExtra("loc_lat");
+            String locLong = getIntent().getStringExtra("loc_long");
+            String locType = getIntent().getStringExtra("loc_type");
+            List<Item> inventory = (ArrayList) Location.getSelectedLoc().getInventory();
             //inventory = getIntent().getParcelableArrayListExtra("inventory");
 
             setLocData(locName, locAddress, locPhone, locLat, locLong, locType);
         }
     }
 
-    private void setLocData(String locName, String locAddress, String locPhone, String locLat, String locLong, String locType) {
+    private void setLocData(CharSequence locName, String locAddress, String locPhone, String locLat, String locLong, String locType) {
         TextView name = findViewById(R.id.loc_name);
         TextView address = findViewById(R.id.loc_address);
         TextView phone = findViewById(R.id.loc_phone);

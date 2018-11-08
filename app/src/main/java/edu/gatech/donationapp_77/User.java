@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Model class - POJO representing a user
+ */
 public class User {
 
     private static ArrayList<User> userList = new ArrayList<>();
@@ -14,11 +17,24 @@ public class User {
     private UserType type;
     private Location location;
 
+    /**
+     * Simplest constructor - only takes in a email and password
+     * @param email the email of the user
+     * @param password the password of the user
+     */
     public User(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
+    /**
+     * More complex constructor - sets all fields
+     * @param name the name
+     * @param email the email
+     * @param password the password
+     * @param type the type
+     * @param location the location assigned to a location employee
+     */
     public User(String name, String email, String password, UserType type, Location location) {
         this(email, password);
         this.name = name;
@@ -26,60 +42,124 @@ public class User {
         this.location = location;
     }
 
+    /**
+     * Returns an instance of the static userlist
+     * @return the instance
+     */
     public static ArrayList<User> getInstance() {
         return userList;
     }
 
+    /**
+     * Pulls data from the json file for loading data
+     * @param lm the arraylist returned from the json file
+     */
     public static void updateFromJson(ArrayList lm) {
         if (lm == null)
             return;
         userList = lm;
     }
 
+    /**
+     * Getter for email
+     * @return the string of the email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * The getter for the password
+     * @return string password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Getter for the type
+     * @return the type
+     */
     public UserType getType() {
         return type;
     }
 
+    /**
+     * Getter for the name
+     * @return the name
+     */
     public String getName() { return name; }
 
-    public void setEmail(String newPassword) {
+    /**
+     * Setter for the password
+     * @param newPassword new password
+     */
+    public void setPassword(String newPassword) {
         password = newPassword;
     }
 
-    public void setPassword(String newEmail) {
+    /**
+     * Setter for the email
+     * @param newEmail new email
+     */
+    public void setEmail(String newEmail) {
         email = newEmail;
     }
 
+    /**
+     * Setter for the type
+     * @param newType new type
+     */
     public void setType(UserType newType) {
         this.type = newType;
     }
 
+    /**
+     * Setter for the name
+     * @param name new name
+     */
     public void setName(String name) { this.name = name; }
 
+    /**
+     * Getter for the location
+     * @return the location
+     */
     public Location getLocation() { return location; }
 
+    /**
+     * Setter for the location
+     * @param location new location
+     */
     public void setLocation(Location location) { this.location = location; }
 
+    /**
+     * Static method to add a user to the data structure
+     * @param newUser new user
+     */
     public static void addUser(User newUser) {
         userList.add(newUser);
     }
 
+    /**
+     * Static method to get the data structure
+     * @return the data structure
+     */
     public static List<User> getUserList() {
         return userList;
     }
 
+    /**
+     * Static method to get the currently logged in user
+     * @return the currently logged in user
+     */
     public static User getLoggedInUser() {
         return User.loggedInUser;
     }
 
+    /**
+     * Set the logged in user (static)
+     * @param newUser the new user
+     */
     public static void setLoggedInUser(User newUser) {
         User.loggedInUser = newUser;
     }

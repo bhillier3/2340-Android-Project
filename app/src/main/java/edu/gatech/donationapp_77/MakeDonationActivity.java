@@ -26,15 +26,15 @@ public class MakeDonationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_donation);
 
-        // grab the View's interactables
-        Button cancel = (Button) findViewById(R.id.cancelButton);
-        Button submit = (Button) findViewById(R.id.donateButton);
-        quantitySpinner = (Spinner) findViewById(R.id.quantitySpinner);
-        categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
-        name = (EditText) findViewById(R.id.itemName);
-        value = (EditText) findViewById(R.id.valueInput);
-        description = (EditText) findViewById(R.id.description);
-        comments = (EditText) findViewById(R.id.comments);
+        // grab the View's elements
+        Button cancel = findViewById(R.id.cancelButton);
+        Button submit = findViewById(R.id.donateButton);
+        quantitySpinner = findViewById(R.id.quantitySpinner);
+        categorySpinner = findViewById(R.id.categorySpinner);
+        name = findViewById(R.id.itemName);
+        value = findViewById(R.id.valueInput);
+        description = findViewById(R.id.description);
+        comments = findViewById(R.id.comments);
         locSpinner = findViewById(R.id.locSpinner);
 
         // Set quantitySpinner drop down view
@@ -83,7 +83,7 @@ public class MakeDonationActivity extends AppCompatActivity {
 
         // Add item to location's inventory
         if (getIntent().hasExtra("location")) {
-            Location location = (Location) getIntent().getParcelableExtra("location");
+            Location location = getIntent().getParcelableExtra("location");
             location.getInventory().add(item);
         } else {
             Location foundLoc = (Location) locSpinner.getSelectedItem();

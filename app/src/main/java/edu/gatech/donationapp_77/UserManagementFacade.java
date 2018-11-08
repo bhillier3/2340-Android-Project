@@ -77,7 +77,7 @@ public class UserManagementFacade {
 
             input.close();
         } catch (IOException e) {
-            Log.e("LocationManagementFacad", "Failed to open/read the buffered reader for json");
+            Log.e("LocationManageFacad", "Failed to open/read the buffered reader for json");
 //            return false;
         }
 //        return true;

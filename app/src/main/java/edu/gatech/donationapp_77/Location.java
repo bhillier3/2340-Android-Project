@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class Location implements Serializable {
         this.longitude = longitude;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.inventory = new ArrayList<Item>();
+        this.inventory = new ArrayList<>();
     }
 
     public static ArrayList<Location> getInstance() {
@@ -79,7 +80,7 @@ public class Location implements Serializable {
         return selectedLoc;
     }
 
-    public List<Item> getInventory() { return inventory; }
+    public Collection<Item> getInventory() { return inventory; }
 
     public LocationType getType() {
         return type;

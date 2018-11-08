@@ -19,8 +19,6 @@ import java.util.List;
  */
 public class LoginActivity2 extends AppCompatActivity {
 
-    private Button signInButton;
-    private Button cancelButton;
     private EditText emailText;
     private EditText passwordText;
 
@@ -30,14 +28,13 @@ public class LoginActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Dummy Users for testing purposes
-        Log.d("JIM", Location.getLocationList().toString());
         User.addUser(new User("Foo", "foo@example.com", "hello", UserType.EMPLOYEE, Location.getLocationList().get(0)));
         User.addUser(new User("Bar", "bar@example.com", "world", UserType.EMPLOYEE, Location.getLocationList().get(1)));
 
-        signInButton = (Button) findViewById(R.id.email_sign_in_button);
-        cancelButton = (Button) findViewById(R.id.cancel_button);
-        emailText = (EditText) findViewById(R.id.email);
-        passwordText = (EditText) findViewById(R.id.password);
+        Button signInButton = findViewById(R.id.email_sign_in_button);
+        Button cancelButton = findViewById(R.id.cancel_button);
+        emailText = findViewById(R.id.email);
+        passwordText = findViewById(R.id.password);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +50,6 @@ public class LoginActivity2 extends AppCompatActivity {
             }
         });
 
-        System.out.println(User.getUserList());
     }
 
     private void login() {

@@ -12,18 +12,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocViewHolder> {
 
-    private ArrayList<Location> locationSet = new ArrayList<>();
+    private List<Location> locationSet = new ArrayList<>();
     private Context context;
 
     public class LocViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public TextView locTextView;
+        TextView locTextView;
         RelativeLayout parentLayout;
 
-        public LocViewHolder(View v) {
+        LocViewHolder(View v) {
             super(v);
             locTextView = v.findViewById(R.id.loc_name);
             parentLayout = v.findViewById(R.id.parent_layout);
@@ -41,13 +42,12 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
     public LocViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.recycler_loc_view, viewGroup, false);
-        LocViewHolder vh = new LocViewHolder(v);
-        return vh;
+        return new LocViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(LocViewHolder holder, final int position) {
-        // - get element from your dataset at this position
+        // - get element from your data set at this position
         // - replace the contents of the view with that element
         holder.locTextView.setText(locationSet.get(position).getName());
 
