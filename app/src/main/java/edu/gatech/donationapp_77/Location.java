@@ -134,6 +134,7 @@ public class Location implements Serializable {
     @Override
     public boolean equals(Object other) {
         // Basic equality checks
+        if (other == null) { return false; }
         if (this == other) { return true; }
         if (!(other instanceof Location)) { return false; }
 
