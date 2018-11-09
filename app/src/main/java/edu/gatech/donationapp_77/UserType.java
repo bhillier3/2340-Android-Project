@@ -2,11 +2,11 @@ package edu.gatech.donationapp_77;
 
 public enum UserType {
     GENERAL("Public User"),
-    ADMIN("Adminstrator"),
+    ADMIN("Administrator"),
     MANAGER("Manager"),
     EMPLOYEE("Location Employee");
 
-    private String stringRep;
+    private final String stringRep;
 
     UserType(String desc) {
         stringRep = desc;

@@ -17,19 +17,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class InventoryListActivity extends AppCompatActivity{
 
     private RecyclerView invRecyclerView;
-    private InventoryAdapter adapter;
-    private LinearLayoutManager invLayoutManager;
     private ArrayList<Item> inventory;
-    private Location currentLocation;
-    private Category currentCategory;
     private Spinner locationSpinner;
     private Spinner categorySpinner;
-    private Button updateButton;
     private CheckBox categoryCheck;
     private CheckBox allLocations;
     private EditText nameSearch;
@@ -43,14 +39,14 @@ public class InventoryListActivity extends AppCompatActivity{
 
 
 
-        locationSpinner = (Spinner) findViewById(R.id.locationSpinner);
-        categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+        locationSpinner = findViewById(R.id.locationSpinner);
+        categorySpinner = findViewById(R.id.categorySpinner);
         categorySpinner.setEnabled(false);
         nameSearch = findViewById(R.id.itemSearch);
         noResults = findViewById(R.id.noResults);
         noResults.setVisibility(View.INVISIBLE);
 
-        updateButton = findViewById(R.id.updateResultsButton);
+        Button updateButton = findViewById(R.id.updateResultsButton);
 
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,10 +71,10 @@ public class InventoryListActivity extends AppCompatActivity{
     }
 
     private void updateResults() {
-        currentLocation = (Location) locationSpinner.getSelectedItem();
-        currentCategory = (Category) categorySpinner.getSelectedItem();
+        Location currentLocation = (Location) locationSpinner.getSelectedItem();
+        Category currentCategory = (Category) categorySpinner.getSelectedItem();
 
-        ArrayList<Item> tempInventory = new ArrayList<>();
+        Collection<Item> tempInventory = new ArrayList<>();
 
         if (allLocations.isChecked()) {
             tempInventory = new ArrayList<>();
@@ -86,11 +82,11 @@ public class InventoryListActivity extends AppCompatActivity{
                 tempInventory.addAll(loc.getInventory());
             }
         } else {
-            tempInventory = (ArrayList<Item>) currentLocation.getInventory();
+            tempInventory = currentLocation.getInventory();
         }
 
 
-        inventory = new ArrayList<Item>();
+        inventory = new ArrayList<>();
 
         for (Item item : tempInventory) {
             if (categoryCheck.isChecked() && item.getCategory().equals(currentCategory)) {
@@ -115,9 +111,9 @@ public class InventoryListActivity extends AppCompatActivity{
 
     private void initRecyclerview() {
         invRecyclerView = findViewById(R.id.invRecView);
-        adapter = new InventoryAdapter(inventory, this);
+        InventoryAdapter adapter = new InventoryAdapter(inventory, this);
         invRecyclerView.setAdapter(adapter);
-        invLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager invLayoutManager = new LinearLayoutManager(this);
         invRecyclerView.setLayoutManager(invLayoutManager);
     }
 

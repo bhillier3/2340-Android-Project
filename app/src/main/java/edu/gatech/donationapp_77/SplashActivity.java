@@ -14,21 +14,24 @@ import edu.gatech.donationapp_77.Location;
 import java.io.BufferedInputStream;
 import java.io.File;
 
+/**
+ * The first activity the user encounters. They can login or register
+ */
 public class SplashActivity extends AppCompatActivity {
 
-    LocationManagementFacade lmf = LocationManagementFacade.getInstance();
-    UserManagementFacade umf = UserManagementFacade.getInstance();
-    File file;
-    File user;
+    private LocationManagementFacade lmf = LocationManagementFacade.getInstance();
+    private UserManagementFacade umf = UserManagementFacade.getInstance();
+    private File file;
+    private File user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        Button loginButton = (Button) findViewById(R.id.loginButton);
-        Button registerButton = (Button) findViewById(R.id.registerButton);
-        Button saveJson = (Button) findViewById(R.id.saveJson);
-        Button loadJson = (Button) findViewById(R.id.loadJson);
+        Button loginButton = findViewById(R.id.loginButton);
+        Button registerButton = findViewById(R.id.registerButton);
+        Button saveJson = findViewById(R.id.saveJson);
+        Button loadJson = findViewById(R.id.loadJson);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,8 +74,8 @@ public class SplashActivity extends AppCompatActivity {
             AssetManager.AssetInputStream stream =  (AssetManager.AssetInputStream) assetManager.open("LocationData.csv");
             StringBuilder wholeCSV = new StringBuilder();
 
-            // seperating the stream result into int and char
-            // int for checking for -1, char for adding to stringbuilder
+            // separating the stream result into int and char
+            // int for checking for -1, char for adding to string builder
             int streamInt = stream.read();
             char streamChar = (char) streamInt;
 
@@ -90,7 +93,6 @@ public class SplashActivity extends AppCompatActivity {
             parser.createLocations();
 
         } catch (Exception e) {
-            System.out.println("Error starts here:");
             e.printStackTrace();
         }
 

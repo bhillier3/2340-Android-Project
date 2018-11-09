@@ -9,15 +9,15 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * The activity that the user will use to get to other activities in the app
+ */
 public class HomeScreenActivity extends AppCompatActivity {
 
-    private TextView welcomeText;
-    private User loggedIn;
-
-    LocationManagementFacade lmf = LocationManagementFacade.getInstance();
-    UserManagementFacade umf = UserManagementFacade.getInstance();
-    File file;
-    File user;
+    private LocationManagementFacade lmf = LocationManagementFacade.getInstance();
+    private UserManagementFacade umf = UserManagementFacade.getInstance();
+    private File file;
+    private File user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +26,8 @@ public class HomeScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
 
 
-
-        welcomeText = findViewById(R.id.welcomeText);
-        loggedIn = User.getLoggedInUser();
+        TextView welcomeText = findViewById(R.id.welcomeText);
+        User loggedIn = User.getLoggedInUser();
         String welcomeString = "Welcome " + loggedIn.getName() + "!\nUser type: "
                 + loggedIn.getType() + ".";
         if (loggedIn.getLocation() != null) {
@@ -42,10 +41,11 @@ public class HomeScreenActivity extends AppCompatActivity {
         searchItems();
         saveData();
         loadData();
+        viewMap();
     }
 
     private void logout() {
-        Button logoutButton = (Button) findViewById(R.id.logoutButton);
+        Button logoutButton = findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +57,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     private void seeLocations() {
-        Button locationButton = (Button) findViewById(R.id.locButton);
+        Button locationButton = findViewById(R.id.locButton);
         locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +112,17 @@ public class HomeScreenActivity extends AppCompatActivity {
                 lmf.loadJson(file);
                 user = new File(getFilesDir(), UserManagementFacade.DEFAULT_JSON_FILE_NAME);
                 umf.loadJson(user);
+            }
+        });
+    }
+
+    private void viewMap() {
+        Button mapButton = findViewById(R.id.mapButton);
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreenActivity.this, MapsActivity.class);
+                startActivity(intent);
             }
         });
     }
