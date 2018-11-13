@@ -77,7 +77,7 @@ public class LoginActivity2 extends AppCompatActivity {
         }
     }
 
-    private boolean isValidPassword(User user) {
+    public static boolean isValidPassword(User user) {
         return User.getUserList().contains(user);
     }
 }
