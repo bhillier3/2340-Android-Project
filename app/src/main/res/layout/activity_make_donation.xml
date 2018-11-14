@@ -54,6 +54,7 @@
         android:layout_alignBaseline="@+id/value"
         android:layout_marginLeft="3dp"
         android:layout_marginStart="3dp"
+        android:hint="e.g. 5"
         android:inputType="numberDecimal"/>
 
     <TextView

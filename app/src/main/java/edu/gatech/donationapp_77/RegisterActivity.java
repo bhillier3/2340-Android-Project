@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Button registerButton;
-    private Button cancelButton;
     private EditText usernameText;
     private EditText emailText;
     private EditText passwordText;
@@ -26,8 +24,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        registerButton = findViewById(R.id.regButton);
-        cancelButton = findViewById(R.id.canButton);
+        Button registerButton = findViewById(R.id.regButton);
+        Button cancelButton = findViewById(R.id.canButton);
         usernameText = findViewById(R.id.editTextName);
         emailText = findViewById(R.id.editTextEmail);
         passwordText = findViewById(R.id.editTextPass);
@@ -67,7 +65,6 @@ public class RegisterActivity extends AppCompatActivity {
                 emailText.setError("This user already exists. Did you mean to login?");
             } else {
                 User.addUser(newUser);
-                System.out.println(User.getUserList());
 
                 // log in
                 User.setLoggedInUser(newUser);

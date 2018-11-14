@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.InventoryViewHolder> {
-    private ArrayList<Item> inventory;
+    private List<Item> inventory;
     private Context context;
 
     @NonNull
@@ -23,8 +23,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
     public InventoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.recycler_inventory_view, viewGroup, false);
-        InventoryViewHolder vh = new InventoryViewHolder(v);
-        return vh;
+        return new InventoryViewHolder(v);
     }
 
     @Override
@@ -55,11 +54,11 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
     }
 
     public class InventoryViewHolder extends RecyclerView.ViewHolder {
-        public TextView itemName;
-        public TextView itemDesc;
+        TextView itemName;
+        TextView itemDesc;
         RelativeLayout parentLayout;
 
-        public InventoryViewHolder(View view) {
+        InventoryViewHolder(View view) {
             super(view);
             itemName = view.findViewById(R.id.itemName);
             itemDesc = view.findViewById(R.id.itemDescription);
@@ -67,7 +66,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
         }
     }
 
-    public InventoryAdapter(ArrayList<Item> inventory, Context context) {
+    public InventoryAdapter(List<Item> inventory, Context context) {
         this.inventory = inventory;
         this.context = context;
     }
