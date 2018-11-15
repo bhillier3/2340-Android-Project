@@ -98,7 +98,7 @@ public class InventoryListActivity extends AppCompatActivity{
             }
         }
 
-        if (inventory.size() == 0) {
+        if (inventory.isEmpty()) {
             noResults.setVisibility(View.VISIBLE);
             invRecyclerView.setVisibility(View.INVISIBLE);
         } else {

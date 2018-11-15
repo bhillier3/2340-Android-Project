@@ -39,8 +39,6 @@ public class CSVParserTest {
 
         assertEquals(comparer, Location.getLocationList());
 
-        Location.getLocationList().clear();
-
     }
 
     @Test
@@ -79,7 +77,6 @@ public class CSVParserTest {
 
         assertEquals(testError.getError(), false);
 
-        Location.getLocationList().clear();
     }
 
 }

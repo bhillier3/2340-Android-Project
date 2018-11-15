@@ -15,7 +15,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class UserManagementFacade {
-    public final static String DEFAULT_JSON_FILE_NAME = "users.json";
+    public static final String DEFAULT_JSON_FILE_NAME = "users.json";
 
     /**
      * the facade maintains references to any required model classes
@@ -25,7 +25,7 @@ public class UserManagementFacade {
     /**
      * Singleton pattern
      */
-    private static UserManagementFacade instance = new UserManagementFacade();
+    private static final UserManagementFacade instance = new UserManagementFacade();
 
     /**
      * private constructor for facade pattern

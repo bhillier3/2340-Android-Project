@@ -55,8 +55,9 @@ public class User {
      * @param lm the arraylist returned from the json file
      */
     public static void updateFromJson(ArrayList lm) {
-        if (lm == null)
+        if (lm == null) {
             return;
+        }
         userList = lm;
     }
 
@@ -175,7 +176,9 @@ public class User {
         if (this == other) { return true; }
         if (!(other instanceof User)) { return false; }
         User that = (User) other;
-        return (this.getEmail().equals(that.getEmail())
-                && this.getPassword().equals(that.password));
+        String thisEmail = this.getEmail();
+        String thisPassword = this.getPassword();
+        return (thisEmail.equals(that.getEmail())
+                && thisPassword.equals(that.password));
     }
 }

@@ -22,7 +22,7 @@ import com.google.gson.reflect.TypeToken;
 
 
 public class LocationManagementFacade {
-    public final static String DEFAULT_JSON_FILE_NAME = "locations.json";
+    public static final String DEFAULT_JSON_FILE_NAME = "locations.json";
 
     /**
      * the facade maintains references to any required model classes
@@ -32,7 +32,7 @@ public class LocationManagementFacade {
     /**
      * Singleton pattern
      */
-    private static LocationManagementFacade instance = new LocationManagementFacade();
+    private static final LocationManagementFacade instance = new LocationManagementFacade();
 
     /**
      * private constructor for facade pattern

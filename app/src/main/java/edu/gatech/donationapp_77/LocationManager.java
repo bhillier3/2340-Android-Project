@@ -7,7 +7,7 @@ import java.util.List;
 
 class LocationManager implements Serializable {
 
-    private Collection<Location> locations = new ArrayList<>();
+    private final Collection<Location> locations = new ArrayList<>();
 
     public void addLocation(Location location) {
         locations.add(location);

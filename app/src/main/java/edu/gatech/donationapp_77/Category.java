@@ -11,7 +11,7 @@ public enum Category {
     TOYS("toys"),
     MISC("miscellaneous");
 
-    private String stringRep;
+    private final String stringRep;
 
     Category(String category) {
         stringRep = category;

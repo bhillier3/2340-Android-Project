@@ -58,7 +58,7 @@ public class LoginActivity2 extends AppCompatActivity {
         String password = passwordText.getText().toString();
         User givenUser = new User(email, password);
 
-        if (email.length() > 0 && password.length() > 0) {
+        if (!(email.isEmpty()) && !(password.isEmpty())) {
 //      Check that email and password match.
             if (!isValidPassword(givenUser)) {
                 passwordText.setError("Email/password combo does not match.");

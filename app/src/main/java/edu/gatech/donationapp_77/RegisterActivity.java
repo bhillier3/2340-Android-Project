@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         User newUser = new User(name, email, password, type, null);
 
-        if (email.length() > 0 && password.length() > 0) {
+        if (!(email.isEmpty()) && !(password.isEmpty())) {
 
             if (User.getUserList().contains(newUser)) {
                 emailText.setError("This user already exists. Did you mean to login?");
@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                 passwordText.getText().clear();
             }
 
-        } else if (email.length() < 1 && password.length() < 1) {
+        } else if ((email.length() < 1) && (password.length() < 1)) {
             emailText.setError("Please enter an email");
             passwordText.setError("Please enter a password");
         } else {

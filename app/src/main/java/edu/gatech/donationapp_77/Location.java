@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Location implements Serializable {
 
-    private List<Item> inventory;
+    private final List<Item> inventory;
     private LocationType type;
     private String name;
     private String latitude;
@@ -38,14 +38,16 @@ public class Location implements Serializable {
     }
 
     public static void updateFromJson(ArrayList lm) {
-        if (lm == null)
+        if (lm == null) {
             return;
+        }
         locationSet = lm;
     }
 
     public ArrayList<Location> getLocationSet() {
-        if (locationSet == null)
+        if (locationSet == null) {
             return null;
+        }
         return locationSet;
     }
 

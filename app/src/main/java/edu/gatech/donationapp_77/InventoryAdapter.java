@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.InventoryViewHolder> {
-    private List<Item> inventory;
-    private Context context;
+    private final List<Item> inventory;
+    private final Context context;
 
     @NonNull
     @Override
@@ -28,20 +28,21 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
 
     @Override
     public void onBindViewHolder(@NonNull InventoryViewHolder holder, final int position) {
-        holder.itemName.setText(inventory.get(position).getName());
-        holder.itemDesc.setText(inventory.get(position).getDescription());
+        final Item gotten = inventory.get(position);
+        holder.itemName.setText(gotten.getName());
+        holder.itemDesc.setText(gotten.getDescription());
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DonationDetailActivity.class);
                 // Put extras for item view here
-                intent.putExtra("itemName", inventory.get(position).getName());
-                intent.putExtra("itemQty", inventory.get(position).getQuantity());
-                intent.putExtra("itemValue", inventory.get(position).getValue());
-                intent.putExtra("itemDesc", inventory.get(position).getDescription());
-                intent.putExtra("itemComments", inventory.get(position).getComments());
-                intent.putExtra("itemCategory", inventory.get(position).getCategory().toString());
+                intent.putExtra("itemName", gotten.getName());
+                intent.putExtra("itemQty", gotten.getQuantity());
+                intent.putExtra("itemValue", gotten.getValue());
+                intent.putExtra("itemDesc", gotten.getDescription());
+                intent.putExtra("itemComments", gotten.getComments());
+                intent.putExtra("itemCategory", gotten.getCategory().toString());
                 // Start new activity
                 context.startActivity(intent);
             }

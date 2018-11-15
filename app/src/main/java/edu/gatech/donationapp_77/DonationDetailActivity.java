@@ -1,5 +1,6 @@
 package edu.gatech.donationapp_77;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -24,12 +25,13 @@ public class DonationDetailActivity extends AppCompatActivity {
     }
 
     private void getIncomingIntent() {
-        itemName = getIntent().getStringExtra("itemName");
-        itemValue = getIntent().getDoubleExtra("itemValue", 0.0);
-        itemQty = getIntent().getIntExtra("itemQty", 0);
-        itemDesc = getIntent().getStringExtra("itemDesc");
-        itemComments = getIntent().getStringExtra("itemComments");
-        itemCat = getIntent().getStringExtra("itemCategory");
+        Intent incoming = getIntent();
+        itemName = incoming.getStringExtra("itemName");
+        itemValue = incoming.getDoubleExtra("itemValue", 0.0);
+        itemQty = incoming.getIntExtra("itemQty", 0);
+        itemDesc = incoming.getStringExtra("itemDesc");
+        itemComments = incoming.getStringExtra("itemComments");
+        itemCat = incoming.getStringExtra("itemCategory");
 
         setItemData(itemName, itemValue, itemQty, itemDesc, itemComments);
     }

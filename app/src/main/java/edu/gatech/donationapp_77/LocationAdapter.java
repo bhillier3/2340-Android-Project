@@ -17,7 +17,7 @@ import java.util.List;
 public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocViewHolder> {
 
     private List<Location> locationSet = new ArrayList<>();
-    private Context context;
+    private final Context context;
 
     public class LocViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case

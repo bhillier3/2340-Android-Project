@@ -19,8 +19,8 @@ import java.io.File;
  */
 public class SplashActivity extends AppCompatActivity {
 
-    private LocationManagementFacade lmf = LocationManagementFacade.getInstance();
-    private UserManagementFacade umf = UserManagementFacade.getInstance();
+    private final LocationManagementFacade lmf = LocationManagementFacade.getInstance();
+    private final UserManagementFacade umf = UserManagementFacade.getInstance();
     private File file;
     private File user;
 
