@@ -3,12 +3,15 @@ package edu.gatech.donationapp_77;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import java.util.List;
 
 /**
  * Activity on which a user can register
@@ -57,16 +60,21 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void register() {
-        String name = usernameText.getText().toString();
-        String email = emailText.getText().toString();
-        String password = passwordText.getText().toString();
+        Editable userEdit = usernameText.getText();
+        String name = userEdit.toString();
+        Editable emailEdit = emailText.getText();
+        String email = emailEdit.toString();
+        Editable passEdit = passwordText.getText();
+        String password = passEdit.toString();
         UserType type = (UserType) typeSpinner.getSelectedItem();
 
         User newUser = new User(name, email, password, type, null);
 
+        List<User> userList = User.getUserList();
+
         if (!(email.isEmpty()) && !(password.isEmpty())) {
 
-            if (User.getUserList().contains(newUser)) {
+            if (userList.contains(newUser)) {
                 emailText.setError("This user already exists. Did you mean to login?");
             } else {
                 User.addUser(newUser);
@@ -76,8 +84,8 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.d("DEBUG", "Logging in user " + newUser);
 
                 startActivity(new Intent(RegisterActivity.this, HomeScreenActivity.class));
-                emailText.getText().clear();
-                passwordText.getText().clear();
+                emailEdit.clear();
+                passEdit.clear();
             }
 
         } else if ((email.length() < 1) && (password.length() < 1)) {

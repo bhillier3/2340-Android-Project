@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -90,11 +91,14 @@ public class InventoryListActivity extends AppCompatActivity{
         inventory = new ArrayList<>();
 
         for (Item item : tempInventory) {
-            if (categoryCheck.isChecked() && item.getCategory().equals(currentCategory)) {
+            Category itemCat = item.getCategory();
+            String itemName = item.getName();
+            Editable nameEdit = nameSearch.getText();
+            if (categoryCheck.isChecked() && itemCat.equals(currentCategory)) {
                 Log.e("Testing", "category search");
                 inventory.add(item);
             } else if (!categoryCheck.isChecked()
-                    && item.getName().contains(nameSearch.getText().toString())) {
+                    && itemName.contains(nameEdit.toString())) {
                 Log.e("Testing", "name search");
                 inventory.add(item);
             }

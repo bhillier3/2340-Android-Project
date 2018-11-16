@@ -30,15 +30,16 @@ public class LocationActivity extends AppCompatActivity {
 
     private void getIncomingIntent() {
         // Check for incoming intents
-        if (getIntent().hasExtra("loc_name") &&
-                getIntent().hasExtra("loc_address") &&
-                getIntent().hasExtra("loc_phone")) {
-            String locName = getIntent().getStringExtra("loc_name");
-            String locAddress = getIntent().getStringExtra("loc_address");
-            String locPhone = getIntent().getStringExtra("loc_phone");
-            String locLat = getIntent().getStringExtra("loc_lat");
-            String locLong = getIntent().getStringExtra("loc_long");
-            String locType = getIntent().getStringExtra("loc_type");
+        Intent gotten = getIntent();
+        if (gotten.hasExtra("loc_name") &&
+                gotten.hasExtra("loc_address") &&
+                gotten.hasExtra("loc_phone")) {
+            String locName = gotten.getStringExtra("loc_name");
+            String locAddress = gotten.getStringExtra("loc_address");
+            String locPhone = gotten.getStringExtra("loc_phone");
+            String locLat = gotten.getStringExtra("loc_lat");
+            String locLong = gotten.getStringExtra("loc_long");
+            String locType = gotten.getStringExtra("loc_type");
             //noinspection unchecked
             //List<Item> inventory = (ArrayList<Item>) Location.getSelectedLoc().getInventory();
             //inventory = getIntent().getParcelableArrayListExtra("inventory");

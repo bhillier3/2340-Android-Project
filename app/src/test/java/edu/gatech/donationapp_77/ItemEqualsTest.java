@@ -45,8 +45,8 @@ public class ItemEqualsTest {
      */
     @Test
     public void checkDifferentType() {
-        assertEquals(Item1.equals("Shirt"), false);
-        assertEquals(Item3.equals("Hat"), false);
+        assertEquals("Shirt".equals(Item1), false);
+        assertEquals("Hat".equals(Item3), false);
     }
 
     /**

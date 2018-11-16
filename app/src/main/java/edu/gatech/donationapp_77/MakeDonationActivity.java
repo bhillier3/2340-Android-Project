@@ -1,7 +1,9 @@
 package edu.gatech.donationapp_77;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -9,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * 
@@ -78,21 +81,33 @@ public class MakeDonationActivity extends AppCompatActivity {
 
     private void makeDonation() {
         // Create new Item object
-        String name = this.name.getText().toString();
-        double value = Double.valueOf(this.value.getText().toString());
-        String desc = description.getText().toString();
-        String comments = this.comments.getText().toString();
+        Editable nameEdit = name.getText();
+        String name = nameEdit.toString();
+
+        Editable valEdit = value.getText();
+        double value = Double.valueOf(valEdit.toString());
+
+        Editable descEdit = description.getText();
+        String desc = descEdit.toString();
+
+        Editable commEdit = comments.getText();
+        String comments = commEdit.toString();
+
         int quantity = (Integer) quantitySpinner.getSelectedItem();
         Category category = (Category) categorySpinner.getSelectedItem();
         Item item = new Item(name, value, quantity, desc, comments, category);
 
+
+        Intent incoming = getIntent();
         // Add item to location's inventory
-        if (getIntent().hasExtra("location")) {
-            Location location = getIntent().getParcelableExtra("location");
-            location.getInventory().add(item);
+        if (incoming.hasExtra("location")) {
+            Location location = incoming.getParcelableExtra("location");
+            Collection<Item> inventory = location.getInventory();
+            inventory.add(item);
         } else {
             Location foundLoc = (Location) locSpinner.getSelectedItem();
-            foundLoc.getInventory().add(item);
+            Collection<Item> inventory = foundLoc.getInventory();
+            inventory.add(item);
         }
 
         // Return to home page

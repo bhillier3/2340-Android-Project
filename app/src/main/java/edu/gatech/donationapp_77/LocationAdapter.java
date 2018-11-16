@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +47,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
     @NonNull
     @Override
     public LocViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.recycler_loc_view, viewGroup, false);
+        LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+        View v = inflater.inflate(R.layout.recycler_loc_view, viewGroup, false);
         return new LocViewHolder(v);
     }
 
@@ -56,20 +57,22 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
     public void onBindViewHolder(LocViewHolder holder, final int position) {
         // - get element from your data set at this position
         // - replace the contents of the view with that element
-        holder.locTextView.setText(locationSet.get(position).getName());
+        final Location gotten = locationSet.get(position);
+
+        holder.locTextView.setText(gotten.getName());
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Switch to Location's view
-                Location.setSelectedLoc(locationSet.get(position));
+                Location.setSelectedLoc(gotten);
                 Intent intent = new Intent(context, LocationActivity.class);
-                intent.putExtra("loc_name", locationSet.get(position).getName());
-                intent.putExtra("loc_address", locationSet.get(position).getAddress());
-                intent.putExtra("loc_phone", locationSet.get(position).getPhoneNumber());
-                intent.putExtra("loc_lat", locationSet.get(position).getLatitude());
-                intent.putExtra("loc_long", locationSet.get(position).getLongitude());
-                intent.putExtra("loc_type", locationSet.get(position).getType().getStringRep());
+                intent.putExtra("loc_name", gotten.getName());
+                intent.putExtra("loc_address", gotten.getAddress());
+                intent.putExtra("loc_phone", gotten.getPhoneNumber());
+                intent.putExtra("loc_lat", gotten.getLatitude());
+                intent.putExtra("loc_long", gotten.getLongitude());
+                intent.putExtra("loc_type", gotten.getType().getStringRep());
                 //intent.putParcelableArrayListExtra("inventory", (ArrayList<Item>)
                 // locationSet.get(position).getInventory());
                 context.startActivity(intent);

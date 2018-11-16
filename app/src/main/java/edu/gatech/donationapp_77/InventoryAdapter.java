@@ -23,8 +23,8 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
     @NonNull
     @Override
     public InventoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.recycler_inventory_view, viewGroup, false);
+        LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+        View v = inflater.inflate(R.layout.recycler_inventory_view, viewGroup, false);
         return new InventoryViewHolder(v);
     }
 
@@ -44,7 +44,8 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
                 intent.putExtra("itemValue", gotten.getValue());
                 intent.putExtra("itemDesc", gotten.getDescription());
                 intent.putExtra("itemComments", gotten.getComments());
-                intent.putExtra("itemCategory", gotten.getCategory().toString());
+                Category itemCat = gotten.getCategory();
+                intent.putExtra("itemCategory", itemCat.toString());
                 // Start new activity
                 context.startActivity(intent);
             }

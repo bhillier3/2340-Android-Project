@@ -2,6 +2,7 @@ package edu.gatech.donationapp_77;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -9,6 +10,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Displays a map with pins for each location
@@ -20,7 +24,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        FragmentManager mapFragManager =  getSupportFragmentManager();
+        SupportMapFragment mapFragment = (SupportMapFragment) mapFragManager
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
@@ -48,15 +53,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         for (Location loc : Location.getLocationList()) {
             LatLng newLtLng = new LatLng(Double.parseDouble(loc.getLatitude()),
                     Double.parseDouble(loc.getLongitude()));
-            googleMap.addMarker(new MarkerOptions().position(newLtLng).title(loc.getName())
-                    .snippet(loc.getPhoneNumber()));
+            MarkerOptions proto = new MarkerOptions();
+            proto = proto.position(newLtLng);
+            proto = proto.title(loc.getName());
+            proto = proto.snippet(loc.getPhoneNumber());
+            googleMap.addMarker(proto);
             avgLat += Double.parseDouble(loc.getLatitude());
             avgLon += Double.parseDouble(loc.getLongitude());
         }
 
         // updating the avgLat/Lon by dividing by the number of locations
-        avgLat = avgLat / Location.getLocationList().size();
-        avgLon = avgLon / Location.getLocationList().size();
+        List<Location> locations = Location.getLocationList();
+        avgLat = avgLat / locations.size();
+        avgLon = avgLon / locations.size();
 
         // create the object representing the "center" of all locations
         // and set the camera there
