@@ -19,6 +19,28 @@ class Item { //implements Parcelable {
         this.category = category;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        // Basic equality checks
+        if (this == other) { return true; }
+        if (!(other instanceof Item)) { return false; }
+
+        // Cast other to Location
+        Item that = (Item) other;
+        // Check for equal address, name and phone number
+        return (this.name.equals(that.name)
+                && (this.value == that.value)
+                && (this.category.equals(that.category)));
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 17;
+        hash += 31 * name.hashCode();
+        hash += 31 * (int) value;
+        hash += 31 * category.hashCode();
+        return hash;
+    }
     /*
     // For Parcelable
     protected Item(Parcel in) {
