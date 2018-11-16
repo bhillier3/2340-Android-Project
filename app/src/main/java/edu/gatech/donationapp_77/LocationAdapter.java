@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * An adapter for the location recyclerview
+ * An adapter for the location RecyclerView
  */
 public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocViewHolder> {
 

@@ -66,7 +66,7 @@ public class InventoryListActivity extends AppCompatActivity{
         catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(catAdapter);
 
-        initRecyclerview();
+        initRecyclerView();
 
         updateResults();
     }
@@ -108,10 +108,10 @@ public class InventoryListActivity extends AppCompatActivity{
             invRecyclerView.setVisibility(View.VISIBLE);
         }
 
-        initRecyclerview();
+        initRecyclerView();
     }
 
-    private void initRecyclerview() {
+    private void initRecyclerView() {
         invRecyclerView = findViewById(R.id.invRecView);
         InventoryAdapter adapter = new InventoryAdapter(inventory, this);
         invRecyclerView.setAdapter(adapter);

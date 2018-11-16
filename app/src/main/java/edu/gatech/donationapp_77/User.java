@@ -44,7 +44,7 @@ public class User {
     }
 
     /**
-     * Returns an instance of the static userlist
+     * Returns an instance of the static userList
      * @return the instance
      */
     @SuppressWarnings("TypeMayBeWeakened")
@@ -54,7 +54,7 @@ public class User {
 
     /**
      * Pulls data from the json file for loading data
-     * @param lm the arraylist returned from the json file
+     * @param lm the ArrayList returned from the json file
      */
     public static void updateFromJson(ArrayList lm) {
         if (lm == null) {
