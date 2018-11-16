@@ -47,8 +47,8 @@ public class User {
      * Returns an instance of the static userlist
      * @return the instance
      */
-    public static List<User> getInstance() {
-        return Collections.unmodifiableList(userList);
+    public static ArrayList<User> getInstance() {
+        return userList;
     }
 
     /**
@@ -157,7 +157,7 @@ public class User {
      * @return the data structure
      */
     public static List<User> getUserList() {
-        return Collections.unmodifiableList(userList);
+        return userList;
     }
 
     /**
