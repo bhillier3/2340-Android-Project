@@ -7,14 +7,14 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class isValidPasswordTest {
-    User goodUser1;
-    User goodUser2;
-    User badUser;
-    User badPassword;
-    User badEmail;
-    User nullUser;
-    User nullEmail;
-    User nullPassword;
+    private User goodUser1;
+    private User goodUser2;
+    private User badUser;
+    private User badPassword;
+    private User badEmail;
+    private User nullUser;
+    private User nullEmail;
+    private User nullPassword;
 
     @Before
     public void setup() {

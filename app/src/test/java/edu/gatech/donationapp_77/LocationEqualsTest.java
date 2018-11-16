@@ -10,10 +10,10 @@ import static org.junit.Assert.assertEquals;
  * prevent the duplication of Locations within our list of Locations
  */
 public class LocationEqualsTest {
-    Location loc1;
-    Location loc2;
-    Location loc3;
-    Location loc4;
+    private Location loc1;
+    private Location loc2;
+    private Location loc3;
+    private Location loc4;
 
     @Before
     public void setUp() {

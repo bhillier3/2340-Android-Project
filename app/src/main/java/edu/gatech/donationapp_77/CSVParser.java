@@ -1,7 +1,7 @@
 package edu.gatech.donationapp_77;
 
 
-public class CSVParser {
+class CSVParser {
 
     private final String csv;
     private boolean error;

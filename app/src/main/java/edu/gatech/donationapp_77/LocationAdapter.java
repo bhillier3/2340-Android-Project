@@ -20,8 +20,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
 
     public class LocViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        TextView locTextView;
-        RelativeLayout parentLayout;
+        final TextView locTextView;
+        final RelativeLayout parentLayout;
 
         LocViewHolder(View v) {
             super(v);

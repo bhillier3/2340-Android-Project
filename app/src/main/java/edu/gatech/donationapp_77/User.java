@@ -64,7 +64,7 @@ public class User {
      * Getter for email
      * @return the string of the email
      */
-    public String getEmail() {
+    private String getEmail() {
         return email;
     }
 
@@ -72,7 +72,7 @@ public class User {
      * The getter for the password
      * @return string password
      */
-    public String getPassword() {
+    private String getPassword() {
         return password;
     }
 

@@ -53,9 +53,9 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
     }
 
     public class InventoryViewHolder extends RecyclerView.ViewHolder {
-        TextView itemName;
-        TextView itemDesc;
-        RelativeLayout parentLayout;
+        final TextView itemName;
+        final TextView itemDesc;
+        final RelativeLayout parentLayout;
 
         InventoryViewHolder(View view) {
             super(view);
