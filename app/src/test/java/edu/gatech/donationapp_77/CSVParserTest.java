@@ -3,6 +3,7 @@ package edu.gatech.donationapp_77;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -20,7 +21,7 @@ public class CSVParserTest {
 
     @Test
     public void createsLocations() {
-        ArrayList<Location> comparer = new ArrayList<>();
+        List<Location> comparer = new ArrayList<>();
         comparer.add(new Location(LocationType.DROP_OFF, "Test Name", "100",
                 "100", "111 Test Rd", "111"));
 
