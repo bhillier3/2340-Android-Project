@@ -21,7 +21,7 @@ public class Location implements Serializable {
     private final String phoneNumber;
 
     private static ArrayList<Location> locationSet = new ArrayList<>();
-    // --Commented out by Inspection (11/15/18, 11:22 PM):private static Location selectedLoc;
+    private static Location selectedLoc;
 
     /**
      * Constructor for location
@@ -113,15 +113,14 @@ public class Location implements Serializable {
         selectedLoc = newLoc;
     }
 
-// --Commented out by Inspection START (11/15/18, 10:51 PM):
-//    /**
-//     * Get the selected location instance
-//     * @return the location
-//     */
-//    public static Location getSelectedLoc() {
-//        return selectedLoc;
-//    }
-// --Commented out by Inspection STOP (11/15/18, 10:51 PM)
+    /**
+     * Get the selected location instance
+     * @return the location
+     */
+    public static Location getSelectedLoc() {
+        return selectedLoc;
+    }
+
 
     /**
      * Get the inventory
