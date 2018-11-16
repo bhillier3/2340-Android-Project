@@ -12,11 +12,13 @@ public class CSVParserTest {
     @Test(expected = IllegalArgumentException.class)
     public void constructorException1() {
         CSVParser test1 = new CSVParser(null);
+        test1.getError();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void constructorException2() {
         CSVParser test1 = new CSVParser("this string does not contain a comma");
+        test1.getError();
     }
 
     @Test
@@ -30,8 +32,8 @@ public class CSVParserTest {
         comparer.add(new Location(LocationType.WAREHOUSE, "Test Warehouse", "10000",
                 "12000", "No address this time...", "100"));
 
-        String testString = "Key,Name,Latitude,Longitude,Street Address,City,State,Zip,Type,Phone," +
-                "Website\n" +
+        String testString = "Key,Name,Latitude,Longitude,Street Address,City,State,Zip,Type,Phone,"
+                + "Website\n" +
                 "1,Test Name,100,100,111 Test Rd,Sydney,AU,11111,Drop Off,111,google.com\n" +
                 "2,Test Two,105,100,111 Testing St,Atlanta,GA,30332,Store,555,nope.co.uk\n" +
                 "3,Test Warehouse,10000,12000,No address this time...,Atlanta,GA,30332,Warehouse," +
@@ -54,6 +56,8 @@ public class CSVParserTest {
         CSVParser betterNotCreate = new CSVParser(testString);
 
         assertEquals(Location.getLocationList(), new ArrayList<Location>());
+
+        betterNotCreate.getError();
     }
 
     @Test

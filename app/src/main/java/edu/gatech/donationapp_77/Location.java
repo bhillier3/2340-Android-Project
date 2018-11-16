@@ -56,7 +56,7 @@ public class Location implements Serializable {
      * Load in json
      * @param lm the list
      */
-    public static void updateFromJson(ArrayList lm) {
+    public static void updateFromJson(ArrayList<Location> lm) {
         if (lm == null) {
             return;
         }
