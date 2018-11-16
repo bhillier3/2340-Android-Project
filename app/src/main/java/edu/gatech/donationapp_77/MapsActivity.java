@@ -72,7 +72,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // create the object representing the "center" of all locations
         // and set the camera there
         LatLng center = new LatLng(avgLat, avgLon);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 10.5f));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 10));
 
     }
 }

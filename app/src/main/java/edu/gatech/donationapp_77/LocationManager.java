@@ -6,7 +6,9 @@ package edu.gatech.donationapp_77;
 
 // --Commented out by Inspection START (11/15/18, 8:51 PM):
 // --Commented out by Inspection START (11/15/18, 8:51 PM):
-////class LocationManager implements Serializable {
+class LocationManager {
+
+}
 ////
 ////    private final Collection<Location> locations = new ArrayList<>();
 ////

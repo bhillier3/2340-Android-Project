@@ -28,7 +28,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
 
         TextView welcomeText = findViewById(R.id.welcomeText);
-        User loggedIn = User.getLoggedInUser();
+        User loggedIn = UserManagementFacade.getLoggedIn();
         Location loggedInLocation = loggedIn.getLocation();
         String welcomeString = "Welcome " + loggedIn.getName() + "!\nUser type: "
                 + loggedIn.getType() + ".";

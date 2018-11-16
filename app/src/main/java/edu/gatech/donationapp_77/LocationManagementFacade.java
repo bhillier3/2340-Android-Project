@@ -47,6 +47,8 @@ public final class LocationManagementFacade {
      */
     public static LocationManagementFacade getInstance() { return instance; }
 
+    public static void setLocation(Location loc) { Location.setSelectedLoc(loc); }
+
 //    public List<Location> getLocationsAsList() {
 //        return lm.getLocationList();
 //    }
