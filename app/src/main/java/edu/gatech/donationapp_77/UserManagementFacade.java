@@ -46,6 +46,26 @@ public final class UserManagementFacade {
      */
     public static UserManagementFacade getInstance() { return instance; }
 
+    /**
+     * getter for UserList
+     * @return UserList
+     */
+    public static List<User> getUserList() { return User.getUserList(); }
+
+    /**
+     * setter for LoggedIn User
+     * @param user user to set
+     */
+    public static void setLoggedIn(User user) { User.setLoggedInUser(user); }
+
+    /**
+     * getter for LoggedIn User
+     * @return LoggedInUser
+     */
+    public static User getLoggedIn() {
+        return User.getLoggedInUser();
+    }
+
 //    public List<Location> getLocationsAsList() {
 //        return lm.getLocationList();
 //    }

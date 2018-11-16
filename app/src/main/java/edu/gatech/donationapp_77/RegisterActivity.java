@@ -70,7 +70,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         User newUser = new User(name, email, password, type, null);
 
-        List<User> userList = User.getUserList();
+
+        List<User> userList = UserManagementFacade.getUserList();
 
         if (!(email.isEmpty()) && !(password.isEmpty())) {
 
@@ -80,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
                 User.addUser(newUser);
 
                 // log in
-                User.setLoggedInUser(newUser);
+                UserManagementFacade.setLoggedIn(newUser);
                 Log.d("DEBUG", "Logging in user " + newUser);
 
                 startActivity(new Intent(RegisterActivity.this, HomeScreenActivity.class));

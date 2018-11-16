@@ -193,4 +193,5 @@ public class User {
         return (thisEmail.equals(that.getEmail())
                 && thisPassword.equals(that.password));
     }
+
 }

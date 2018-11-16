@@ -59,11 +59,16 @@ public class LocationActivity extends AppCompatActivity {
         TextView locationType = findViewById(R.id.loc_type);
 
         name.setText(locName);
-        address.setText("Address: " + locAddress);
-        phone.setText("Phone: " + locPhone);
-        latitude.setText("Latitude: " + locLat);
-        longitude.setText("Longitude: " + locLong);
-        locationType.setText("Location Type: " + locType);
+        String StringLocAddress = "Address: " + locAddress;
+        address.setText(StringLocAddress);
+        String stringLocPhone = "Phone: " + locPhone;
+        phone.setText(stringLocPhone);
+        String stringLocLat = "Latitude: " + locLat;
+        latitude.setText(stringLocLat);
+        String stringLocLong = ("Longitude: " + locLong);
+        longitude.setText(stringLocLong);
+        String stringLocType = "Location Type: " + locType;
+        locationType.setText(stringLocType);
     }
 
     private void viewInventory() {

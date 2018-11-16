@@ -63,7 +63,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
             @Override
             public void onClick(View view) {
                 // Switch to Location's view
-                Location.setSelectedLoc(gotten);
+                LocationManagementFacade.setLocation(gotten);
                 Intent intent = new Intent(context, LocationActivity.class);
                 intent.putExtra("loc_name", gotten.getName());
                 intent.putExtra("loc_address", gotten.getAddress());
