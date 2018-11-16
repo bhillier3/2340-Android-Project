@@ -12,6 +12,7 @@ import android.widget.EditText;
 /**
  * A login screen that offers login via email/password.
  */
+@SuppressWarnings("CyclicClassDependency")
 public class LoginActivity2 extends AppCompatActivity {
 
     private EditText emailText;

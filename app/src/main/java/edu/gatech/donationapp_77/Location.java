@@ -3,9 +3,10 @@ package edu.gatech.donationapp_77;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-@SuppressWarnings("EqualsAndHashcode")
+@SuppressWarnings({"EqualsAndHashcode", "ClassWithTooManyDependents", "AssignmentOrReturnOfFieldWithMutableType"})
 public class Location implements Serializable {
 
     private final List<Item> inventory;
@@ -19,6 +20,7 @@ public class Location implements Serializable {
     private static ArrayList<Location> locationSet = new ArrayList<>();
     private static Location selectedLoc;
 
+    @SuppressWarnings("ConstructorWithTooManyParameters")
     public Location(LocationType type, String name, String latitude, String longitude,
                     String address, String phoneNumber) {
         this.type = type;
@@ -30,14 +32,15 @@ public class Location implements Serializable {
         this.inventory = new ArrayList<>();
     }
 
-    public static ArrayList<Location> getInstance() {
-        return locationSet;
+    public static List<Location> getInstance() {
+        return Collections.unmodifiableList(locationSet);
     }
 
     public static void updateFromJson(ArrayList lm) {
         if (lm == null) {
             return;
         }
+        //noinspection unchecked
         locationSet = lm;
     }
 
@@ -69,8 +72,8 @@ public class Location implements Serializable {
         }
     }
 
-    public static ArrayList<Location> getLocationList() {
-        return locationSet;
+    public static List<Location> getLocationList() {
+        return Collections.unmodifiableList(locationSet);
     }
 
     public static void setSelectedLoc(Location newLoc) {
@@ -81,7 +84,7 @@ public class Location implements Serializable {
         return selectedLoc;
     }
 
-    public Collection<Item> getInventory() { return inventory; }
+    public Collection<Item> getInventory() { return Collections.unmodifiableList(inventory); }
 
     public LocationType getType() {
         return type;

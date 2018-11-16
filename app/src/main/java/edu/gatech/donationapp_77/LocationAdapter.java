@@ -1,5 +1,6 @@
 package edu.gatech.donationapp_77;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -44,6 +45,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
         return new LocViewHolder(v);
     }
 
+    @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(LocViewHolder holder, final int position) {
         // - get element from your data set at this position

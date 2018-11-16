@@ -34,7 +34,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         // the map object
-        GoogleMap mMap = googleMap;
 
         // we use these to set the map to the center (average) of all locations
         double avgLat = 0;
@@ -45,7 +44,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // also add their lat/lon to the avg to be used for centering the map later
         for (Location loc : Location.getLocationList()) {
             LatLng newLtLng = new LatLng(Double.parseDouble(loc.getLatitude()), Double.parseDouble(loc.getLongitude()));
-            mMap.addMarker(new MarkerOptions().position(newLtLng).title(loc.getName()).snippet(loc.getPhoneNumber()));
+            googleMap.addMarker(new MarkerOptions().position(newLtLng).title(loc.getName()).snippet(loc.getPhoneNumber()));
             avgLat += Double.parseDouble(loc.getLatitude());
             avgLon += Double.parseDouble(loc.getLongitude());
         }
@@ -57,7 +56,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // create the object representing the "center" of all locations
         // and set the camera there
         LatLng center = new LatLng(avgLat, avgLon);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 10.5f));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 10.5f));
 
     }
 }
