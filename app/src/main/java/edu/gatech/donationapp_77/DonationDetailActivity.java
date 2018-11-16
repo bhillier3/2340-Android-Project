@@ -46,8 +46,10 @@ public class DonationDetailActivity extends AppCompatActivity {
         TextView donCat = findViewById(R.id.donCatText);
 
         donName.setText(itemName);
-        donVal.setText("Value: $" + String.valueOf(itemValue));
-        donQty.setText("Qty: " + String.valueOf(itemQty));
+        String value = "Value: $" + String.valueOf(itemValue);
+        donVal.setText(value);
+        String quantity = "Qty: " + String.valueOf(itemQty);
+        donQty.setText(quantity);
         donDesc.setText(itemDesc);
         donCom.setText(itemComments);
         donCat.setText(itemCat);
