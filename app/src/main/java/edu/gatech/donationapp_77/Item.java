@@ -1,8 +1,5 @@
 package edu.gatech.donationapp_77;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 class Item { //implements Parcelable {
     private String name;
     private double value;

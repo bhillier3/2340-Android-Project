@@ -3,7 +3,6 @@ package edu.gatech.donationapp_77;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 class LocationManager implements Serializable {
 
