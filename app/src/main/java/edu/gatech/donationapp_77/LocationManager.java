@@ -1,8 +1,8 @@
 package edu.gatech.donationapp_77;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
+//import java.io.Serializable;
+//import java.util.ArrayList;
+//import java.util.Collection;
 
 // --Commented out by Inspection START (11/15/18, 8:51 PM):
 // --Commented out by Inspection START (11/15/18, 8:51 PM):

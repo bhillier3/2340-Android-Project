@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@SuppressWarnings("EqualsAndHashcode")
 public class Location implements Serializable {
 
     private final List<Item> inventory;

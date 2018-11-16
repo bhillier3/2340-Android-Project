@@ -1,6 +1,7 @@
 package edu.gatech.donationapp_77;
 
 
+@SuppressWarnings("UseOfSystemOutOrSystemErr")
 class CSVParser {
 
     private final String csv;
