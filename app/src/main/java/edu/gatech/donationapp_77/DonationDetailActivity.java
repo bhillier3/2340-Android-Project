@@ -34,7 +34,8 @@ public class DonationDetailActivity extends AppCompatActivity {
         setItemData(itemName, itemValue, itemQty, itemDesc, itemComments);
     }
 
-    private void setItemData(String name, double value, int quantity, String description, String comments) {
+    private void setItemData(String name, double value, int quantity, String description,
+                             String comments) {
         TextView donName = findViewById(R.id.donNameText);
         TextView donVal = findViewById(R.id.donValueText);
         TextView donQty = findViewById(R.id.donQuantText);

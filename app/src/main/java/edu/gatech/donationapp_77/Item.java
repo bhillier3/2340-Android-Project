@@ -9,7 +9,8 @@ class Item { //implements Parcelable {
     private final Category category;
 
     @SuppressWarnings("ConstructorWithTooManyParameters")
-    public Item(String name, double value, int quantity, String description, String comments, Category category) {
+    public Item(String name, double value, int quantity, String description, String comments,
+                Category category) {
         this.name = name;
         this.value = value;
         this.quantity = quantity;
