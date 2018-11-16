@@ -76,7 +76,7 @@ public class InventoryListActivity extends AppCompatActivity{
         Location currentLocation = (Location) locationSpinner.getSelectedItem();
         Category currentCategory = (Category) categorySpinner.getSelectedItem();
 
-        Collection<Item> tempInventory = new ArrayList<>();
+        Collection<Item> tempInventory;
 
         if (allLocations.isChecked()) {
             tempInventory = new ArrayList<>();

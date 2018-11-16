@@ -5,14 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +18,7 @@ import java.util.List;
  */
 public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocViewHolder> {
 
-    private List<Location> locationSet = new ArrayList<>();
+    private final List<Location> locationSet;
     private final Context context;
 
     public class LocViewHolder extends RecyclerView.ViewHolder {
@@ -72,7 +70,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
                 intent.putExtra("loc_phone", gotten.getPhoneNumber());
                 intent.putExtra("loc_lat", gotten.getLatitude());
                 intent.putExtra("loc_long", gotten.getLongitude());
-                intent.putExtra("loc_type", gotten.getType().getStringRep());
+                LocationType locType = gotten.getType();
+                intent.putExtra("loc_type", locType.getStringRep());
                 //intent.putParcelableArrayListExtra("inventory", (ArrayList<Item>)
                 // locationSet.get(position).getInventory());
                 context.startActivity(intent);

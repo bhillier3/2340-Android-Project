@@ -98,8 +98,8 @@ public class CSVParserTest {
      */
     @Test
     public void testErrorFalse() {
-        String testString = "Key,Name,Latitude,Longitude,Street Address,City,State,Zip,Type,Phone," +
-                "Website\n" +
+        String testString = "Key,Name,Latitude,Longitude,Street Address,City,State,Zip,Type,Phone,"
+                + "Website\n" +
                 "1,Test Name,100,100,111 Test Rd,Sydney,AU,11111,Drop Off,111,google.com\n" +
                 "2,Test Two,105,100,111 Testing St,Atlanta,GA,30332,Store,555,nope.co.uk";
 

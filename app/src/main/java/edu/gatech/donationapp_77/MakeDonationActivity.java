@@ -43,10 +43,10 @@ public class MakeDonationActivity extends AppCompatActivity {
         locSpinner = findViewById(R.id.locSpinner);
 
         // Set quantitySpinner drop down view
-        ArrayList<Integer> nums = new ArrayList<>();
-        for (int i = 1; i < 100; i++) { nums.add(i); }
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i = 1; i < 100; i++) { numbers.add(i); }
         ArrayAdapter<Integer> adapterQty = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, nums);
+                android.R.layout.simple_spinner_item, numbers);
         adapterQty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         quantitySpinner.setAdapter(adapterQty);
 
