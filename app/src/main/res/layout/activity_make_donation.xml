@@ -92,6 +92,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:hint="Comments (optional)"
         android:inputType="textMultiLine" />
@@ -116,6 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginBottom="160dp" />
 
     <TextView
@@ -123,6 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/locSpinner"
         android:layout_alignStart="@+id/itemName"
+        android:layout_alignLeft="@+id/itemName"
         android:text="Location"
         android:textSize="18sp" />
 
