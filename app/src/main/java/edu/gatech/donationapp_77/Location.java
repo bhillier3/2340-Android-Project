@@ -20,7 +20,7 @@ public class Location implements Serializable {
     private final String address;
     private final String phoneNumber;
 
-    private static List<Location> locationSet = new ArrayList<>();
+    private static ArrayList<Location> locationSet = new ArrayList<>();
     private static Location selectedLoc;
 
     /**
