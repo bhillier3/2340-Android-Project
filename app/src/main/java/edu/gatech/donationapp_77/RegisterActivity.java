@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+/**
+ * Activity on which a user can register
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText usernameText;

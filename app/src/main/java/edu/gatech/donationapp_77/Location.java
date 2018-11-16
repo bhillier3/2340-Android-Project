@@ -6,6 +6,9 @@ import java.util.Collection;
 import java.util.List;
 
 @SuppressWarnings("EqualsAndHashcode")
+/**
+ * A location that holds donations
+ */
 public class Location implements Serializable {
 
     private final List<Item> inventory;
@@ -19,6 +22,15 @@ public class Location implements Serializable {
     private static ArrayList<Location> locationSet = new ArrayList<>();
     private static Location selectedLoc;
 
+    /**
+     * Constructor for location
+     * @param type the type
+     * @param name the name
+     * @param latitude the latitude
+     * @param longitude the longitude
+     * @param address the address
+     * @param phoneNumber the phone num
+     */
     public Location(LocationType type, String name, String latitude, String longitude,
                     String address, String phoneNumber) {
         this.type = type;
@@ -30,10 +42,18 @@ public class Location implements Serializable {
         this.inventory = new ArrayList<>();
     }
 
+    /**
+     * Get the instance of the location set
+     * @return the instance
+     */
     public static ArrayList<Location> getInstance() {
         return locationSet;
     }
 
+    /**
+     * Load in json
+     * @param lm the list
+     */
     public static void updateFromJson(ArrayList lm) {
         if (lm == null) {
             return;
@@ -63,26 +83,50 @@ public class Location implements Serializable {
     }
     */
 
+    /**
+     * Add a location to the list
+     * @param l the location
+     */
     public static void addToLocationList(Location l) {
         if (!locationSet.contains(l)) {
             locationSet.add(l);
         }
     }
 
+    /**
+     * Get the location list
+     * @return the set
+     */
     public static ArrayList<Location> getLocationList() {
         return locationSet;
     }
 
+    /**
+     * Set the static location
+     * @param newLoc the location to be set
+     */
     public static void setSelectedLoc(Location newLoc) {
         selectedLoc = newLoc;
     }
 
+    /**
+     * Get the selected location instance
+     * @return the location
+     */
     public static Location getSelectedLoc() {
         return selectedLoc;
     }
 
+    /**
+     * Get the inventory
+     * @return the inventory list
+     */
     public Collection<Item> getInventory() { return inventory; }
 
+    /**
+     * Get the type of the location
+     * @return the type
+     */
     public LocationType getType() {
         return type;
     }
@@ -92,6 +136,10 @@ public class Location implements Serializable {
 //    }
 // --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
+    /**
+     * Get the name
+     * @return the name
+     */
     public String getName() {
         return name;
     }
@@ -101,6 +149,10 @@ public class Location implements Serializable {
 //    }
 // --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
+    /**
+     * Get the latitude
+     * @return the lat
+     */
     public String getLatitude() {
         return latitude;
     }
@@ -110,6 +162,10 @@ public class Location implements Serializable {
 //    }
 // --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
+    /**
+     * Get the longitude
+     * @return the long
+     */
     public String getLongitude() {
         return longitude;
     }
@@ -119,6 +175,10 @@ public class Location implements Serializable {
 //    }
 // --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
+    /**
+     * Get the address
+     * @return the add
+     */
     public String getAddress() {
         return address;
     }
@@ -128,6 +188,10 @@ public class Location implements Serializable {
 //    }
 // --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
+    /**
+     * Get the phone number
+     * @return the phone num
+     */
     public String getPhoneNumber() {
         return phoneNumber;
     }

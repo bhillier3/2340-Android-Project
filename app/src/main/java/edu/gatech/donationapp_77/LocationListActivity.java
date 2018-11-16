@@ -6,7 +6,9 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-
+/**
+ * Activity that shows a list of locations
+ */
 public class LocationListActivity extends Activity {
 
     @Override

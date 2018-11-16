@@ -10,6 +10,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Activity to display the details of a location
+ */
 public class LocationActivity extends AppCompatActivity {
 
     @Override

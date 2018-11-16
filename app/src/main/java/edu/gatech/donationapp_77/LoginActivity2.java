@@ -74,6 +74,11 @@ public class LoginActivity2 extends AppCompatActivity {
         }
     }
 
+    /**
+     * Determines if a password is valid
+     * @param user the user whose password is checking
+     * @return if it's valid
+     */
     public static boolean isValidPassword(User user) {
         return User.getUserList().contains(user);
     }

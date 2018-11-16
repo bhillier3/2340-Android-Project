@@ -13,6 +13,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * An adapter for the location recyclerview
+ */
 public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocViewHolder> {
 
     private List<Location> locationSet = new ArrayList<>();
@@ -30,7 +33,10 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
         }
     }
 
-
+    /**
+     * Constructor for the adapter
+     * @param context the context
+     */
     public LocationAdapter(Context context) {
         locationSet = Location.getLocationList();
         this.context = context;

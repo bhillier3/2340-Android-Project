@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class UserManagementFacade {
+public final class UserManagementFacade {
     public static final String DEFAULT_JSON_FILE_NAME = "users.json";
 
     /**

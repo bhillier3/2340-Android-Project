@@ -1,5 +1,8 @@
 package edu.gatech.donationapp_77;
 
+/**
+ * Enum for types of users
+ */
 public enum UserType {
     GENERAL("Public User"),
     ADMIN("Administrator"),
