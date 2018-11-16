@@ -47,6 +47,7 @@ public class LocationActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressWarnings("MethodWithTooManyParameters")
     private void setLocData(CharSequence locName, String locAddress, String locPhone,
                             String locLat, String locLong, String locType) {
         TextView name = findViewById(R.id.loc_name);

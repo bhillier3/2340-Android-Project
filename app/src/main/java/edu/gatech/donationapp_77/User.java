@@ -1,7 +1,6 @@
 package edu.gatech.donationapp_77;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -47,6 +46,7 @@ public class User {
      * Returns an instance of the static userlist
      * @return the instance
      */
+    @SuppressWarnings("TypeMayBeWeakened")
     public static ArrayList<User> getInstance() {
         return userList;
     }

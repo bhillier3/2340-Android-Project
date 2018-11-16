@@ -13,6 +13,7 @@ import android.widget.Spinner;
 /**
  * Activity on which a user can register
  */
+@SuppressWarnings("CyclicClassDependency")
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText usernameText;

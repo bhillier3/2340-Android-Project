@@ -3,7 +3,6 @@ package edu.gatech.donationapp_77;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings({"EqualsAndHashcode", "ClassWithTooManyDependents", "AssignmentOrReturnOfFieldWithMutableType"})
@@ -21,7 +20,7 @@ public class Location implements Serializable {
     private final String phoneNumber;
 
     private static ArrayList<Location> locationSet = new ArrayList<>();
-    private static Location selectedLoc;
+    // --Commented out by Inspection (11/15/18, 11:22 PM):private static Location selectedLoc;
 
     /**
      * Constructor for location
@@ -48,6 +47,7 @@ public class Location implements Serializable {
      * Get the instance of the location set
      * @return the instance
      */
+    @SuppressWarnings("TypeMayBeWeakened")
     public static ArrayList<Location> getInstance() {
         return locationSet;
     }

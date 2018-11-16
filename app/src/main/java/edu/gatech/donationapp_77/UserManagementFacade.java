@@ -70,6 +70,7 @@ public final class UserManagementFacade {
             String inString = input.readLine();
             Log.d("DEBUG", "JSON: " + inString);
             //Then we use the Gson library to recreate the object references and links automagically
+            //noinspection EmptyClass
             Type listType = new TypeToken<ArrayList<User>>(){}.getType();
             Gson gson = new Gson();
 
