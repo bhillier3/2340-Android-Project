@@ -6,6 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Tests for valid passwords
+ */
 public class isValidPasswordTest {
     private User goodUser1;
     private User goodUser2;
@@ -16,6 +19,9 @@ public class isValidPasswordTest {
     private User nullEmail;
     private User nullPassword;
 
+    /**
+     * Sets up POJOs, etc
+     */
     @Before
     public void setup() {
         goodUser1 = new User("goodUser@example.com", "passTest");
@@ -30,6 +36,9 @@ public class isValidPasswordTest {
         User.addUser(goodUser2);
     }
 
+    /**
+     * Tests for null exception
+     */
     @Test(expected = NullPointerException.class)
     public void checkNull() {
         assertFalse(LoginActivity2.isValidPassword(nullUser));
@@ -39,16 +48,25 @@ public class isValidPasswordTest {
 
     }
 
+    /**
+     * Tests if a bad email fails
+     */
     @Test
     public void checkBadEmail() {
         assertFalse(LoginActivity2.isValidPassword(badEmail));
     }
 
+    /**
+     * Tests if a bad password fails
+     */
     @Test
     public void checkBadPassword() {
         assertFalse(LoginActivity2.isValidPassword(badPassword));
     }
 
+    /**
+     * Tests that the user list is properly updated
+     */
     @Test
     public void checkUserList() {
         assertFalse(LoginActivity2.isValidPassword(badUser));

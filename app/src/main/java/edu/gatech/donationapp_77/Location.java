@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@SuppressWarnings({"EqualsAndHashcode", "ClassWithTooManyDependents",
-        "AssignmentOrReturnOfFieldWithMutableType", "CollectionDeclaredAsConcreteClass"})
 /**
  * A location that holds donations
  */
+@SuppressWarnings({"EqualsAndHashcode", "ClassWithTooManyDependents",
+        "AssignmentOrReturnOfFieldWithMutableType", "CollectionDeclaredAsConcreteClass"})
 public class Location implements Serializable {
 
     private final List<Item> inventory;

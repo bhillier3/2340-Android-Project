@@ -11,29 +11,30 @@ import static org.junit.Assert.*;
  * JUnit test for the CSVParser
  */
 public class CSVParserTest {
-    @Test(expected = IllegalArgumentException.class)
+
     /**
      * Testing throwing an IllegalArgumentException
      */
+    @Test(expected = IllegalArgumentException.class)
     public void constructorException1() {
         CSVParser test1 = new CSVParser(null);
         System.out.println(test1.getError());
 
     }
 
-    @Test(expected = IllegalArgumentException.class)
     /**
      * Testing throwing a different IllegalArgumentException
      */
+    @Test(expected = IllegalArgumentException.class)
     public void constructorException2() {
         CSVParser test1 = new CSVParser("this string does not contain a comma");
         System.out.println(test1.getError());
     }
 
-    @Test
     /**
      * Testing making locations
      */
+    @Test
     public void createsLocations() {
         Collection<Location> comparer = new ArrayList<>();
         comparer.add(new Location(LocationType.DROP_OFF, "Test Name", "100",
@@ -58,10 +59,10 @@ public class CSVParserTest {
 
     }
 
-    @Test
     /**
      * Testing not creating locations
      */
+    @Test
     public void doesntCreateLocations() {
         String testString = "Key,Name,Latitude,Longitude,Street Address,City,State,Zip,Type,Phone,"+
                 "Website\n" +
@@ -75,10 +76,10 @@ public class CSVParserTest {
         System.out.println(betterNotCreate.getError());
     }
 
-    @Test
     /**
      * Testing setting the error bool
      */
+    @Test
     public void testErrorTrue() {
         String testString = "Key,Name,Latitude,Longitude,Street Address,City,State,Zip,Type,Phone,"+
                 "Website\n" +
@@ -92,10 +93,10 @@ public class CSVParserTest {
         assertEquals(testError.getError(), true);
     }
 
-    @Test
     /**
      * Testing the error bool
      */
+    @Test
     public void testErrorFalse() {
         String testString = "Key,Name,Latitude,Longitude,Street Address,City,State,Zip,Type,Phone," +
                 "Website\n" +

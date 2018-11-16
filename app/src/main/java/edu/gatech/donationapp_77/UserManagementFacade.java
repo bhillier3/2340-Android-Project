@@ -15,6 +15,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Facade for user management
+ */
 public final class UserManagementFacade {
     public static final String DEFAULT_JSON_FILE_NAME = "users.json";
 
@@ -63,6 +66,10 @@ public final class UserManagementFacade {
 //        lm.removeLocation(location);
 //    }
 
+    /**
+     * Loads the json data
+     * @param file the file to get text from
+     */
     public void loadJson(File file) {
         try {
             BufferedReader input = new BufferedReader(new FileReader(file));
@@ -85,6 +92,10 @@ public final class UserManagementFacade {
 //        return true;
     }
 
+    /**
+     * Writes json data to disk
+     * @param file the file to write to
+     */
     public void saveJson(File file) {
         try {
             PrintWriter writer = new PrintWriter(file);

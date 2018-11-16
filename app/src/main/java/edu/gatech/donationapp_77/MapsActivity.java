@@ -10,6 +10,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * Displays a map with pins for each location
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     @Override
