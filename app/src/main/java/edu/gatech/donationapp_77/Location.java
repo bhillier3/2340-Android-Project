@@ -48,8 +48,8 @@ public class Location implements Serializable {
      * Get the instance of the location set
      * @return the instance
      */
-    public static List<Location> getInstance() {
-        return Collections.unmodifiableList(locationSet);
+    public static ArrayList<Location> getInstance() {
+        return locationSet;
     }
 
     /**
@@ -101,7 +101,7 @@ public class Location implements Serializable {
      * @return the set
      */
     public static List<Location> getLocationList() {
-        return Collections.unmodifiableList(locationSet);
+        return locationSet;
     }
 
     /**
@@ -124,7 +124,7 @@ public class Location implements Serializable {
      * Get the inventory
      * @return the inventory list
      */
-    public Collection<Item> getInventory() { return Collections.unmodifiableList(inventory); }
+    public Collection<Item> getInventory() { return inventory; }
 
     /**
      * Get the type of the location
