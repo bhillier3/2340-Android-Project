@@ -44,8 +44,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // iterate through the list of locations and add them to the map as mapMarker objects
         // also add their lat/lon to the avg to be used for centering the map later
         for (Location loc : Location.getLocationList()) {
-            LatLng newLtLng = new LatLng(Double.parseDouble(loc.getLatitude()), Double.parseDouble(loc.getLongitude()));
-            mMap.addMarker(new MarkerOptions().position(newLtLng).title(loc.getName()).snippet(loc.getPhoneNumber()));
+            LatLng newLtLng = new LatLng(Double.parseDouble(loc.getLatitude()),
+                    Double.parseDouble(loc.getLongitude()));
+            mMap.addMarker(new MarkerOptions().position(newLtLng).title(loc.getName())
+                    .snippet(loc.getPhoneNumber()));
             avgLat += Double.parseDouble(loc.getLatitude());
             avgLon += Double.parseDouble(loc.getLongitude());
         }

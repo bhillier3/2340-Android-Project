@@ -46,7 +46,8 @@ public class LocationActivity extends AppCompatActivity {
         }
     }
 
-    private void setLocData(CharSequence locName, String locAddress, String locPhone, String locLat, String locLong, String locType) {
+    private void setLocData(CharSequence locName, String locAddress, String locPhone,
+                            String locLat, String locLong, String locType) {
         TextView name = findViewById(R.id.loc_name);
         TextView address = findViewById(R.id.loc_address);
         TextView phone = findViewById(R.id.loc_phone);

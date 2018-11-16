@@ -21,8 +21,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
 
     public class LocViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        TextView locTextView;
-        RelativeLayout parentLayout;
+        final TextView locTextView;
+        final RelativeLayout parentLayout;
 
         LocViewHolder(View v) {
             super(v);
@@ -63,7 +63,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
                 intent.putExtra("loc_lat", locationSet.get(position).getLatitude());
                 intent.putExtra("loc_long", locationSet.get(position).getLongitude());
                 intent.putExtra("loc_type", locationSet.get(position).getType().getStringRep());
-                //intent.putParcelableArrayListExtra("inventory", (ArrayList<Item>) locationSet.get(position).getInventory());
+                //intent.putParcelableArrayListExtra("inventory", (ArrayList<Item>)
+                // locationSet.get(position).getInventory());
                 context.startActivity(intent);
             }
         });

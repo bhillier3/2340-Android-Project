@@ -28,8 +28,10 @@ public class LoginActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Dummy Users for testing purposes
-        User.addUser(new User("Foo", "foo@example.com", "hello", UserType.EMPLOYEE, Location.getLocationList().get(0)));
-        User.addUser(new User("Bar", "bar@example.com", "world", UserType.EMPLOYEE, Location.getLocationList().get(1)));
+        User.addUser(new User("Foo", "foo@example.com", "hello",
+                UserType.EMPLOYEE, Location.getLocationList().get(0)));
+        User.addUser(new User("Bar", "bar@example.com", "world",
+                UserType.EMPLOYEE, Location.getLocationList().get(1)));
 
         Button signInButton = findViewById(R.id.email_sign_in_button);
         Button cancelButton = findViewById(R.id.cancel_button);

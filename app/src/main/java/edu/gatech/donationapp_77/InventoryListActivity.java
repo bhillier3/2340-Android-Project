@@ -57,11 +57,13 @@ public class InventoryListActivity extends AppCompatActivity{
 
         createCheckBoxes();
 
-        ArrayAdapter<Location> locAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Location.getLocationList());
+        ArrayAdapter<Location> locAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, Location.getLocationList());
         locAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locAdapter);
 
-        ArrayAdapter<Category> catAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, Category.values());
+        ArrayAdapter<Category> catAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, Category.values());
         catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(catAdapter);
 
@@ -92,7 +94,8 @@ public class InventoryListActivity extends AppCompatActivity{
             if (categoryCheck.isChecked() && item.getCategory().equals(currentCategory)) {
                 Log.e("Testing", "category search");
                 inventory.add(item);
-            } else if (!categoryCheck.isChecked() && item.getName().contains(nameSearch.getText().toString())) {
+            } else if (!categoryCheck.isChecked()
+                    && item.getName().contains(nameSearch.getText().toString())) {
                 Log.e("Testing", "name search");
                 inventory.add(item);
             }

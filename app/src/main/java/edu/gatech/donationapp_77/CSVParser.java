@@ -3,7 +3,7 @@ package edu.gatech.donationapp_77;
 
 import android.util.Log;
 
-public class CSVParser {
+class CSVParser {
 
     private final String csv;
     private boolean error;

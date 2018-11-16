@@ -71,7 +71,8 @@ public class SplashActivity extends AppCompatActivity {
 
         try {
 
-            AssetManager.AssetInputStream stream =  (AssetManager.AssetInputStream) assetManager.open("LocationData.csv");
+            AssetManager.AssetInputStream stream =
+                    (AssetManager.AssetInputStream) assetManager.open("LocationData.csv");
             StringBuilder wholeCSV = new StringBuilder();
 
             // separating the stream result into int and char

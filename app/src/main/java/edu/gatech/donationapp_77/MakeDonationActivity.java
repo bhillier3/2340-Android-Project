@@ -40,17 +40,20 @@ public class MakeDonationActivity extends AppCompatActivity {
         // Set quantitySpinner drop down view
         ArrayList<Integer> nums = new ArrayList<>();
         for (int i = 1; i < 100; i++) { nums.add(i); }
-        ArrayAdapter<Integer> adapterQty = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, nums);
+        ArrayAdapter<Integer> adapterQty = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, nums);
         adapterQty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         quantitySpinner.setAdapter(adapterQty);
 
         // Set categorySpinner drop down view
-        ArrayAdapter<Category> adapterCat = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Category.values());
+        ArrayAdapter<Category> adapterCat = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, Category.values());
         adapterCat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(adapterCat);
 
         // Set locSpinner
-        ArrayAdapter<Location> adapterLoc = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
+        ArrayAdapter<Location> adapterLoc = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item,
                 Location.getLocationList());
         adapterLoc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locSpinner.setAdapter(adapterLoc);

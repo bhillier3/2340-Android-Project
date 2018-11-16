@@ -11,7 +11,8 @@ class Item { //implements Parcelable {
     private String comments;
     private final Category category;
 
-    public Item(String name, double value, int quantity, String description, String comments, Category category) {
+    public Item(String name, double value, int quantity, String description, String comments,
+                Category category) {
         this.name = name;
         this.value = value;
         this.quantity = quantity;
