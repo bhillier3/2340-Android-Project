@@ -90,7 +90,7 @@ public class CSVParserTest {
 
         testError.createLocations();
 
-        assertEquals(testError.getError(), true);
+        assertTrue(testError.getError());
     }
 
     /**
@@ -107,7 +107,7 @@ public class CSVParserTest {
 
         testError.createLocations();
 
-        assertEquals(testError.getError(), false);
+        assertFalse(testError.getError());
 
     }
 

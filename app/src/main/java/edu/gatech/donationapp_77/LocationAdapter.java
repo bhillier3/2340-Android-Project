@@ -52,7 +52,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocVie
 
     @SuppressLint("RecyclerView")
     @Override
-    public void onBindViewHolder(LocViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull LocViewHolder holder, final int position) {
         // - get element from your data set at this position
         // - replace the contents of the view with that element
         final Location gotten = locationSet.get(position);

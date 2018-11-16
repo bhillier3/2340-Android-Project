@@ -42,8 +42,7 @@
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:singleLine="true"
-            android:importantForAutofill="no"
-            tools:targetApi="o" />
+            android:importantForAutofill="no" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -67,8 +66,7 @@
             android:inputType="textPassword"
             android:maxLines="1"
             android:singleLine="true"
-            android:importantForAutofill="no"
-            tools:targetApi="o" />
+            android:importantForAutofill="no" />
 
     </android.support.design.widget.TextInputLayout>
 

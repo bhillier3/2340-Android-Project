@@ -57,8 +57,7 @@
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTitle"
-        android:importantForAutofill="no"
-        tools:targetApi="o" />
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editTextPass"
@@ -76,8 +75,7 @@
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
-        android:importantForAutofill="no"
-        tools:targetApi="o" />
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -95,8 +93,7 @@
         app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextName"
-        android:importantForAutofill="no"
-        tools:targetApi="o" />
+        android:importantForAutofill="no" />
 
     <Spinner
         android:id="@+id/typeSpinner"

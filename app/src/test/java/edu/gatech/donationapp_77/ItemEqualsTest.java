@@ -3,7 +3,8 @@ package edu.gatech.donationapp_77;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tests if two items are equal
@@ -36,8 +37,8 @@ public class ItemEqualsTest {
      */
     @Test
     public void checkNull() {
-        assertEquals(Item1.equals(null), false);
-        assertEquals(Item2.equals(null), false);
+        assertFalse(Item1.equals(null));
+        assertFalse(Item2.equals(null));
     }
 
     /**
@@ -45,8 +46,8 @@ public class ItemEqualsTest {
      */
     @Test
     public void checkDifferentType() {
-        assertEquals("Shirt".equals(Item1), false);
-        assertEquals("Hat".equals(Item3), false);
+        assertFalse("Shirt".equals(Item1));
+        assertFalse("Hat".equals(Item3));
     }
 
     /**
@@ -54,8 +55,8 @@ public class ItemEqualsTest {
      */
     @Test
     public void checkSameReference() {
-        assertEquals(Item1.equals(Item1), true);
-        assertEquals(Item4.equals(Item4), true);
+        assertTrue(Item1.equals(Item1));
+        assertTrue(Item4.equals(Item4));
     }
 
     /**
@@ -63,7 +64,7 @@ public class ItemEqualsTest {
      */
     @Test
     public void checkSameLocationDiffRef() {
-        assertEquals(Item1.equals(Item2), true);
+        assertTrue(Item1.equals(Item2));
     }
 
     /**
@@ -71,6 +72,6 @@ public class ItemEqualsTest {
      */
     @Test
     public void checkDiffLocations() {
-        assertEquals(Item1.equals(Item3), false);
+        assertFalse(Item1.equals(Item3));
     }
 }

@@ -3,7 +3,8 @@ package edu.gatech.donationapp_77;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tests the overridden equals() method for Location that is used to
@@ -37,8 +38,8 @@ public class LocationEqualsTest {
      */
     @Test
     public void checkNull() {
-        assertEquals(loc1.equals(null), false);
-        assertEquals(loc2.equals(null), false);
+        assertFalse(loc1.equals(null));
+        assertFalse(loc2.equals(null));
     }
 
     /**
@@ -46,8 +47,8 @@ public class LocationEqualsTest {
      */
     @Test
     public void checkDifferentType() {
-        assertEquals("potato".equals(loc1.getAddress()), false);
-        assertEquals("chicken".equals(loc3.getAddress()), false);
+        assertFalse("potato".equals(loc1.getAddress()));
+        assertFalse("chicken".equals(loc3.getAddress()));
     }
 
     /**
@@ -55,8 +56,8 @@ public class LocationEqualsTest {
      */
     @Test
     public void checkSameReference() {
-        assertEquals(loc1.equals(loc1), true);
-        assertEquals(loc4.equals(loc4), true);
+        assertTrue(loc1.equals(loc1));
+        assertTrue(loc4.equals(loc4));
     }
 
     /**
@@ -64,7 +65,7 @@ public class LocationEqualsTest {
      */
     @Test
     public void checkSameLocationDiffRef() {
-        assertEquals(loc1.equals(loc2), true);
+        assertTrue(loc1.equals(loc2));
     }
 
     /**
@@ -72,6 +73,6 @@ public class LocationEqualsTest {
      */
     @Test
     public void checkDiffLocations() {
-        assertEquals(loc1.equals(loc3), false);
+        assertFalse(loc1.equals(loc3));
     }
 }
