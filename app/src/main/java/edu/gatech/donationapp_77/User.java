@@ -11,8 +11,8 @@ public class User {
     private static ArrayList<User> userList = new ArrayList<>();
     private static User loggedInUser;
     private String name;
-    private String email;
-    private String password;
+    private final String email;
+    private final String password;
     private UserType type;
     private Location location;
 

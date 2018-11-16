@@ -8,12 +8,12 @@ import java.util.List;
 public class Location implements Serializable {
 
     private final List<Item> inventory;
-    private LocationType type;
-    private String name;
-    private String latitude;
-    private String longitude;
-    private String address;
-    private String phoneNumber;
+    private final LocationType type;
+    private final String name;
+    private final String latitude;
+    private final String longitude;
+    private final String address;
+    private final String phoneNumber;
 
     private static ArrayList<Location> locationSet = new ArrayList<>();
     private static Location selectedLoc;

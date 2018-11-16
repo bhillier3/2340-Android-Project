@@ -1,11 +1,11 @@
 package edu.gatech.donationapp_77;
 
 class Item { //implements Parcelable {
-    private String name;
-    private double value;
-    private int quantity;
-    private String description;
-    private String comments;
+    private final String name;
+    private final double value;
+    private final int quantity;
+    private final String description;
+    private final String comments;
     private final Category category;
 
     public Item(String name, double value, int quantity, String description, String comments, Category category) {
