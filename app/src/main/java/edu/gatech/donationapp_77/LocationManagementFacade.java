@@ -16,7 +16,8 @@ import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 
 
-public class LocationManagementFacade {
+@SuppressWarnings("ALL")
+public final class LocationManagementFacade {
     public static final String DEFAULT_JSON_FILE_NAME = "locations.json";
 
     /**

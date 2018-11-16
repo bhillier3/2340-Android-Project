@@ -1,12 +1,13 @@
 package edu.gatech.donationapp_77;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Model class - POJO representing a user
  */
-@SuppressWarnings("EqualsAndHashcode")
+@SuppressWarnings({"EqualsAndHashcode", "unchecked", "AssignmentOrReturnOfFieldWithMutableType"})
 public class User {
 
     private static ArrayList<User> userList = new ArrayList<>();
@@ -46,8 +47,8 @@ public class User {
      * Returns an instance of the static userlist
      * @return the instance
      */
-    public static ArrayList<User> getInstance() {
-        return userList;
+    public static List<User> getInstance() {
+        return Collections.unmodifiableList(userList);
     }
 
     /**
@@ -156,7 +157,7 @@ public class User {
      * @return the data structure
      */
     public static List<User> getUserList() {
-        return userList;
+        return Collections.unmodifiableList(userList);
     }
 
     /**

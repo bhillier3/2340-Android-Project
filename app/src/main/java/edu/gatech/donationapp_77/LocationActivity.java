@@ -42,6 +42,7 @@ public class LocationActivity extends AppCompatActivity {
             String locLat = getIntent().getStringExtra("loc_lat");
             String locLong = getIntent().getStringExtra("loc_long");
             String locType = getIntent().getStringExtra("loc_type");
+            //noinspection unchecked
             List<Item> inventory = (ArrayList) Location.getSelectedLoc().getInventory();
             //inventory = getIntent().getParcelableArrayListExtra("inventory");
 

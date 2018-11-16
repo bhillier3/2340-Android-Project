@@ -12,6 +12,7 @@ import java.io.File;
 /**
  * The activity that the user will use to get to other activities in the app
  */
+@SuppressWarnings("CyclicClassDependency")
 public class HomeScreenActivity extends AppCompatActivity {
 
     private final LocationManagementFacade lmf = LocationManagementFacade.getInstance();

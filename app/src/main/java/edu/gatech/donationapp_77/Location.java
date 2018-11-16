@@ -3,9 +3,10 @@ package edu.gatech.donationapp_77;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-@SuppressWarnings("EqualsAndHashcode")
+@SuppressWarnings({"EqualsAndHashcode", "ClassWithTooManyDependents", "AssignmentOrReturnOfFieldWithMutableType"})
 /**
  * A location that holds donations
  */
@@ -31,6 +32,7 @@ public class Location implements Serializable {
      * @param address the address
      * @param phoneNumber the phone num
      */
+    @SuppressWarnings("ConstructorWithTooManyParameters")
     public Location(LocationType type, String name, String latitude, String longitude,
                     String address, String phoneNumber) {
         this.type = type;
@@ -46,8 +48,8 @@ public class Location implements Serializable {
      * Get the instance of the location set
      * @return the instance
      */
-    public static ArrayList<Location> getInstance() {
-        return locationSet;
+    public static List<Location> getInstance() {
+        return Collections.unmodifiableList(locationSet);
     }
 
     /**
@@ -58,6 +60,7 @@ public class Location implements Serializable {
         if (lm == null) {
             return;
         }
+        //noinspection unchecked
         locationSet = lm;
     }
 
@@ -97,8 +100,8 @@ public class Location implements Serializable {
      * Get the location list
      * @return the set
      */
-    public static ArrayList<Location> getLocationList() {
-        return locationSet;
+    public static List<Location> getLocationList() {
+        return Collections.unmodifiableList(locationSet);
     }
 
     /**
@@ -121,7 +124,7 @@ public class Location implements Serializable {
      * Get the inventory
      * @return the inventory list
      */
-    public Collection<Item> getInventory() { return inventory; }
+    public Collection<Item> getInventory() { return Collections.unmodifiableList(inventory); }
 
     /**
      * Get the type of the location

@@ -14,6 +14,7 @@ import java.io.File;
 /**
  * The first activity the user encounters. They can login or register
  */
+@SuppressWarnings("CyclicClassDependency")
 public class SplashActivity extends AppCompatActivity {
 
     private final LocationManagementFacade lmf = LocationManagementFacade.getInstance();

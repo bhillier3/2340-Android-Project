@@ -33,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
         passwordText = findViewById(R.id.editTextPass);
 
         typeSpinner = findViewById(R.id.typeSpinner);
+        //noinspection unchecked
         ArrayAdapter<UserType> adapter = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, UserType.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

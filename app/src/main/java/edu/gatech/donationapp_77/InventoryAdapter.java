@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+@SuppressWarnings("AssignmentOrReturnOfFieldWithMutableType")
 public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.InventoryViewHolder> {
     private final List<Item> inventory;
     private final Context context;
