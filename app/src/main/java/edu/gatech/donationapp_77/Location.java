@@ -20,7 +20,7 @@ public class Location implements Serializable {
     private final String address;
     private final String phoneNumber;
 
-    private static ArrayList<Location> locationSet = new ArrayList<>();
+    private static List<Location> locationSet = new ArrayList<>();
     private static Location selectedLoc;
 
     /**
@@ -112,13 +112,15 @@ public class Location implements Serializable {
         selectedLoc = newLoc;
     }
 
-    /**
-     * Get the selected location instance
-     * @return the location
-     */
-    public static Location getSelectedLoc() {
-        return selectedLoc;
-    }
+// --Commented out by Inspection START (11/15/18, 10:51 PM):
+//    /**
+//     * Get the selected location instance
+//     * @return the location
+//     */
+//    public static Location getSelectedLoc() {
+//        return selectedLoc;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 10:51 PM)
 
     /**
      * Get the inventory

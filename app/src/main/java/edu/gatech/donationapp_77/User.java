@@ -10,7 +10,7 @@ import java.util.List;
 @SuppressWarnings({"EqualsAndHashcode", "unchecked", "AssignmentOrReturnOfFieldWithMutableType"})
 public class User {
 
-    private static ArrayList<User> userList = new ArrayList<>();
+    private static List<User> userList = new ArrayList<>();
     private static User loggedInUser;
     private String name;
     private final String email;

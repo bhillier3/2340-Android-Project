@@ -1,5 +1,8 @@
 package edu.gatech.donationapp_77;
 
+/**
+ * Item category enum
+ */
 public enum Category {
     CLOTHES("clothes"),
     ELECTRONICS("electronics"),

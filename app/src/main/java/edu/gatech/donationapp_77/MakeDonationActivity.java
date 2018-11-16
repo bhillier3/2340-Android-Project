@@ -10,6 +10,9 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ */
 public class MakeDonationActivity extends AppCompatActivity {
 
     private Spinner quantitySpinner;

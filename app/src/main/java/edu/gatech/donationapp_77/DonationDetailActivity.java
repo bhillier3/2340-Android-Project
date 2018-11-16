@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * Activity for the detailed donation view
+ */
 public class DonationDetailActivity extends AppCompatActivity {
 
     private String itemName;
@@ -31,11 +34,10 @@ public class DonationDetailActivity extends AppCompatActivity {
         itemComments = incoming.getStringExtra("itemComments");
         itemCat = incoming.getStringExtra("itemCategory");
 
-        setItemData(itemName, itemValue, itemQty, itemDesc, itemComments);
+        setItemData();
     }
 
-    private void setItemData(String name, double value, int quantity, String description,
-                             String comments) {
+    private void setItemData() {
         TextView donName = findViewById(R.id.donNameText);
         TextView donVal = findViewById(R.id.donValueText);
         TextView donQty = findViewById(R.id.donQuantText);

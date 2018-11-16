@@ -13,6 +13,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import java.lang.reflect.Type;
+import java.util.List;
+
 import com.google.gson.reflect.TypeToken;
 
 
@@ -23,7 +25,7 @@ public final class LocationManagementFacade {
     /**
      * the facade maintains references to any required model classes
      */
-    private ArrayList lm;
+    private List<Location> lm;
 
     /**
      * Singleton pattern
@@ -76,7 +78,7 @@ public final class LocationManagementFacade {
             Gson gson = new Gson();
 
             lm = gson.fromJson(inString, listType);
-            Location.updateFromJson(lm);
+            Location.updateFromJson((ArrayList<Location>) lm);
 
             input.close();
         } catch (IOException e) {

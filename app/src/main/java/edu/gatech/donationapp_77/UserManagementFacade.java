@@ -13,15 +13,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
-@SuppressWarnings("ALL")
 public final class UserManagementFacade {
     public static final String DEFAULT_JSON_FILE_NAME = "users.json";
 
     /**
      * the facade maintains references to any required model classes
      */
-    private ArrayList lm;
+    private List lm;
 
     /**
      * Singleton pattern
@@ -74,7 +74,7 @@ public final class UserManagementFacade {
             Gson gson = new Gson();
 
             lm = gson.fromJson(inString, listType);
-            User.updateFromJson(lm);
+            User.updateFromJson((ArrayList) lm);
 
             input.close();
         } catch (IOException e) {

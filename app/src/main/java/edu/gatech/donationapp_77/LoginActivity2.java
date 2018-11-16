@@ -4,9 +4,13 @@ package edu.gatech.donationapp_77;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -23,11 +27,12 @@ public class LoginActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        List<Location> list = Location.getLocationList();
         // Dummy Users for testing purposes
         User.addUser(new User("Foo", "foo@example.com", "hello",
-                UserType.EMPLOYEE, Location.getLocationList().get(0)));
+                UserType.EMPLOYEE, list.get(0)));
         User.addUser(new User("Bar", "bar@example.com", "world",
-                UserType.EMPLOYEE, Location.getLocationList().get(1)));
+                UserType.EMPLOYEE, list.get(1)));
 
         Button signInButton = findViewById(R.id.email_sign_in_button);
         Button cancelButton = findViewById(R.id.cancel_button);
@@ -52,8 +57,10 @@ public class LoginActivity2 extends AppCompatActivity {
 
     private void login() {
 //      Store values at the time of the login attempt.
-        String email = emailText.getText().toString();
-        String password = passwordText.getText().toString();
+        Editable emailEditable = emailText.getText();
+        String email = emailEditable.toString();
+        Editable passEditable = passwordText.getText();
+        String password = passEditable.toString();
         User givenUser = new User(email, password);
 
         if (!(email.isEmpty()) && !(password.isEmpty())) {
@@ -62,11 +69,14 @@ public class LoginActivity2 extends AppCompatActivity {
                 passwordText.setError("Email/password combo does not match.");
             } else {
                 // Perform the user login attempt.
-                givenUser = User.getUserList().get(User.getUserList().indexOf(givenUser));
+                List<User> userList = User.getUserList();
+                int userIndex = userList.indexOf(givenUser);
+                givenUser = userList.get(userIndex);
+                //
                 User.setLoggedInUser(givenUser);
                 startActivity(new Intent(LoginActivity2.this, HomeScreenActivity.class));
-                emailText.getText().clear();
-                passwordText.getText().clear();
+                emailEditable.clear();
+                passEditable.clear();
             }
         } else if (email.length() < 1) {
             emailText.setError("Please enter an email");
@@ -81,6 +91,7 @@ public class LoginActivity2 extends AppCompatActivity {
      * @return if it's valid
      */
     public static boolean isValidPassword(User user) {
-        return User.getUserList().contains(user);
+        List<User> userList = User.getUserList();
+        return userList.contains(user);
     }
 }

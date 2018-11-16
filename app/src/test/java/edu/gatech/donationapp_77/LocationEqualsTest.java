@@ -37,8 +37,8 @@ public class LocationEqualsTest {
 
     @Test
     public void checkDifferentType() {
-        assertEquals("potato".equals(loc1), false);
-        assertEquals("chicken".equals(loc3), false);
+        assertEquals("potato".equals(loc1.getAddress()), false);
+        assertEquals("chicken".equals(loc3.getAddress()), false);
     }
 
     @Test

@@ -3,27 +3,40 @@ package edu.gatech.donationapp_77;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
-
+/**
+ * JUnit test for the CSVParser
+ */
 public class CSVParserTest {
     @Test(expected = IllegalArgumentException.class)
+    /**
+     * Testing throwing an IllegalArgumentException
+     */
     public void constructorException1() {
         CSVParser test1 = new CSVParser(null);
-        test1.getError();
+        System.out.println(test1.getError());
+
     }
 
     @Test(expected = IllegalArgumentException.class)
+    /**
+     * Testing throwing a different IllegalArgumentException
+     */
     public void constructorException2() {
         CSVParser test1 = new CSVParser("this string does not contain a comma");
-        test1.getError();
+        System.out.println(test1.getError());
     }
 
     @Test
+    /**
+     * Testing making locations
+     */
     public void createsLocations() {
-        List<Location> comparer = new ArrayList<>();
+        Collection<Location> comparer = new ArrayList<>();
         comparer.add(new Location(LocationType.DROP_OFF, "Test Name", "100",
                 "100", "111 Test Rd", "111"));
 
@@ -47,6 +60,9 @@ public class CSVParserTest {
     }
 
     @Test
+    /**
+     * Testing not creating locations
+     */
     public void doesntCreateLocations() {
         String testString = "Key,Name,Latitude,Longitude,Street Address,City,State,Zip,Type,Phone,"+
                 "Website\n" +
@@ -57,10 +73,13 @@ public class CSVParserTest {
 
         assertEquals(Location.getLocationList(), new ArrayList<Location>());
 
-        betterNotCreate.getError();
+        System.out.println(betterNotCreate.getError());
     }
 
     @Test
+    /**
+     * Testing setting the error bool
+     */
     public void testErrorTrue() {
         String testString = "Key,Name,Latitude,Longitude,Street Address,City,State,Zip,Type,Phone,"+
                 "Website\n" +
@@ -75,6 +94,9 @@ public class CSVParserTest {
     }
 
     @Test
+    /**
+     * Testing the error bool
+     */
     public void testErrorFalse() {
         String testString = "Key,Name,Latitude,Longitude,Street Address,City,State,Zip,Type,Phone," +
                 "Website\n" +

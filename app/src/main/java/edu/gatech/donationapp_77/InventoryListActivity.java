@@ -16,6 +16,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * Activity for displaying a list of the inventory
+ */
 public class InventoryListActivity extends AppCompatActivity{
 
     private RecyclerView invRecyclerView;

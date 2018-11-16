@@ -7,9 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Activity to display the details of a location
  */
@@ -43,7 +40,7 @@ public class LocationActivity extends AppCompatActivity {
             String locLong = getIntent().getStringExtra("loc_long");
             String locType = getIntent().getStringExtra("loc_type");
             //noinspection unchecked
-            List<Item> inventory = (ArrayList<Item>) Location.getSelectedLoc().getInventory();
+            //List<Item> inventory = (ArrayList<Item>) Location.getSelectedLoc().getInventory();
             //inventory = getIntent().getParcelableArrayListExtra("inventory");
 
             setLocData(locName, locAddress, locPhone, locLat, locLong, locType);
