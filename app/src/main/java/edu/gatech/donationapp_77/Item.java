@@ -33,41 +33,51 @@ class Item { //implements Parcelable {
         return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     public double getValue() {
         return this.value;
     }
 
-    public void setValue(int value) {
-        this.value = value;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setValue(int value) {
+//        this.value = value;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     public int getQuantity() {
         return this.quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setQuantity(int quantity) {
+//        this.quantity = quantity;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     public String getDescription() {
         return this.description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     public String getComments() {
         return this.comments;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setComments(String comments) {
+//        this.comments = comments;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     public Category getCategory() {
         return this.category;

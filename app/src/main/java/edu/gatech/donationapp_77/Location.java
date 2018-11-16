@@ -40,12 +40,14 @@ public class Location implements Serializable {
         locationSet = lm;
     }
 
-    public ArrayList<Location> getLocationSet() {
-        if (locationSet == null) {
-            return null;
-        }
-        return locationSet;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public ArrayList<Location> getLocationSet() {
+//        if (locationSet == null) {
+//            return null;
+//        }
+//        return locationSet;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     /*
     // For Parcelable
@@ -83,44 +85,56 @@ public class Location implements Serializable {
     public LocationType getType() {
         return type;
     }
-    public void setType(LocationType type) {
-        this.type = type;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setType(LocationType type) {
+//        this.type = type;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     public String getLatitude() {
         return latitude;
     }
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setLatitude(String latitude) {
+//        this.latitude = latitude;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     public String getLongitude() {
         return longitude;
     }
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setLongitude(String longitude) {
+//        this.longitude = longitude;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     public String getAddress() {
         return address;
     }
-    public void setAddress(String address) {
-        this.address = address;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    public void setPhoneNumber(String phoneNumber) {
+//        this.phoneNumber = phoneNumber;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     @Override
     public String toString() {

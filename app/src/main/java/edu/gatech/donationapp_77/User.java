@@ -90,35 +90,43 @@ public class User {
      */
     public String getName() { return name; }
 
-    /**
-     * Setter for the password
-     * @param newPassword new password
-     */
-    public void setPassword(String newPassword) {
-        password = newPassword;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    /**
+//     * Setter for the password
+//     * @param newPassword new password
+//     */
+//    public void setPassword(String newPassword) {
+//        password = newPassword;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
-    /**
-     * Setter for the email
-     * @param newEmail new email
-     */
-    public void setEmail(String newEmail) {
-        email = newEmail;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    /**
+//     * Setter for the email
+//     * @param newEmail new email
+//     */
+//    public void setEmail(String newEmail) {
+//        email = newEmail;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
-    /**
-     * Setter for the type
-     * @param newType new type
-     */
-    public void setType(UserType newType) {
-        this.type = newType;
-    }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    /**
+//     * Setter for the type
+//     * @param newType new type
+//     */
+//    public void setType(UserType newType) {
+//        this.type = newType;
+//    }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
-    /**
-     * Setter for the name
-     * @param name new name
-     */
-    public void setName(String name) { this.name = name; }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    /**
+//     * Setter for the name
+//     * @param name new name
+//     */
+//    public void setName(String name) { this.name = name; }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     /**
      * Getter for the location
@@ -126,11 +134,13 @@ public class User {
      */
     public Location getLocation() { return location; }
 
-    /**
-     * Setter for the location
-     * @param location new location
-     */
-    public void setLocation(Location location) { this.location = location; }
+// --Commented out by Inspection START (11/15/18, 8:51 PM):
+//    /**
+//     * Setter for the location
+//     * @param location new location
+//     */
+//    public void setLocation(Location location) { this.location = location; }
+// --Commented out by Inspection STOP (11/15/18, 8:51 PM)
 
     /**
      * Static method to add a user to the data structure
