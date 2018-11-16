@@ -3,6 +3,7 @@ package edu.gatech.donationapp_77;
 
 import android.util.Log;
 
+@SuppressWarnings("UseOfSystemOutOrSystemErr")
 class CSVParser {
 
     private final String csv;
