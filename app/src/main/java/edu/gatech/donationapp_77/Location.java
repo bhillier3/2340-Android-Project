@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@SuppressWarnings({"EqualsAndHashcode", "ClassWithTooManyDependents", "AssignmentOrReturnOfFieldWithMutableType"})
+@SuppressWarnings({"EqualsAndHashcode", "ClassWithTooManyDependents",
+        "AssignmentOrReturnOfFieldWithMutableType", "CollectionDeclaredAsConcreteClass"})
 /**
  * A location that holds donations
  */

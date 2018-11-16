@@ -6,7 +6,8 @@ import java.util.List;
 /**
  * Model class - POJO representing a user
  */
-@SuppressWarnings({"EqualsAndHashcode", "unchecked", "AssignmentOrReturnOfFieldWithMutableType"})
+@SuppressWarnings({"EqualsAndHashcode", "unchecked", "AssignmentOrReturnOfFieldWithMutableType",
+        "CollectionDeclaredAsConcreteClass"})
 public class User {
 
     private static ArrayList<User> userList = new ArrayList<>();
