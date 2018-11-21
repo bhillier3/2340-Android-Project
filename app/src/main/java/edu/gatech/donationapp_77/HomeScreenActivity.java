@@ -25,7 +25,6 @@ public class HomeScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-
         TextView welcomeText = findViewById(R.id.welcomeText);
         User loggedIn = User.getLoggedInUser();
         String welcomeString = "Welcome " + loggedIn.getName() + "!\nUser type: "
@@ -35,6 +34,12 @@ public class HomeScreenActivity extends AppCompatActivity {
         }
         welcomeText.setText(welcomeString);
 
+        if (User.getLoggedInUser().getType() == UserType.ADMIN) {
+            Button lockUnlockButton = findViewById(R.id.lockUnlockButton);
+            lockUnlockButton.setVisibility(View.VISIBLE);
+            lockUnlock();
+        }
+
         logout();
         seeLocations();
         newDonation();
@@ -42,6 +47,16 @@ public class HomeScreenActivity extends AppCompatActivity {
         saveData();
         loadData();
         viewMap();
+    }
+
+    private void lockUnlock() {
+        Button lockUnlockButton = findViewById(R.id.lockUnlockButton);
+        lockUnlockButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void logout() {

@@ -30,6 +30,7 @@ public class LoginActivity2 extends AppCompatActivity {
         // Dummy Users for testing purposes
         User.addUser(new User("Foo", "foo@example.com", "hello", UserType.EMPLOYEE, Location.getLocationList().get(0)));
         User.addUser(new User("Bar", "bar@example.com", "world", UserType.EMPLOYEE, Location.getLocationList().get(1)));
+        User.addUser(new User("admin","admin@example.com", "password", UserType.ADMIN, null));
 
         Button signInButton = findViewById(R.id.email_sign_in_button);
         Button cancelButton = findViewById(R.id.cancel_button);
@@ -62,13 +63,18 @@ public class LoginActivity2 extends AppCompatActivity {
 //      Check that email and password match.
             if (!isValidPassword(givenUser)) {
                 passwordText.setError("Email/password combo does not match.");
+                User.failedLogin(email);
             } else {
                 // Perform the user login attempt.
                 givenUser = User.getUserList().get(User.getUserList().indexOf(givenUser));
-                User.setLoggedInUser(givenUser);
-                startActivity(new Intent(LoginActivity2.this, HomeScreenActivity.class));
-                emailText.getText().clear();
-                passwordText.getText().clear();
+                if (givenUser.isLocked()) {
+                    emailText.setError("Account is Locked");
+                } else {
+                    User.setLoggedInUser(givenUser);
+                    startActivity(new Intent(LoginActivity2.this, HomeScreenActivity.class));
+                    emailText.getText().clear();
+                    passwordText.getText().clear();
+                }
             }
         } else if (email.length() < 1) {
             emailText.setError("Please enter an email");

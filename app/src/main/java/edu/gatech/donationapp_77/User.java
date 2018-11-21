@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class User {
 
+    public static final User GUEST = new User(null, null);
     private static ArrayList<User> userList = new ArrayList<>();
     private static User loggedInUser;
     private String name;
@@ -16,6 +17,8 @@ public class User {
     private String password;
     private UserType type;
     private Location location;
+    private int failedLogins = 0;
+    private boolean locked = false;
 
     /**
      * Simplest constructor - only takes in a email and password
@@ -23,8 +26,7 @@ public class User {
      * @param password the password of the user
      */
     public User(String email, String password) {
-        this.email = email;
-        this.password = password;
+        this(null, email, password, null, null);
     }
 
     /**
@@ -36,7 +38,8 @@ public class User {
      * @param location the location assigned to a location employee
      */
     public User(String name, String email, String password, UserType type, Location location) {
-        this(email, password);
+        this.email = email;
+        this.password = password;
         this.name = name;
         this.type = type;
         this.location = location;
@@ -162,6 +165,7 @@ public class User {
      */
     public static void setLoggedInUser(User newUser) {
         User.loggedInUser = newUser;
+        newUser.resetFailedLogins();
     }
 
 
@@ -177,5 +181,32 @@ public class User {
         User that = (User) other;
         return (this.getEmail().equals(that.getEmail())
                 && this.getPassword().equals(that.password));
+    }
+
+    public boolean isLocked() {
+        return locked;
+    }
+
+    public int incrementLock() {
+        failedLogins++;
+        if (failedLogins > 2) {
+            locked = true;
+        }
+        return failedLogins;
+    }
+
+    public void resetFailedLogins() {
+        failedLogins = 0;
+    }
+
+    // should really switch to Map for User's to make this method better
+    public static void failedLogin(String email) {
+        for (int i = 0; i < userList.size(); i++) {
+            User user = userList.get(i);
+            if (user.getEmail().equals(email)) {
+                user.incrementLock();
+                return;
+            }
+        }
     }
 }

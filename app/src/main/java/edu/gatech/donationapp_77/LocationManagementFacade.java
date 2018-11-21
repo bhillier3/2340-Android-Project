@@ -6,33 +6,31 @@ import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
 
 import java.lang.reflect.Type;
+import java.util.List;
+
 import com.google.gson.reflect.TypeToken;
 
 
-public class LocationManagementFacade {
-    public final static String DEFAULT_JSON_FILE_NAME = "locations.json";
+//@SuppressWarnings("ALL")
+public final class LocationManagementFacade {
+    public static final String DEFAULT_JSON_FILE_NAME = "locations.json";
 
     /**
      * the facade maintains references to any required model classes
      */
-    private ArrayList lm;
+    private List<Location> lm;
 
     /**
      * Singleton pattern
      */
-    private static LocationManagementFacade instance = new LocationManagementFacade();
+    private static final LocationManagementFacade instance = new LocationManagementFacade();
 
     /**
      * private constructor for facade pattern
@@ -48,6 +46,8 @@ public class LocationManagementFacade {
      * @return the one and only one instance of this facade
      */
     public static LocationManagementFacade getInstance() { return instance; }
+
+    public static void setLocation(Location loc) { Location.setSelectedLoc(loc); }
 
 //    public List<Location> getLocationsAsList() {
 //        return lm.getLocationList();
@@ -80,7 +80,7 @@ public class LocationManagementFacade {
             Gson gson = new Gson();
 
             lm = gson.fromJson(inString, listType);
-            Location.updateFromJson(lm);
+            Location.updateFromJson((ArrayList<Location>) lm);
 
             input.close();
         } catch (IOException e) {
