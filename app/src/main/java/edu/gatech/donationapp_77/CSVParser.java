@@ -41,7 +41,6 @@ class CSVParser {
                 Location.addToLocationList(tempLoc);
             } catch (RuntimeException e) {
                 error = true;
-                Log.e("CSV","Error in line " + i);
             }
         }
     }
