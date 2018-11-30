@@ -32,6 +32,7 @@ public class SplashActivity extends AppCompatActivity {
         Button registerButton = findViewById(R.id.registerButton);
         Button saveJson = findViewById(R.id.saveJson);
         Button loadJson = findViewById(R.id.loadJson);
+        Button guestButton = findViewById(R.id.guestButton);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +67,15 @@ public class SplashActivity extends AppCompatActivity {
                 umf.loadJson(user);
             }
         });
+
+        guestButton.setText("Guest");
+        guestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                User.setLoggedInUser(User.GUEST);
+                startActivity(new Intent((SplashActivity.this), HomeScreenActivity.class));
+            }});
+
 
         AssetManager assetManager = getAssets();
 

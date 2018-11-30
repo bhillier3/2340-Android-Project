@@ -3,13 +3,14 @@ package edu.gatech.donationapp_77;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 /**
  * Model class - POJO representing a user
  */
 public class User {
 
-    public static final User GUEST = new User(null, null);
+    public static final User GUEST = new User("Guest", null, null, null, null);
     private static ArrayList<User> userList = new ArrayList<>();
     private static User loggedInUser;
     private String name;
@@ -165,7 +166,9 @@ public class User {
      */
     public static void setLoggedInUser(User newUser) {
         User.loggedInUser = newUser;
-        newUser.resetFailedLogins();
+        if (loggedInUser != null) {
+            newUser.resetFailedLogins();
+        }
     }
 
 
@@ -185,6 +188,15 @@ public class User {
 
     public boolean isLocked() {
         return locked;
+    }
+
+    public void unlock() {
+        locked = false;
+        resetFailedLogins();
+    }
+
+    public void lock() {
+        locked = true;
     }
 
     public int incrementLock() {
